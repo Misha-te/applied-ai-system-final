@@ -1,0 +1,23 @@
+{
+  "weights": {
+    "genre": 0.1653,
+    "energy": 0.2945,
+    "valence": 0.0987,
+    "danceability": 0.1928,
+    "mood": 0.0836,
+    "acousticness": 0.165
+  },
+  "raw_coefficients": {
+    "genre": 2.3094,
+    "energy": 4.1217,
+    "valence": 1.3752,
+    "danceability": 2.695,
+    "mood": 1.1626,
+    "acousticness": 2.3055
+  },
+  "bias": -11.1911,
+  "train_accuracy": 0.8906,
+  "n_examples": 128,
+  "n_listeners": 4,
+  "note": "Learned by src/train_weights.py logistic regression. Do not hand-edit; re-run the trainer instead."
+}

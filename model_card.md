@@ -34,12 +34,42 @@ The main change I made from the starter version was moving away from a **points*
 (like "+2 for genre, +1 for mood") to **percentages**, so the final number always lands
 between 0% and 100% and is easy to read as "how good a match this is."
 
+### The weights are learned, not guessed (the trained model)
+
+The one part of the recipe I no longer hand-pick is **how much each feature counts**. Those
+six weights are now **learned by a small trained model** — a logistic-regression classifier
+([src/train_weights.py](src/train_weights.py)) fitted to predict whether a listener likes a
+song from its per-feature sub-scores. The model's coefficients (made non-negative and
+normalized) become the weights, so the scoring recipe is **trained, not guessed**. This is
+the project's fine-tuned / specialized-model component.
+
+Trained to **89% accuracy** on 128 `(listener, song)` examples from four labeled taste
+profiles, the model shifted the weights noticeably — energy and acousticness turned out to
+matter *more* than I'd assumed, genre and mood *less*:
+
+| Feature | Hand-picked | Learned |
+|---------|:-----------:|:-------:|
+| genre        | 0.30 | 0.17 |
+| energy       | 0.20 | 0.29 |
+| valence      | 0.15 | 0.10 |
+| danceability | 0.15 | 0.19 |
+| mood         | 0.15 | 0.08 |
+| acousticness | 0.05 | 0.17 |
+
+Retrain with `python -m src.train_weights`; the recommender loads the result automatically
+and falls back to the hand-picked recipe if it's missing.
+
+**Honest caveat:** this is a small, self-labeled dataset, so the accuracy is *in-sample* —
+it proves the training method works, not that the weights generalize to real strangers. The
+[README](README.md#fine-tuned--specialized-model-learning-the-weights) has the full write-up.
+
 ---
 
 ## 4. Data  
 
-The catalog has **20 songs**. It started with 10, and I added 10 more to widen the range of
-taste and include music I actually listen to.
+The catalog has **32 songs**. It started with 10, and I grew it over time to widen the range
+of taste and include music I actually listen to. This same catalog is also what the trained
+weight model (Section 3) learns from, paired with four labeled listeners.
 
 The songs cover a mix of genres — pop, lofi, rock, jazz, ambient, synthwave, funk, indie
 pop, and East African styles like afropop and bongo — and a range of moods such as happy,

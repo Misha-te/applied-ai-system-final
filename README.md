@@ -94,9 +94,19 @@ score = 0.30 · genre_match      (30%)
 Every term is between 0 and 1 and the weights sum to `1.00`, so `score` is always between
 0 and 1 → I show it as a percentage (e.g. `0.72` → **72%**).
 
-### How the weights were assigned (and why)
+> **Note:** those six weight *numbers* are no longer hand-set — they're now **learned by a
+> trained model** (see [Fine-Tuned / Specialized Model](#fine-tuned--specialized-model-learning-the-weights)).
+> The recipe's *shape* is identical; only where the numbers come from changed.
 
-| Feature       | Weight | Why it got that weight                                             |
+### How the weights were *originally* assigned (now the fallback recipe)
+
+My first version of these weights was pure judgment — the guesses below. They're still in
+the code as a **fallback** (used only when no trained weights file is present), but the
+weights the recommender actually runs on are now **learned from data** — see
+[Fine-Tuned / Specialized Model](#fine-tuned--specialized-model-learning-the-weights) for
+how, and for how much the learned numbers differ from these guesses.
+
+| Feature       | Weight | Why I *guessed* that weight                                        |
 |---------------|:------:|--------------------------------------------------------------------|
 | Genre         | 30%    | The strongest signal — a pop fan should mostly get pop.            |
 | Energy        | 20%    | The audio feature that most changes how a song *feels*.           |
@@ -146,7 +156,12 @@ preference dicts *and* a profile learned from listening history.
 
 ### Potential bias from how the percentages were assigned
 
-The weights are **my own judgment calls**, so they bake my assumptions into the system:
+Since the weights are now **learned** (see [Fine-Tuned / Specialized Model](#fine-tuned--specialized-model-learning-the-weights)),
+the bias has *moved* rather than disappeared: the model no longer bakes in my guesses, but
+it does inherit whatever bias is in the **labels I trained it on** (which listeners I
+invented, and which songs I decided they "like"). The original hand-picked recipe below
+still ships as a fallback, and its assumptions are worth spelling out because they show what
+kind of bias a hand-set recipe *can* carry:
 
 - **Over-weighting genre (30%).** Genre is the single heaviest feature, so the recommender
   leans hard toward the user's stated favorite genre. That can trap the user in a bubble
@@ -161,6 +176,79 @@ The weights are **my own judgment calls**, so they bake my assumptions into the 
   different, equally reasonable choice would produce different recommendations. I test
   this in the **Experiments** section below by changing the genre weight and watching the
   results shift.
+
+---
+
+## Fine-Tuned / Specialized Model: Learning the Weights
+
+Everything above describes the *shape* of the scoring recipe. The one thing I no longer
+hand-pick is **how much each feature counts** — those six weights are now **learned from
+data by a small trained model**. This is the project's "fine-tuned / specialized model"
+component: a scoring model specialized for music-taste matching whose parameters come from
+training, not guesswork.
+
+### What the model is
+
+A **logistic-regression classifier** ([src/train_weights.py](src/train_weights.py)) trained
+to answer one question: *given a song's six per-feature sub-scores for a listener, will that
+listener like the song?* Once trained, the model's coefficients say how strongly each
+feature pushes a song toward "liked" — and those coefficients (made non-negative and
+normalized to sum to 1) become the weights `score_song` uses.
+
+It's written in **plain Python** — a few dozen lines of gradient descent, no scikit-learn or
+other ML library — so the whole pipeline is transparent and reproducible: the weights start
+at zero and there's no randomness, so the same data always trains the same weights.
+
+### How it's trained
+
+- **Training data:** four labeled "taste profiles" (upbeat pop, chill lofi, intense rock,
+  afrobeats/afropop), each with a curated set of songs they're known to like. Every profile
+  is paired with all 32 songs, giving **128 `(listener, song)` examples** (24 likes, 104
+  non-likes).
+- **Features:** for each pair, the same six 0–1 sub-scores `score_song` computes (genre
+  match, energy closeness, …).
+- **Label:** `1` if the listener likes that song, else `0`.
+- **Fit:** batch gradient descent with a separate bias term (so the six weights reflect
+  feature importance, not the fact that most songs are non-likes) and a small L2 penalty.
+
+Retrain any time with:
+
+```bash
+python -m src.train_weights
+```
+
+It writes [data/learned_weights.json](data/learned_weights.json) and prints a
+hand-tuned-vs-learned comparison. `recommender.py` loads that file automatically on the next
+import; if it's missing, the original hand-tuned recipe is used as a fallback so the app
+always runs.
+
+### What the model learned (and how it differs from my guesses)
+
+Trained to **89% accuracy** on the 128 examples, the model disagreed with my original
+hand-picked weights in ways I can defend:
+
+| Feature       | My guess | **Learned** | What the data said |
+|---------------|:--------:|:-----------:|--------------------|
+| Genre         | 0.30     | **0.17**    | Weaker than I assumed — my afrobeats listener likes *bongo* and *afrobeats* tracks that don't exactly match the "afropop" genre label, so exact-genre matching earned less trust. |
+| Energy        | 0.20     | **0.29**    | The single strongest feature — energy separates likes from non-likes better than genre. |
+| Danceability  | 0.15     | **0.19**    | A bit more important than I'd weighted it. |
+| Acousticness  | 0.05     | **0.17**    | The biggest surprise: I called it a tie-breaker, but it's a real signal (chill listeners want acoustic, rock listeners don't). |
+| Valence       | 0.15     | **0.10**    | Slightly less important on its own. |
+| Mood          | 0.15     | **0.08**    | Weakest — mood labels overlap a lot with genre and energy, so they add little on top. |
+
+This directly answers a weakness I'd flagged: the weights used to be *my* judgment calls,
+and I had no principled way to justify "genre is 6× acousticness." Now the ratio comes from
+data.
+
+### Honest limits of the trained model
+
+This demonstrates the **method**, not a production model. It's a **small dataset** (4
+listeners, 32 songs, labels I curated myself), so the 89% is **in-sample** — it shows the
+training works, not that it generalizes to strangers. The labels also carry my own
+assumptions about who likes what, so the model can only be as fair as the taste profiles I
+wrote. With a real listening-history dataset (e.g. from the Spotify API — see Future Work in
+the [model card](model_card.md#8-future-work)) the exact same trainer would produce far more
+trustworthy weights.
 
 ---
 
@@ -459,8 +547,9 @@ Profile: genre=rock, mood=intense, energy=0.9, danceability=0.6, valence=0.45
 
 ## Limitations and Risks
 
-- **Tiny catalog.** Only 20 songs, so some listeners (like the rock fan) get one good match
-  and then a steep drop-off into songs that only partly fit.
+- **Tiny catalog.** Only 32 songs, so some listeners (like the rock fan) get one good match
+  and then a steep drop-off into songs that only partly fit — and it's also why the trained
+  model above is trained on so few examples.
 - **Over-weighting genre.** Genre is the heaviest feature, so the system leans hard toward a
   listener's stated genre and can trap them in a "bubble," while good songs in other genres
   are held back.

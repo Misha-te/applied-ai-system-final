@@ -1,25 +1,67 @@
 import csv
+import json
+from pathlib import Path
 from typing import List, Dict, Tuple, Optional
 from dataclasses import dataclass, field
 
-# --- Scoring recipe (see README "How The System Works") -------------------
-# Each feature contributes a 0-1 sub-score; the weights below say how much it
-# counts. They sum to 1.00, so a song's final score is a clean 0%-100% number.
-# Kept as data (not magic numbers scattered in code) so the recipe is easy to
-# tweak for the README "Experiments" section.
-FEATURE_WEIGHTS = [
-    # (key, weight, kind, label shown in reasons)
-    # EXPERIMENT (sensitivity test): energy doubled 0.20 -> 0.40 and genre
-    # halved 0.30 -> 0.15. The weights no longer sum to 1.00, but score_song
-    # normalizes by the weight actually used, so the final score stays a valid
-    # 0-100%. Original values are noted in comments for easy revert.
-    ("genre",        0.15, "categorical", "Genre"),        # was 0.30
-    ("energy",       0.40, "numeric",     "Energy"),        # was 0.20
-    ("valence",      0.15, "numeric",     "Valence"),
-    ("danceability", 0.15, "numeric",     "Danceability"),
-    ("mood",         0.15, "categorical", "Mood"),
-    ("acousticness", 0.05, "numeric",     "Acousticness"),
+# --- Scoring recipe: LEARNED feature weights ------------------------------
+# Each feature contributes a 0-1 sub-score; the weight says how much that
+# feature counts toward a song's final 0-100% score. Instead of hand-picking
+# these weights, we LEARN them from data: src/train_weights.py trains a small
+# logistic-regression model to predict whether a listener likes a song from its
+# per-feature sub-scores, and the model's (non-negative, normalized) coefficients
+# become the weights used here. This is the project's "fine-tuned / specialized
+# model" component -- the recipe is trained, not guessed.
+#
+# Retrain with:  python -m src.train_weights   (refreshes data/learned_weights.json)
+# If that file is absent we fall back to the original hand-tuned recipe below, so
+# the recommender always runs out of the box.
+
+# Canonical feature list: (key, kind, label shown in reasons). Each feature's
+# weight is filled in from the learned file (or DEFAULT_WEIGHTS) at import time.
+FEATURE_SPEC = [
+    ("genre",        "categorical", "Genre"),
+    ("energy",       "numeric",     "Energy"),
+    ("valence",      "numeric",     "Valence"),
+    ("danceability", "numeric",     "Danceability"),
+    ("mood",         "categorical", "Mood"),
+    ("acousticness", "numeric",     "Acousticness"),
 ]
+
+# Original hand-tuned recipe, used only as a fallback when no learned weights
+# file is present. Sums to 1.00.
+DEFAULT_WEIGHTS = {
+    "genre":        0.30,
+    "energy":       0.20,
+    "valence":      0.15,
+    "danceability": 0.15,
+    "mood":         0.15,
+    "acousticness": 0.05,
+}
+
+LEARNED_WEIGHTS_PATH = Path(__file__).resolve().parent.parent / "data" / "learned_weights.json"
+
+
+def _load_feature_weights() -> List[Tuple[str, float, str, str]]:
+    """Return FEATURE_WEIGHTS as [(key, weight, kind, label)].
+
+    Uses the trained weights in data/learned_weights.json when available, and
+    the hand-tuned DEFAULT_WEIGHTS otherwise. Only known feature keys are read
+    from the file, so a malformed or partial file degrades gracefully.
+    """
+    weights = dict(DEFAULT_WEIGHTS)
+    try:
+        with open(LEARNED_WEIGHTS_PATH, encoding="utf-8") as f:
+            learned = json.load(f).get("weights", {})
+        for key in weights:
+            if key in learned:
+                weights[key] = float(learned[key])
+    except (OSError, ValueError, KeyError, AttributeError):
+        pass  # keep hand-tuned defaults if the file is missing or unreadable
+    return [(key, weights[key], kind, label) for key, kind, label in FEATURE_SPEC]
+
+
+FEATURE_WEIGHTS = _load_feature_weights()
 
 @dataclass
 class Song:
