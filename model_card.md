@@ -61,7 +61,7 @@ and falls back to the hand-picked recipe if it's missing.
 
 **Honest caveat:** this is a small, self-labeled dataset, so the accuracy is *in-sample* —
 it proves the training method works, not that the weights generalize to real strangers. The
-[README](README.md#fine-tuned--specialized-model-learning-the-weights) has the full write-up.
+README covers the trade-offs in [Design Decisions](README.md#design-decisions).
 
 ---
 
