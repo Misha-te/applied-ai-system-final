@@ -12,9 +12,13 @@ You will implement the functions in recommender.py:
 from pathlib import Path
 
 try:  # works as a package (python -m src.main)
-    from src.recommender import load_songs, recommend_songs
+    from src.recommender import (
+        load_songs, recommend_songs, to_song, build_profile, profile_to_prefs,
+    )
 except ModuleNotFoundError:  # works as a plain script (python src/main.py)
-    from recommender import load_songs, recommend_songs
+    from recommender import (
+        load_songs, recommend_songs, to_song, build_profile, profile_to_prefs,
+    )
 
 try:  # nice bordered tables if tabulate is installed (see requirements.txt)
     from tabulate import tabulate
@@ -98,12 +102,36 @@ def _print_ascii_table(headers: list, rows: list) -> None:
             print(f"    {reason_line}")
 
 
+def demo_learned_profile(songs: list, k: int = 5) -> None:
+    """Show the OOP path feeding the functional recommender.
+
+    Instead of a hand-written preference dict, we build a UserProfile from a
+    listening history (build_profile), translate it into preferences
+    (profile_to_prefs), and hand those to the same recommend_songs used above.
+    This is the OOP side and the functional side working as one pipeline.
+    """
+    song_objects = [to_song(row) for row in songs]
+    # A study/chill listener: liked a few lofi tracks, replays "Focus Flow" (9),
+    # which counts twice when averaging their taste.
+    profile = build_profile(
+        name="Learned from listening history (lofi study)",
+        songs=song_objects,
+        liked_ids=[2, 4, 9],
+        replayed_ids=[9],
+    )
+    prefs = profile_to_prefs(profile)
+    print_recommendations(profile.name, prefs, songs, k=k)
+
+
 def main() -> None:
     songs = load_songs(str(CSV_PATH))
 
     for name, user_prefs in USER_PROFILES.items():
         print_recommendations(name, user_prefs, songs, k=5)
         print()
+
+    # Same recommender, but driven by a profile learned from listening history.
+    demo_learned_profile(songs, k=5)
 
 
 if __name__ == "__main__":

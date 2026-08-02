@@ -59,27 +59,11 @@ class UserProfile:
     # --- songs the user plays repeatedly (ids from songs.csv) ---
     replayed_song_ids: List[int] = field(default_factory=list)
 
-    # --- kept for backward compatibility with the starter tests ---
+    # --- optional categorical taste the user can declare directly ---
+    # Used by profile_to_prefs to add genre/mood preferences on top of the
+    # numeric averages. Left blank for a profile learned purely from history.
     favorite_genre: str = ""
     favorite_mood: str = ""
-    target_energy: float = 0.0
-    likes_acoustic: bool = False
-
-class Recommender:
-    """
-    OOP implementation of the recommendation logic.
-    Required by tests/test_recommender.py
-    """
-    def __init__(self, songs: List[Song]):
-        self.songs = songs
-
-    def recommend(self, user: UserProfile, k: int = 5) -> List[Song]:
-        # TODO: Implement recommendation logic
-        return self.songs[:k]
-
-    def explain_recommendation(self, user: UserProfile, song: Song) -> str:
-        # TODO: Implement explanation logic
-        return "Explanation placeholder"
 
 NUMERIC_FIELDS = {"energy", "tempo_bpm", "valence", "danceability", "acousticness"}
 
@@ -98,6 +82,27 @@ def load_songs(csv_path: str) -> List[Dict]:
                     song[field_name] = float(song[field_name])
             songs.append(song)
     return songs
+
+def to_song(row: Dict) -> Song:
+    """Turn one loaded song dict (from load_songs) into a Song object.
+
+    The catalog is loaded as dicts because that is what the scoring pipeline
+    consumes, but build_profile works on Song objects. This converter is the
+    single bridge between the two, so a profile can be built from the very same
+    songs the recommender ranks.
+    """
+    return Song(
+        id=int(row["id"]),
+        title=row["title"],
+        artist=row["artist"],
+        genre=row["genre"],
+        mood=row["mood"],
+        energy=float(row["energy"]),
+        tempo_bpm=float(row["tempo_bpm"]),
+        valence=float(row["valence"]),
+        danceability=float(row["danceability"]),
+        acousticness=float(row["acousticness"]),
+    )
 
 def _numeric_reason(label: str, value: float, target: float, closeness: float) -> str:
     """Turn a numeric feature's closeness into a human-readable reason."""
@@ -240,6 +245,28 @@ def build_profile(
         avg_danceability=round(sum(s.danceability for s in listened) / count, 3),
         replayed_song_ids=list(replayed_ids),
     )
+
+def profile_to_prefs(profile: UserProfile) -> Dict:
+    """Translate a UserProfile into the preference dict score_song consumes.
+
+    This is what wires the OOP side (a profile built from someone's listening
+    history) into the functional recommender: build_profile -> profile_to_prefs
+    -> recommend_songs. Only fields the user actually expressed are included;
+    score_song already skips anything left blank, and normalizes by the weight
+    of the features that ARE present, so a numbers-only profile still scores 0-100%.
+    """
+    prefs: Dict = {
+        "energy": profile.avg_energy,
+        "valence": profile.avg_valence,
+        "danceability": profile.avg_danceability,
+    }
+    # Categorical taste is optional -- a history-built profile may only know the
+    # user's average audio features, not a declared favorite genre/mood.
+    if profile.favorite_genre:
+        prefs["genre"] = profile.favorite_genre
+    if profile.favorite_mood:
+        prefs["mood"] = profile.favorite_mood
+    return prefs
 
 def sample_profiles() -> List[UserProfile]:
     """

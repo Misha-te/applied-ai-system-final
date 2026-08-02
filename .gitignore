@@ -13,3 +13,6 @@ venv/
 
 # Pytest cache
 .pytest_cache/
+
+# Streamlit secrets (API keys — never commit)
+.streamlit/secrets.toml

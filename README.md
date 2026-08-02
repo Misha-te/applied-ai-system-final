@@ -17,6 +17,11 @@ danceable, and acoustic they like their music) and returns the top `k` matches. 
 raw points, each song gets a **0–100% score** that reads as "how good a match this is,"
 and every recommendation comes with plain-English reasons explaining the score.
 
+It runs two ways: a **command-line demo** ([src/main.py](src/main.py)) and an interactive
+**"DJ" web app** ([src/app.py](src/app.py), built with Streamlit) that chats with you to
+learn your taste — optionally powered by Gemini or DeepSeek. Both share the exact same
+scoring engine. See [Getting Started](#getting-started) for how to run each.
+
 ---
 
 ## How The System Works
@@ -60,9 +65,10 @@ Each profile stores:
 - **Songs they play repeatedly**, which count *twice* when building those averages — a
   song you replay says more about your taste than one you heard once.
 
-### How does the `Recommender` compute a score for each song (the recipe)
+### How the scorer computes a match for each song (the recipe)
 
-For every song, I score each feature **from 0 to 1** on its own, then combine those
+This is the heart of the system, and it lives in the `score_song` function in
+[src/recommender.py](src/recommender.py). For every song, I score each feature **from 0 to 1** on its own, then combine those
 sub-scores into one final percentage using a **weight for each feature**. The weights add
 up to 100%, so the final score is also a clean 0%–100% number.
 
@@ -102,6 +108,29 @@ Every term is between 0 and 1 and the weights sum to `1.00`, so `score` is alway
 The four numeric "feel" features add up to 55%, which is what lets a song still score,
 say, 65% even when its genre is different — that's how the system can suggest something
 outside your usual genre.
+
+### How the code is organized (data, functions, and the profile bridge)
+
+The **backbone of the system is a small set of functions** in
+[src/recommender.py](src/recommender.py), and they all pass around **plain dictionaries**:
+
+- `load_songs()` reads the CSV catalog into a list of song dicts.
+- `score_song()` scores one song against a preference dict (the recipe above).
+- `recommend_songs()` scores the whole catalog, applies a diversity penalty so the list
+  doesn't pile up on one artist or genre, and returns the ranked top `k`.
+
+On top of that I keep two small **dataclasses**, `Song` and `UserProfile`, to represent a
+song and a listener's *learned taste*. These aren't a parallel copy of the logic — they
+feed into it through two bridge functions:
+
+- `build_profile()` turns a listening history (the songs a user liked, with replays
+  counted twice) into a `UserProfile` of average energy / valence / danceability.
+- `profile_to_prefs()` translates that `UserProfile` into the same preference dict
+  `score_song()` reads, so a profile learned from history flows straight into the scorer.
+
+So there's **one pipeline**, not two: `build_profile → profile_to_prefs → recommend_songs`.
+The CLI ([src/main.py](src/main.py)) demonstrates both entry points — hand-written
+preference dicts *and* a profile learned from listening history.
 
 ### How do I choose which songs to recommend
 
@@ -152,21 +181,91 @@ The weights are **my own judgment calls**, so they bake my assumptions into the 
 pip install -r requirements.txt
 ```
 
-3. Run the app:
+3. Run the command-line app:
 
 ```bash
 python -m src.main
 ```
 
+### Web app (conversational DJ)
+
+There's also a browser version built with **Streamlit** ([src/app.py](src/app.py)) — a
+guided **"DJ" chatbot**. It asks your name, then walks you through a short conversation
+(mood, energy, bright-vs-moody, activity, genre) and only *then* reveals its picks,
+greeting you by name. It calls the **same** `recommend_songs` engine as the CLI, so none
+of the scoring is duplicated. Run it from the project root:
+
+```bash
+streamlit run src/app.py
+```
+
+For every question you can either **tap a preset** or **type your own answer** in the chat
+box.
+
+#### Choosing an AI provider (Free / Gemini / DeepSeek)
+
+A sidebar selector picks how the DJ runs:
+
+| Provider | Needs a key? | What it adds |
+|----------|:------------:|--------------|
+| **Free (no AI)** | No | Preset buttons + fixed scripted questions. Works out of the box. |
+| **Gemini** | `GEMINI_API_KEY` | Google's API. |
+| **DeepSeek** | `DEEPSEEK_API_KEY` | OpenAI-compatible API (via the `openai` SDK + a custom `base_url`). |
+
+With **any AI provider on**, the DJ becomes genuinely interactive. It can:
+
+- **Read free-text answers** ("something moody for a rainy night") and turn them into the
+  same preference fields the scorer uses.
+- **React to what you say** — its questions are generated from the live conversation, so if
+  you reply *"my name is Michel, how about you?"* it answers you and moves on, instead of
+  ignoring it.
+- **Write a personalized closing line**, tagged with which provider produced it.
+
+Important: **the ranked song list is the same across providers** when you only tap presets —
+the provider changes the *wording* and *free-text understanding*, never the scoring engine.
+To see recommendations differ, type a free-text answer (Free mode ignores it; Gemini/DeepSeek
+interpret it).
+
+**Keys** go in `.streamlit/secrets.toml` (gitignored — never commit them). You only need a
+key for the provider you plan to use:
+
+```toml
+GEMINI_API_KEY   = "your-gemini-key"     # https://aistudio.google.com/app/apikey
+DEEPSEEK_API_KEY = "your-deepseek-key"   # https://platform.deepseek.com/api_keys
+```
+
+The sidebar shows the active provider's status (**on** with the model name, or a "no key"
+hint).
+
+#### Safety guardrails
+
+Because the chat accepts free text that gets sent to an LLM, typed input is screened
+before it's used ([src/guardrails.py](src/guardrails.py)). Two layers back this:
+
+1. A curated, categorized blocklist ([data/guardrails.json](data/guardrails.json)) —
+   profanity, slurs, sexual/violent content, harassment, illegal requests.
+2. The bundled open-source **LDNOOBW** wordlist ([data/bad_words.txt](data/bad_words.txt))
+   for broad coverage.
+
+Matching uses **word boundaries** for single words (so "Dickinson" and "shiitake" are fine)
+and substring matching for phrases ("kill yourself"). Blocked input isn't stored or sent to
+the model — the DJ just asks you to rephrase. Preset buttons are inherently safe and aren't
+screened.
+
 ### Running Tests
 
-Run the starter tests with:
+Run the test suite with:
 
 ```bash
 pytest
 ```
 
-You can add more tests in `tests/test_recommender.py`.
+The tests exercise the **real** code paths, not stubs:
+
+- `tests/test_recommender.py` — `score_song`, `recommend_songs` (ranking **and** the
+  diversity penalty), `load_songs`, and the `build_profile → profile_to_prefs` bridge.
+- `tests/test_guardrails.py` — clean text passes, each blocklist category is caught, the
+  word-boundary false-positive guard holds, and the bundled wordlist layer is active.
 
 ---
 
@@ -181,8 +280,9 @@ How the output is produced:
 - Only the **top `k`** results are returned (default 5).
 - Each recommendation includes **reasons** explaining why it scored the way it did.
 
-Running `python src/main.py` scores every song for three sample listeners and prints
-the top 5 for each:
+Running `python -m src.main` scores every song for three hand-written sample listeners
+(shown below) and then prints one more set for a **profile learned from listening
+history** via `build_profile`, to demonstrate the OOP-to-scorer bridge end to end:
 
 ```text
 Top Recommendations — High-Energy Pop
@@ -400,6 +500,17 @@ you're a certain "type," it mostly feeds you more of the same and quietly narrow
 ever get to discover. My own tiny version shows a smaller version of the same problem — it
 over-trusts genre and keeps recommending the same crowd-pleasers — which made it easier to
 see how these risks would scale up in a real app.
+
+---
+
+## Credits
+
+- Profanity/slur coverage in the web app's guardrails uses the **LDNOOBW** wordlist,
+  *"List of Dirty, Naughty, Obscene, and Otherwise Bad Words"*
+  (<https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words>),
+  bundled at [data/bad_words.txt](data/bad_words.txt).
+- Optional AI providers: **Google Gemini** (via `google-genai`) and **DeepSeek** (via the
+  OpenAI-compatible `openai` SDK).
 
 
 

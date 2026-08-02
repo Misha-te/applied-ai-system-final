@@ -1,0 +1,49 @@
+{
+  "profanity": [
+    "fuck",
+    "fucking",
+    "fucker",
+    "shit",
+    "bullshit",
+    "bitch",
+    "asshole",
+    "dick",
+    "bastard",
+    "motherfucker"
+  ],
+  "racial_slurs": [
+    "[n-word]",
+    "[racial-slur-1]",
+    "[racial-slur-2]"
+  ],
+  "homophobic_slurs": [
+    "[homophobic-slur-1]",
+    "[homophobic-slur-2]"
+  ],
+  "sexual_content": [
+    "porn",
+    "pornography",
+    "nudes",
+    "naked pictures",
+    "explicit sex"
+  ],
+  "violence": [
+    "kill yourself",
+    "i will kill you",
+    "shoot them",
+    "bomb them",
+    "stab them"
+  ],
+  "harassment": [
+    "you are worthless",
+    "nobody likes you",
+    "you should die",
+    "go die"
+  ],
+  "illegal_requests": [
+    "how to hack",
+    "steal a password",
+    "make a bomb",
+    "buy illegal drugs"
+  ]
+}
