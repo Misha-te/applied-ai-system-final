@@ -2,5 +2,6 @@ google-genai
 openai
 pandas
 pytest
+requests
 streamlit
 tabulate

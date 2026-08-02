@@ -9,13 +9,25 @@ id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness
 8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22
 9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78
 10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35
-11,Anti-Hero,Taylor Swift,pop,moody,0.62,97,0.53,0.64,0.13
-12,Shake It Off,Taylor Swift,pop,happy,0.80,160,0.94,0.65,0.06
-13,24K Magic,Bruno Mars,funk,happy,0.80,107,0.72,0.82,0.03
-14,Talking to the Moon,Bruno Mars,pop,moody,0.52,146,0.42,0.48,0.55
+11,Anti-Hero,Taylor Swift,pop,intense,0.648,96.9,0.49,0.633,0.121
+12,Shake It Off,Taylor Swift,pop,happy,0.8,160.1,0.942,0.647,0.065
+13,24K Magic,Bruno Mars,funk,happy,0.804,107.0,0.634,0.818,0.034
+14,Talking to the Moon,Bruno Mars,pop,intense,0.607,145.8,0.065,0.523,0.512
 15,Jeje,Diamond Platnumz,bongo,happy,0.72,108,0.80,0.85,0.20
 16,Waah,Diamond Platnumz,bongo,romantic,0.66,100,0.63,0.79,0.28
-17,Sura Yako,Sauti Sol,afropop,happy,0.76,122,0.86,0.84,0.14
-18,Melanin,Sauti Sol,afropop,chill,0.60,105,0.72,0.75,0.30
+17,Sura Yako,Sauti Sol,afropop,happy,0.965,180.2,0.782,0.561,0.438
+18,Melanin,Sauti Sol,afropop,happy,0.677,95.1,0.756,0.442,0.076
 19,Malaika,Nyashinski,afropop,chill,0.54,95,0.68,0.70,0.36
 20,Nairobi,Otile Brown,afropop,romantic,0.58,102,0.60,0.74,0.32
+21,Blinding Lights,The Weeknd,synthpop,intense,0.73,171.0,0.334,0.513,0.001
+22,Save Your Tears,The Weeknd,synthpop,happy,0.825,118.0,0.644,0.679,0.021
+23,As It Was,Harry Styles,pop,happy,0.731,173.9,0.662,0.52,0.342
+24,Levitating,Dua Lipa,pop,happy,0.884,103.0,0.914,0.695,0.056
+25,bad guy,Billie Eilish,pop,chill,0.425,135.1,0.562,0.701,0.328
+26,Happier Than Ever,Billie Eilish,pop,moody,0.225,81.1,0.297,0.332,0.767
+27,good 4 u,Olivia Rodrigo,pop rock,happy,0.664,166.9,0.688,0.563,0.335
+28,Smells Like Teen Spirit,Nirvana,rock,happy,0.873,116.7,0.816,0.479,0.0
+29,Kiss Me,Sixpence None The Richer,indie pop,intense,0.749,100.0,0.421,0.526,0.023
+30,One Dance,Drake,afrobeats,intense,0.605,103.9,0.427,0.788,0.009
+31,Last Last,Burna Boy,afrobeats,chill,0.565,87.9,0.55,0.795,0.131
+32,Calm Down,Rema,afrobeats,happy,0.781,107.0,0.824,0.811,0.376
