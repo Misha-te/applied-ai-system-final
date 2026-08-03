@@ -1,0 +1,148 @@
+Top Recommendations — High-Energy Pop
+=====================================
+Profile: genre=pop, mood=happy, energy=0.9, danceability=0.85, valence=0.85
+
++-----+----------------+---------------+-----------+---------+----------------------------------------------------------------------+
+|   # | Song           | Artist        | Genre     | Score   | Reasons                                                              |
++=====+================+===============+===========+=========+======================================================================+
+|   1 | Sunrise City   | Neon Echo     | pop       | 95.67%  | - Genre matches your preference for pop                              |
+|     |                |               |           |         | - Energy is very close to your preferred level                       |
+|     |                |               |           |         | - Valence is very close to your preferred level                      |
+|     |                |               |           |         | - Danceability is very close to your preferred level                 |
+|     |                |               |           |         | - Mood matches your preference for happy                             |
++-----+----------------+---------------+-----------+---------+----------------------------------------------------------------------+
+|   2 | Levitating     | Dua Lipa      | pop       | 85.10%  | - Genre matches your preference for pop                              |
+|     |                |               |           |         | - Energy is very close to your preferred level                       |
+|     |                |               |           |         | - Valence is very close to your preferred level                      |
+|     |                |               |           |         | - Danceability is close to your preferred level                      |
+|     |                |               |           |         | - Mood matches your preference for happy                             |
+|     |                |               |           |         | - Diversity penalty: -10 because its genre pop already appears above |
++-----+----------------+---------------+-----------+---------+----------------------------------------------------------------------+
+|   3 | Calm Down      | Rema          | afrobeats | 74.80%  | - Genre (afrobeats) differs from your preferred pop                  |
+|     |                |               |           |         | - Energy is close to your preferred level                            |
+|     |                |               |           |         | - Valence is very close to your preferred level                      |
+|     |                |               |           |         | - Danceability is very close to your preferred level                 |
+|     |                |               |           |         | - Mood matches your preference for happy                             |
++-----+----------------+---------------+-----------+---------+----------------------------------------------------------------------+
+|   4 | Rooftop Lights | Indigo Parade | indie pop | 74.10%  | - Genre (indie pop) differs from your preferred pop                  |
+|     |                |               |           |         | - Energy is close to your preferred level                            |
+|     |                |               |           |         | - Valence is very close to your preferred level                      |
+|     |                |               |           |         | - Danceability is very close to your preferred level                 |
+|     |                |               |           |         | - Mood matches your preference for happy                             |
++-----+----------------+---------------+-----------+---------+----------------------------------------------------------------------+
+|   5 | 24K Magic      | Bruno Mars    | funk      | 73.52%  | - Genre (funk) differs from your preferred pop                       |
+|     |                |               |           |         | - Energy is very close to your preferred level                       |
+|     |                |               |           |         | - Valence is close to your preferred level                           |
+|     |                |               |           |         | - Danceability is very close to your preferred level                 |
+|     |                |               |           |         | - Mood matches your preference for happy                             |
++-----+----------------+---------------+-----------+---------+----------------------------------------------------------------------+
+
+
+Top Recommendations — Chill Lofi
+================================
+Profile: genre=lofi, mood=chill, energy=0.35, danceability=0.55, acousticness=0.8
+
++-----+---------------------+----------------+---------+---------+-----------------------------------------------------------------------+
+|   # | Song                | Artist         | Genre   | Score   | Reasons                                                               |
++=====+=====================+================+=========+=========+=======================================================================+
+|   1 | Library Rain        | Paper Lanterns | lofi    | 98.26%  | - Genre matches your preference for lofi                              |
+|     |                     |                |         |         | - Energy is very close to your preferred level                        |
+|     |                     |                |         |         | - Danceability is very close to your preferred level                  |
+|     |                     |                |         |         | - Mood matches your preference for chill                              |
+|     |                     |                |         |         | - Acousticness is very close to your preferred level                  |
++-----+---------------------+----------------+---------+---------+-----------------------------------------------------------------------+
+|   2 | Midnight Coding     | LoRoom         | lofi    | 84.57%  | - Genre matches your preference for lofi                              |
+|     |                     |                |         |         | - Energy is very close to your preferred level                        |
+|     |                     |                |         |         | - Danceability is very close to your preferred level                  |
+|     |                     |                |         |         | - Mood matches your preference for chill                              |
+|     |                     |                |         |         | - Acousticness is very close to your preferred level                  |
+|     |                     |                |         |         | - Diversity penalty: -10 because its genre lofi already appears above |
++-----+---------------------+----------------+---------+---------+-----------------------------------------------------------------------+
+|   3 | Spacewalk Thoughts  | Orbit Bloom    | ambient | 74.18%  | - Genre (ambient) differs from your preferred lofi                    |
+|     |                     |                |         |         | - Energy is very close to your preferred level                        |
+|     |                     |                |         |         | - Danceability is close to your preferred level                       |
+|     |                     |                |         |         | - Mood matches your preference for chill                              |
+|     |                     |                |         |         | - Acousticness is close to your preferred level                       |
++-----+---------------------+----------------+---------+---------+-----------------------------------------------------------------------+
+|   4 | Coffee Shop Stories | Slow Stereo    | jazz    | 69.87%  | - Genre (jazz) differs from your preferred lofi                       |
+|     |                     |                |         |         | - Energy is very close to your preferred level                        |
+|     |                     |                |         |         | - Danceability is very close to your preferred level                  |
+|     |                     |                |         |         | - Mood (relaxed) differs from your preferred chill                    |
+|     |                     |                |         |         | - Acousticness is very close to your preferred level                  |
++-----+---------------------+----------------+---------+---------+-----------------------------------------------------------------------+
+|   5 | bad guy             | Billie Eilish  | pop     | 67.33%  | - Genre (pop) differs from your preferred lofi                        |
+|     |                     |                |         |         | - Energy is very close to your preferred level                        |
+|     |                     |                |         |         | - Danceability is close to your preferred level                       |
+|     |                     |                |         |         | - Mood matches your preference for chill                              |
+|     |                     |                |         |         | - Acousticness is lower than your preferred level                     |
++-----+---------------------+----------------+---------+---------+-----------------------------------------------------------------------+
+
+
+Top Recommendations — Deep Intense Rock
+=======================================
+Profile: genre=rock, mood=intense, energy=0.9, danceability=0.6, valence=0.45
+
++-----+-------------------------+--------------------------+-----------+---------+-----------------------------------------------------------------------+
+|   # | Song                    | Artist                   | Genre     | Score   | Reasons                                                               |
++=====+=========================+==========================+===========+=========+=======================================================================+
+|   1 | Storm Runner            | Voltline                 | rock      | 97.91%  | - Genre matches your preference for rock                              |
+|     |                         |                          |           |         | - Energy is very close to your preferred level                        |
+|     |                         |                          |           |         | - Valence is very close to your preferred level                       |
+|     |                         |                          |           |         | - Danceability is very close to your preferred level                  |
+|     |                         |                          |           |         | - Mood matches your preference for intense                            |
++-----+-------------------------+--------------------------+-----------+---------+-----------------------------------------------------------------------+
+|   2 | Kiss Me                 | Sixpence None The Richer | indie pop | 72.82%  | - Genre (indie pop) differs from your preferred rock                  |
+|     |                         |                          |           |         | - Energy is close to your preferred level                             |
+|     |                         |                          |           |         | - Valence is very close to your preferred level                       |
+|     |                         |                          |           |         | - Danceability is very close to your preferred level                  |
+|     |                         |                          |           |         | - Mood matches your preference for intense                            |
++-----+-------------------------+--------------------------+-----------+---------+-----------------------------------------------------------------------+
+|   3 | Smells Like Teen Spirit | Nirvana                  | rock      | 71.91%  | - Genre matches your preference for rock                              |
+|     |                         |                          |           |         | - Energy is very close to your preferred level                        |
+|     |                         |                          |           |         | - Valence is higher than your preferred level                         |
+|     |                         |                          |           |         | - Danceability is close to your preferred level                       |
+|     |                         |                          |           |         | - Mood (happy) differs from your preferred intense                    |
+|     |                         |                          |           |         | - Diversity penalty: -10 because its genre rock already appears above |
++-----+-------------------------+--------------------------+-----------+---------+-----------------------------------------------------------------------+
+|   4 | Blinding Lights         | The Weeknd               | synthpop  | 70.82%  | - Genre (synthpop) differs from your preferred rock                   |
+|     |                         |                          |           |         | - Energy is close to your preferred level                             |
+|     |                         |                          |           |         | - Valence is close to your preferred level                            |
+|     |                         |                          |           |         | - Danceability is very close to your preferred level                  |
+|     |                         |                          |           |         | - Mood matches your preference for intense                            |
++-----+-------------------------+--------------------------+-----------+---------+-----------------------------------------------------------------------+
+|   5 | Anti-Hero               | Taylor Swift             | pop       | 70.08%  | - Genre (pop) differs from your preferred rock                        |
+|     |                         |                          |           |         | - Energy is lower than your preferred level                           |
+|     |                         |                          |           |         | - Valence is very close to your preferred level                       |
+|     |                         |                          |           |         | - Danceability is very close to your preferred level                  |
+|     |                         |                          |           |         | - Mood matches your preference for intense                            |
++-----+-------------------------+--------------------------+-----------+---------+-----------------------------------------------------------------------+
+
+
+Top Recommendations — Learned from listening history (lofi study)
+=================================================================
+Profile: energy=0.393, valence=0.585, danceability=0.6
+
++-----+---------------------+---------------+---------+---------+------------------------------------------------------+
+|   # | Song                | Artist        | Genre   | Score   | Reasons                                              |
++=====+=====================+===============+=========+=========+======================================================+
+|   1 | Focus Flow          | LoRoom        | lofi    | 99.56%  | - Energy is very close to your preferred level       |
+|     |                     |               |         |         | - Valence is very close to your preferred level      |
+|     |                     |               |         |         | - Danceability is very close to your preferred level |
++-----+---------------------+---------------+---------+---------+------------------------------------------------------+
+|   2 | Coffee Shop Stories | Slow Stereo   | jazz    | 94.76%  | - Energy is very close to your preferred level       |
+|     |                     |               |         |         | - Valence is close to your preferred level           |
+|     |                     |               |         |         | - Danceability is very close to your preferred level |
++-----+---------------------+---------------+---------+---------+------------------------------------------------------+
+|   3 | bad guy             | Billie Eilish | pop     | 94.68%  | - Energy is very close to your preferred level       |
+|     |                     |               |         |         | - Valence is very close to your preferred level      |
+|     |                     |               |         |         | - Danceability is close to your preferred level      |
++-----+---------------------+---------------+---------+---------+------------------------------------------------------+
+|   4 | Malaika             | Nyashinski    | afropop | 87.72%  | - Energy is close to your preferred level            |
+|     |                     |               |         |         | - Valence is very close to your preferred level      |
+|     |                     |               |         |         | - Danceability is very close to your preferred level |
++-----+---------------------+---------------+---------+---------+------------------------------------------------------+
+|   5 | Spacewalk Thoughts  | Orbit Bloom   | ambient | 86.98%  | - Energy is close to your preferred level            |
+|     |                     |               |         |         | - Valence is very close to your preferred level      |
+|     |                     |               |         |         | - Danceability is close to your preferred level      |
++-----+---------------------+---------------+---------+---------+------------------------------------------------------+
+

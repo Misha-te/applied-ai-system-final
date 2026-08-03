@@ -2,13 +2,13 @@
 
 ## 1. Model Name  
 
-**MusiReco 1.0** — a simple music recommender that suggests songs and explains why.
+**MuxiReco 1.0** — a simple music recommender that suggests songs and explains why.
 
 ---
 
 ## 2. Intended Use  
 
-MusiReco recommends songs by looking at a listener's taste — their favorite genre and mood,
+MuxiReco recommends songs by looking at a listener's taste — their favorite genre and mood,
 and how energetic, positive, danceable, and acoustic they like their music. You tell it how
 many songs you want back (the "top k"), and for each one it gives a match percentage and a
 short list of reasons for that score.
@@ -197,3 +197,100 @@ about you. It reminded me of using DJ X on  Spotify, where it kept surfacing son
 never heard and I'd think, "how does it know I'd like this?" Now that I understand the
 scoring and the exploration trick behind it, it feels a lot less like magic — and I can
 enjoy it while actually knowing what's going on underneath.
+
+---
+
+## 10. Responsible AI Reflection
+
+Building something that *works* isn't the same as building something *responsible*. This
+section steps back from the code to ask what could go wrong, who it might affect, and how
+honestly I can account for the tools — including AI — that helped me build it.
+
+### 10.1 What are the limitations or biases in my system?
+
+The technical limitations are detailed in [Section 6](#6-limitations-and-bias) (the ranking
+is nearly insensitive to reweighting) and [Section 4](#4-data) (the 32-song catalog leaves
+whole styles out). The **biases** worth naming plainly:
+
+- **Catalog bias — the system can only love what it contains.** With only a handful of rock
+  or East African tracks, a listener with that taste gets a strong first pick and then a
+  steep drop-off into songs that only half-fit. The recommender never *says* "I don't have
+  enough for you" — it presents a partly-wrong list with the same confident percentages as a
+  great one. Underrepresented taste is silently served worse.
+- **Label bias — the "learned" weights inherit my judgment.** The trained model
+  ([Section 3](#3-how-the-model-works)) learned from *four taste profiles I wrote myself*.
+  So the weights aren't an objective truth about music; they're a compression of my own
+  labeling choices, and the 89% accuracy is **in-sample** — it measures fit to my labels,
+  not correctness for real strangers.
+- **Popularity / majority bias.** Because the top picks are songs that satisfy genre, mood,
+  *and* the numeric features at once, a few "crowd-pleasers" win by default. A listener whose
+  true favorite ranks #4 rarely sees it promoted no matter how the weights move.
+- **Confidence can mislead.** A song can score 95% ("High" confidence) while only matching on
+  the features the listener happened to specify — a high number is not the same as a good
+  recommendation, and a trusting user might not know the difference.
+
+### 10.2 Could my AI be misused, and how would I prevent it?
+
+It's a small classroom project, but the misuse questions are real at any scale:
+
+- **Manipulation dressed up as taste.** The scoring engine is neutral about *why* a song is
+  promoted. The same weights that surface "songs you'll like" could be tuned to push a
+  label's paid tracks and generate a plausible-sounding *reason* for each — turning the
+  "explainability" feature into a tool for making advertising look like a recommendation.
+  **Prevention:** keep the weights and the reasons transparent and auditable (they already
+  live in a readable JSON file and are printed per pick), and never let a "sponsored" signal
+  enter the score without labeling it as such.
+- **Abusive free-text input.** The web chat sends user text to an LLM. Without a filter, that
+  channel could be used to get the model to produce slurs or harmful content in its replies.
+  **Prevention:** this is already why `src/guardrails.py` exists — untrusted text is screened
+  against a blocklist *before* it's acted on, and `_clean_prefs` clamps whatever the model
+  returns back into a safe, in-range set of preferences.
+- **Over-trust / automation bias.** Because every pick comes with a confident percentage and
+  a tidy reason, a user could take the output as more authoritative than it is.
+  **Prevention:** the model card and README state up front that this is a classroom
+  simulation on a tiny catalog, that the accuracy is in-sample, and that the confidence label
+  is a self-rating — not a guarantee.
+
+### 10.3 What surprised me while testing reliability?
+
+[Section 7](#7-evaluation) covers what surprised me about the *recommendations*; testing
+**reliability** with the new measurement harness ([src/evaluate.py](src/evaluate.py)) added
+two more:
+
+- **The pipeline recovers taste better than I expected, but unevenly.** Across the four
+  labeled listeners the top-5 hit **mean precision 0.80** — better than I'd have guessed for
+  such a small system. What surprised me was *where* it broke down: the Afrobeats listener
+  scored only **0.44 recall**, not because the picks were wrong, but because that profile has
+  **9 liked songs and the top-5 physically can't hold them all**. A "bad" number turned out to
+  be a measurement artifact, not a model failure — a good reminder to read a metric before
+  trusting it.
+- **My input validation was already correct — but I couldn't prove it until I wrote the
+  test.** I *believed* `_clean_prefs` rejected out-of-range model output, but "I'm pretty sure
+  it works" isn't reliability. Writing a test that feeds it `energy=2.5` and an invented genre
+  and watching it clamp/drop them is what turned a belief into evidence. That gap between
+  *seeming* to work and *proving* it is the whole point of this part of the project.
+
+### 10.4 My collaboration with AI on this project
+
+I used an AI assistant (Claude) as a pair-programmer throughout — for diagnosing bugs,
+scaffolding tests, and pressure-testing my reasoning. Two honest examples:
+
+- **A genuinely helpful suggestion.** When the app showed **"Gemini: no key. Add
+  GEMINI_API_KEY…"**, I assumed my key was wrong. The AI traced the message back to the code
+  and pointed out that `gemini_client()` returns `None` for *two* different reasons — a
+  missing key **or** a failed `import` — and the UI blamed the key for both. The real cause
+  was that the `google-genai` package wasn't installed in my virtual environment. That saved
+  me from re-pasting keys for an hour chasing the wrong problem, and it taught me that an
+  error *message* is a guess, not a diagnosis.
+- **A flawed suggestion I had to correct.** While scaffolding the reliability tests, the AI
+  generated a test file that included a leftover line — `clean_prefs = pytest.importorskip`
+  — that did nothing useful and would have confused anyone reading the suite later. It looked
+  finished and the tests still passed, which is exactly the trap: **passing tests don't mean
+  the code is clean.** I caught it on review and had it removed. More broadly, the AI's first
+  instinct was to declare the Gemini bug "fixed" once the package installed, before
+  accounting for the fact that the app also had to be *run through* the virtual environment —
+  a reminder that I own the final judgment of whether something actually works, not the tool.
+
+The overall lesson: AI is excellent at surfacing possibilities and writing first drafts fast,
+but it's confidently wrong often enough that every suggestion has to pass through my own
+testing and review before it counts.

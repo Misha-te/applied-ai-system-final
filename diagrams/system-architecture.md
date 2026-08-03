@@ -1,4 +1,4 @@
-# 🎵 MusiReco — System Architecture
+# 🎵 MuxiReco — System Architecture
 
 A component-level view of how the recommender is organized: the main parts, how
 data flows **input → process → output**, and where **humans and automated tests**

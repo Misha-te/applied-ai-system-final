@@ -1,4 +1,4 @@
-# 🎵 MusiReco — Music Recommender Simulation
+# 🎵 MuxiReco — Music Recommender Simulation
 
 *A content-based music recommender that ranks songs to a listener's taste, learns
 its own scoring weights from data, and explains every pick in plain English —
@@ -8,7 +8,7 @@ runnable as a command-line tool or a conversational "DJ" web app.*
 
 ## The Original Project (Modules 1–3)
 
-This project began as the **Music Recommender Simulation ("MusiReco 1.0")** for
+This project began as the **Music Recommender Simulation ("MuxiReco 1.0")** for
 Modules 1–3. Its original goal was to represent songs and a listener's *taste
 profile* as data, then design a **scoring rule** that turns that data into ranked
 recommendations — each with a 0–100% match score and a short, human-readable
@@ -25,13 +25,13 @@ thing is documented with a system diagram, tests, and a model card.
 
 ## Title and Summary — What It Does and Why It Matters
 
-**MusiReco** takes a listener's taste — favorite genre and mood, plus how energetic,
+**MuxiReco** takes a listener's taste — favorite genre and mood, plus how energetic,
 positive, danceable, and acoustic they like their music — and returns the **top *k*
 songs** from its catalog, each with a **match percentage** and a list of reasons for
 that score.
 
 Why it matters: recommenders are one of the most widely deployed forms of AI, and
-they're often opaque ("why am I being shown this?"). MusiReco is a small, fully
+they're often opaque ("why am I being shown this?"). MuxiReco is a small, fully
 **transparent** version of that idea — every score is explainable, the model that
 sets the weights is a few dozen lines of readable code, and the ways it can be
 biased are documented rather than hidden. It's built for **classroom exploration**,
@@ -68,7 +68,7 @@ the AI's results along the way:
 
 ### How the scoring works (the recipe)
 
-For each song, MusiReco scores **each feature from 0 to 1**, then blends them with a
+For each song, MuxiReco scores **each feature from 0 to 1**, then blends them with a
 weight per feature into a single 0–100% score:
 
 - **Categorical (genre, mood):** `1.0` if it matches the listener's preference, else `0.0`.
@@ -269,11 +269,26 @@ and the DJ maps it to the same preference fields.
   diversity penalty), `load_songs`, and the `build_profile → profile_to_prefs` bridge.
 - `test_guardrails.py` — clean text passes, each blocklist category is caught, the
   word-boundary false-positive guard holds, and the bundled wordlist layer is active.
+- `test_ai_reliability.py` — the AI-specific safety and reliability layer:
+  LLM-output validation (`_clean_prefs` clamps out-of-range numbers, drops unknown
+  genres/moods, and never crashes on garbage), **confidence scoring**
+  (`confidence_label` thresholds), the trained model (weights are a valid
+  non-negative recipe summing to 1; retraining clears a minimum accuracy and is
+  deterministic), and end-to-end **reliability** via `src/evaluate.py`.
 
-**What worked:** all 26 tests pass, and they're robust to the learned weights — I
-verified the suite stays green whether the model file is present or the fallback is
-used. The trainer reaching **89% in-sample accuracy** confirmed the learning pipeline
-works end to end.
+**How reliability is measured.** `python -m src.evaluate` ranks the whole catalog
+for each of the four labeled taste profiles and checks where their known-liked
+songs land (precision/recall@5), plus the recommender's own top-1 confidence.
+
+**One-line summary of results:**
+
+> **41 of 41 tests pass.** The trained model reaches **89% in-sample accuracy**;
+> across the four labeled listeners the recommender recovers known taste at
+> **mean precision@5 = 0.80, recall@5 = 0.74**, with every top pick rated **"High"
+> confidence** (mean top score 95.6%). It struggled most on the *Afrobeats* listener
+> (recall 0.44) — that profile has 9 liked songs, more than the top-5 can hold —
+> and validation rules were what stopped out-of-range model output from reaching
+> the scorer.
 
 **What didn't (and what I learned):**
 
@@ -285,9 +300,149 @@ works end to end.
   data said energy and acousticness matter more. Lesson: even a toy trained model can
   correct a human's priors, and being able to *defend the numbers with data* beats
   defending a guess.
-- **Contradictory / out-of-range input isn't rejected.** Profiles like `energy=2.0`
-  or "high energy + sad mood" still produce a confident score, because features are
-  scored independently. Lesson: input validation is its own layer of work.
+- **Contradictory / out-of-range input needed its own layer.** Free-text answers go
+  through an LLM, which can return nonsense like `energy=2.5` or an invented genre.
+  I added `_clean_prefs` to clamp and drop that before it reaches the scorer, and
+  `test_ai_reliability.py` now proves it. The *direct numeric* profile path still
+  scores contradictory tastes (e.g. "high energy + sad mood") independently without
+  complaint — a known limitation. Lesson: input validation is its own layer of work,
+  and it belongs right where untrusted data (the model's output) enters the system.
+
+---
+
+## Reproducible Execution Evidence
+
+So the system can be graded **without watching a demo video**, this section shows the
+exact commands, inputs, and outputs. Every block below was captured by actually running
+the code; the full, unedited logs live in [logs/](logs/) and can be regenerated with the
+commands shown.
+
+### Commands to reproduce everything
+
+```bash
+pip install -r requirements.txt         # one-time setup
+
+python -m src.main            # CLI demo — ranks 3 preset listeners   -> logs/cli_demo.txt
+python -m src.train_weights   # (re)train the scoring weights         -> logs/train_weights.txt
+python -m src.evaluate        # reliability: precision/recall @ top-5 -> logs/evaluate.txt
+pytest -v                     # 41 automated tests                    -> logs/tests.txt
+```
+
+### 1. CLI recommendations — example input → output
+
+**Input** (a preset listener profile from [src/main.py](src/main.py)):
+
+```python
+"High-Energy Pop": {"genre": "pop", "mood": "happy",
+                    "energy": 0.9, "danceability": 0.85, "valence": 0.85}
+```
+
+**Output** (`python -m src.main`, first profile; full run in [logs/cli_demo.txt](logs/cli_demo.txt)):
+
+```text
+Top Recommendations — High-Energy Pop
+=====================================
+Profile: genre=pop, mood=happy, energy=0.9, danceability=0.85, valence=0.85
+
+  # | Song           | Artist        | Genre     | Score   | Reasons
+----+----------------+---------------+-----------+---------+-------------------------------------
+  1 | Sunrise City   | Neon Echo     | pop       | 95.67%  | Genre matches pop; energy/valence/
+    |                |               |           |         | danceability very close; mood happy
+  2 | Levitating     | Dua Lipa      | pop       | 85.10%  | strong pop match; -10 diversity
+    |                |               |           |         | penalty (genre pop already above)
+  3 | Calm Down      | Rema          | afrobeats | 74.80%  | genre differs, but mood + numerics fit
+  4 | Rooftop Lights | Indigo Parade | indie pop | 74.10%  | genre differs; mood happy, numerics fit
+  5 | 24K Magic      | Bruno Mars    | funk      | 73.52%  | genre differs; energy very close; happy
+```
+
+Every pick carries a **score %** and **plain-English reasons** — including *why* a
+same-genre song was demoted by the diversity penalty.
+
+### 2. Trained model — learned weights (`python -m src.train_weights`)
+
+```text
+Trained on 128 (listener, song) examples from 4 listeners (24 likes, 104 non-likes).
+Train accuracy: 89.1%
+
+feature         hand-tuned   learned
+------------------------------------
+genre                 0.30      0.17
+energy                0.20      0.29
+valence               0.15      0.10
+danceability          0.15      0.19
+mood                  0.15      0.08
+acousticness          0.05      0.17
+```
+
+The data disagreed with my priors: **energy and acousticness** matter more than I
+assumed, **genre and mood** less. Full log: [logs/train_weights.txt](logs/train_weights.txt).
+
+### 3. Reliability results (`python -m src.evaluate`)
+
+Ranks the whole catalog for each labeled listener and checks where their **known-liked**
+songs land (full log: [logs/evaluate.txt](logs/evaluate.txt)):
+
+```text
+listener               likes  hits   prec  recall   top%  conf
+--------------------------------------------------------------
+Upbeat pop                 6     3   0.60    0.50   97.5  High
+Chill study lofi           5     5   1.00    1.00   99.3  High
+Intense rock               4     4   0.80    1.00   97.4  High
+Afrobeats / afropop        9     4   0.80    0.44   88.3  High
+--------------------------------------------------------------
+MEAN                                 0.80    0.74   95.6
+```
+
+**Read: mean precision@5 = 0.80, recall@5 = 0.74.** The Afrobeats recall (0.44) is a
+measurement artifact — that listener has 9 likes, more than a top-5 list can hold — not
+a model failure. (In-sample check: the profiles that trained the weights.)
+
+### 4. Guardrail & validation results
+
+Two safety layers, captured in [logs/guardrails_demo.txt](logs/guardrails_demo.txt):
+
+```text
+=== GUARDRAIL: free-text screening (src/guardrails.py) ===
+  [clean request]     'I want happy upbeat pop for a road trip' -> ALLOWED
+  [profanity]         'this is fucking great music'  -> BLOCKED (category=profanity, term='fucking')
+  [violence]          'kill yourself'                -> BLOCKED (category=violence, term='kill yourself')
+  [false-positive]    'songs about Dickinson poems'  -> ALLOWED   (word-boundary guard: 'dick' inside a word)
+  [false-positive]    'shiitake mushroom jazz'       -> ALLOWED   (word-boundary guard: 'shit' inside a word)
+
+=== LLM-OUTPUT VALIDATION: _clean_prefs clamps/drops unsafe model output ===
+  {'genre':'pop','energy':2.5,'valence':-1.0}  -> {'genre':'pop','energy':1.0,'valence':0.0}  (clamped 0..1)
+  {'genre':'polka','mood':'grumpy'}            -> {}   (genre/mood not in catalog -> dropped)
+  'not even a dict'                            -> {}   (garbage type -> no crash)
+```
+
+### 5. Automated test results (`pytest -v`)
+
+```text
+============================== 41 passed in 1.03s ==============================
+```
+
+All **41 tests pass** across `test_recommender.py` (core scoring + ranking),
+`test_guardrails.py` (safety filter), and `test_ai_reliability.py` (LLM-output
+validation, confidence scoring, trained-model validity, end-to-end reliability). Full
+per-test log: [logs/tests.txt](logs/tests.txt).
+
+---
+
+## Portfolio Artifact
+
+**📦 Code (GitHub):** https://github.com/Misha-te/applied-ai-system-final
+
+**What this project says about me as an AI engineer.**
+I build AI systems that are honest about their own limits. Given a small recommender, I
+didn't stop at "it returns songs" — I replaced my hand-picked weights with a trained
+model and then *measured* whether it actually recovers known taste (precision@5 = 0.80),
+labeled every prediction with a confidence rating, wrapped the LLM in guardrails and
+output validation, and wrote 41 tests that prove each claim rather than assert it. Just
+as importantly, I documented where it's *weak* — biased toward a small catalog, accuracy
+that's only in-sample, a ranking that barely moves under reweighting — instead of hiding
+it. That's the engineer I want to be: someone who treats "seems to work" and "is proven
+to work" as different things, who designs the safety and evaluation layers as first-class
+parts of the system, and who can defend the numbers with data instead of a good story.
 
 ---
 

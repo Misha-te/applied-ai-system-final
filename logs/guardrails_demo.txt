@@ -1,0 +1,42 @@
+=== GUARDRAIL: free-text screening (src/guardrails.py) ===
+  [clean request]
+  input : 'I want happy upbeat pop for a road trip'
+  result: ALLOWED
+
+  [clean request]
+  input : 'chill acoustic songs for studying'
+  result: ALLOWED
+
+  [profanity]
+  input : 'this is fucking great music'
+  result: BLOCKED (category=profanity, term='fucking')
+
+  [violence / self-harm phrase]
+  input : 'kill yourself'
+  result: BLOCKED (category=violence, term='kill yourself')
+
+  [false-positive guard: 'dick' inside a word]
+  input : 'songs about Dickinson poems'
+  result: ALLOWED
+
+  [false-positive guard: 'shit' inside a word]
+  input : 'shiitake mushroom jazz'
+  result: ALLOWED
+
+=== LLM-OUTPUT VALIDATION: _clean_prefs clamps/drops unsafe model output ===
+  [out-of-range numbers -> clamped to 0..1]
+  model returned: {'genre': 'pop', 'energy': 2.5, 'valence': -1.0}
+  after cleaning: {'genre': 'pop', 'energy': 1.0, 'valence': 0.0}
+
+  [genre/mood not in catalog -> dropped]
+  model returned: {'genre': 'polka', 'mood': 'grumpy'}
+  after cleaning: {}
+
+  [garbage type -> empty, no crash]
+  model returned: 'not even a dict'
+  after cleaning: {}
+
+=== CONFIDENCE LABELS (confidence_label) ===
+  score  98.3 -> High
+  score  62.0 -> Medium
+  score  41.5 -> Low

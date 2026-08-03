@@ -1,0 +1,14 @@
+Trained on 128 (listener, song) examples from 4 listeners (24 likes, 104 non-likes).
+Train accuracy: 89.1%
+
+feature         hand-tuned   learned
+------------------------------------
+genre                 0.30      0.17
+energy                0.20      0.29
+valence               0.15      0.10
+danceability          0.15      0.19
+mood                  0.15      0.08
+acousticness          0.05      0.17
+
+Wrote learned weights to ./data/learned_weights.json
+recommender.py will pick these up automatically on next import.

@@ -146,6 +146,20 @@ def to_song(row: Dict) -> Song:
         acousticness=float(row["acousticness"]),
     )
 
+def confidence_label(score: float) -> str:
+    """Turn a 0-100 match score into a plain-language confidence rating.
+
+    This is how the recommender "says how sure it is" about a pick: a high score
+    means many weighted features lined up, a low score means few did. Thresholds
+    are deliberately simple and are exercised by tests/test_ai_reliability.py.
+    """
+    if score >= 75.0:
+        return "High"
+    if score >= 50.0:
+        return "Medium"
+    return "Low"
+
+
 def _numeric_reason(label: str, value: float, target: float, closeness: float) -> str:
     """Turn a numeric feature's closeness into a human-readable reason."""
     if closeness >= 0.90:
