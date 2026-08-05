@@ -4,6 +4,8 @@
 its own scoring weights from data, and explains every pick in plain English —
 runnable as a command-line tool or a conversational "DJ" web app.*
 
+**🚀 Live demo (Streamlit Community Cloud):** <https://share.streamlit.io/user/misha-te>
+
 ---
 
 ## The Original Project (Modules 1–3)
@@ -114,6 +116,10 @@ picks it up automatically on the next run; if the file is missing, it falls back
 the original hand-tuned weights so everything still works out of the box.
 
 ### 4. Run the web app (conversational DJ)
+
+Already deployed — no install needed: <https://share.streamlit.io/user/misha-te>
+
+To run it locally instead:
 
 ```bash
 streamlit run src/app.py
@@ -431,6 +437,8 @@ per-test log: [logs/tests.txt](logs/tests.txt).
 ## Portfolio Artifact
 
 **📦 Code (GitHub):** https://github.com/Misha-te/applied-ai-system-final
+
+**🚀 Live app (Streamlit Community Cloud):** https://share.streamlit.io/user/misha-te
 
 **What this project says about me as an AI engineer.**
 I build AI systems that are honest about their own limits. Given a small recommender, I
