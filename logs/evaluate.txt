@@ -1,12 +1,28 @@
-Recommender reliability — precision/recall @ top-5, across 4 labeled listeners
+Recommender reliability (labeled pool) — precision/recall @ top-5, across 4 labeled listeners (32 songs)
 
 listener               likes  hits   prec  recall   top%  conf
 --------------------------------------------------------------
-Upbeat pop                 6     3   0.60    0.50   97.5  High
-Chill study lofi           5     5   1.00    1.00   99.3  High
-Intense rock               4     4   0.80    1.00   97.4  High
-Afrobeats / afropop        9     4   0.80    0.44   88.3  High
+Upbeat pop                 6     3   0.60    0.50   97.3  High
+Chill study lofi           5     5   1.00    1.00   99.2  High
+Intense rock               4     3   0.60    0.75   97.3  High
+Afrobeats / afropop        9     4   0.80    0.44   90.1  High
 --------------------------------------------------------------
-MEAN                                 0.80    0.74   95.6
+MEAN                                 0.75    0.67   96.0
 
 Note: in-sample check on the profiles used to learn the weights — reads as 'recovers known taste', not new-user generalization.
+
+==============================================================
+
+Same profiles, ranked against the FULL catalog — precision/recall @ top-5, across 4 labeled listeners (1030 songs)
+
+listener               likes  hits   prec  recall   top%  conf
+--------------------------------------------------------------
+Upbeat pop                 6     3   0.60    0.50   97.3  High
+Chill study lofi           5     3   0.60    0.60   99.2  High
+Intense rock               4     1   0.20    0.25   97.3  High
+Afrobeats / afropop        9     0   0.00    0.00   96.5  High
+--------------------------------------------------------------
+MEAN                                 0.35    0.34   97.6
+
+Note: context only, not a regression. The like-lists were curated when the catalog was 32 songs, so every one of the other 998 songs counts as a miss even when it is
+a better match. Expanding the labels to cover the fetched catalog is the fix; see README.

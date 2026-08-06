@@ -23,7 +23,7 @@ flowchart TD
 
     %% ---------------- RETRIEVER ----------------
     subgraph RETRIEVE["📚 RETRIEVER — Song catalog"]
-        CSV[("data/songs.csv<br/>32 songs")]
+        CSV[("data/songs.csv<br/>1,030 songs · 13 regions")]
         LOAD["load_songs()"]
         CSV --> LOAD
     end
@@ -50,7 +50,7 @@ flowchart TD
     %% ---------------- TESTING & HUMAN EVALUATION ----------------
     subgraph CHECK["✅ TESTING & HUMAN EVALUATION — checking the AI"]
         PYTEST["pytest<br/>test_recommender.py<br/>test_guardrails.py"]
-        ACC["train-accuracy report<br/>89% (in-sample)"]
+        ACC["balanced-accuracy report<br/>86.8% (in-sample)"]
         HUMAN["👤 Human review<br/>reads reasons, judges 'does this fit?'<br/>model_card.md profiles"]
     end
 
@@ -81,7 +81,7 @@ flowchart TD
 
 | Rubric component | In this project | Files |
 |------------------|-----------------|-------|
-| **Retriever** | Loads the song catalog that supplies recommendation candidates | `data/songs.csv`, `load_songs()` |
+| **Retriever** | Loads the song catalog that supplies recommendation candidates — 1,030 real tracks across 13 regions, built by `src/fetch_songs.py` from the ReccoBeats API | `data/songs.csv`, `load_songs()` |
 | **Agent** | The conversational DJ that gathers taste and (optionally) uses an LLM to read free-text answers | `src/app.py`, optional Gemini/DeepSeek |
 | **Specialized / fine-tuned model** | A trained logistic-regression model that *learns* the scoring weights from labeled data | `src/train_weights.py` → `data/learned_weights.json` |
 | **Recommender core** | Scores every song against the listener and ranks the top-K with reasons | `src/recommender.py` (`score_song`, `recommend_songs`) |
@@ -91,7 +91,7 @@ flowchart TD
 ## Where humans / testing check the AI (the dashed arrows)
 
 - **`pytest` → core & guardrails** — automated tests verify scoring, ranking, the diversity penalty, and that unsafe input is blocked.
-- **Accuracy report → trained model** — the trainer prints in-sample accuracy (89%) so the learned weights can be sanity-checked.
+- **Accuracy report → trained model** — the trainer prints in-sample *balanced* accuracy (86.8%) so the learned weights can be sanity-checked; plain accuracy is uninformative now that 99.4% of training examples are negatives.
 - **Output → human review** — a person reads each recommendation's plain-English reasons and judges whether it actually fits the listener (documented in the model card).
 - **Human → training labels** — that human judgment feeds back into the curated taste profiles the model trains on, closing the loop.
 

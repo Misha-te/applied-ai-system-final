@@ -66,7 +66,7 @@ def print_recommendations(name: str, user_prefs: dict, songs: list, k: int = 5) 
     print()
 
     recommendations = recommend_songs(user_prefs, songs, k=k)
-    headers = ["#", "Song", "Artist", "Genre", "Score", "Reasons"]
+    headers = ["#", "Song", "Artist", "Genre", "Region", "Score", "Reasons"]
     rows = []
     for position, (song, score, reasons) in enumerate(recommendations, start=1):
         rows.append([
@@ -74,6 +74,7 @@ def print_recommendations(name: str, user_prefs: dict, songs: list, k: int = 5) 
             song["title"],
             song["artist"],
             song["genre"],
+            song.get("region", ""),
             f"{score:.2f}%",
             "\n".join(f"- {reason}" for reason in reasons),
         ])
@@ -88,17 +89,19 @@ def print_recommendations(name: str, user_prefs: dict, songs: list, k: int = 5) 
 
 def _print_ascii_table(headers: list, rows: list) -> None:
     """Fallback table for when tabulate is not installed (reasons listed under each row)."""
-    top = ["#", "Song", "Artist", "Genre", "Score"]
+    # Every column except the last one ("Reasons") goes in the table; the
+    # reasons are printed underneath their row so the line stays readable.
+    top = headers[:-1]
     widths = [len(h) for h in top]
     for row in rows:
-        for i in range(5):
+        for i, _ in enumerate(top):
             widths[i] = max(widths[i], len(str(row[i])))
     line = "  ".join(h.ljust(widths[i]) for i, h in enumerate(top))
     print(line)
     print("-" * len(line))
     for row in rows:
-        print("  ".join(str(row[i]).ljust(widths[i]) for i in range(5)))
-        for reason_line in row[5].splitlines():
+        print("  ".join(str(row[i]).ljust(widths[i]) for i, _ in enumerate(top)))
+        for reason_line in row[-1].splitlines():
             print(f"    {reason_line}")
 
 

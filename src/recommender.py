@@ -79,6 +79,10 @@ class Song:
     valence: float
     danceability: float
     acousticness: float
+    # World region the artist is from ("east africa", "latin america", ...).
+    # Descriptive only -- nothing is scored on it -- and defaulted so older
+    # catalogs and hand-built Song objects still construct.
+    region: str = ""
 
 @dataclass
 class UserProfile:
@@ -144,6 +148,7 @@ def to_song(row: Dict) -> Song:
         valence=float(row["valence"]),
         danceability=float(row["danceability"]),
         acousticness=float(row["acousticness"]),
+        region=row.get("region", ""),
     )
 
 def confidence_label(score: float) -> str:

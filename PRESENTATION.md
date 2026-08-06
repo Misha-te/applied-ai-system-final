@@ -24,8 +24,8 @@ to tell in the next six minutes.
 - Recommenders are everywhere — Spotify, TikTok — and mostly **opaque**: *"why am I seeing this?"*
 - My goal was a **fully transparent** recommender: every score explainable, every weight
   readable, every bias documented rather than hidden.
-- Scope: a **classroom system** on a small hand-made catalog of 32 songs — built to
-  *understand* the idea, not to ship it.
+- Scope: a **classroom system** — but on a real catalog: **1,030 songs by 193 artists
+  across 13 world regions**, pulled from an API, not typed in by hand.
 
 I wanted to open the black box. If I can't explain and measure a recommendation, I don't
 trust it — and I don't think a user should either.
@@ -79,13 +79,18 @@ Every number comes with a sentence. That explainability was my whole design goal
 > Run: `python -m src.train_weights`
 
 ```
-Train accuracy: 89.1%   (128 listener–song examples, 4 labeled listeners)
+Balanced accuracy: 86.8%   (4,120 listener–song examples, 4 labeled listeners)
+Plain accuracy:    81.9%   (always-say-no baseline: 99.4%)
 
 feature         hand-tuned   learned
 genre                 0.30      0.17      ← I thought genre would dominate…
 energy                0.20      0.29      ← …the data said energy matters more
-acousticness          0.05      0.17      ← …and acousticness far more
+acousticness          0.05      0.19      ← …and acousticness far more
 ```
+
+Growing the catalog broke this model before it fixed it: with 24 likes among 4,120
+examples, the unweighted trainer learned to say "no" to everything and scored a
+meaningless 98%. Balanced class weights, and quoting **balanced** accuracy, is the fix.
 
 I stopped **guessing** the weights and **learned** them, with a plain-Python logistic
 regression and no ML libraries so the whole thing stays readable. The most satisfying moment
@@ -100,10 +105,14 @@ dominate, and I was wrong. And I can defend the new numbers with evidence instea
 
 Reliability — does it recover the songs a listener is *known* to like?
 ```
-MEAN   precision@5 = 0.80   recall@5 = 0.74   every top pick "High" confidence
+labeled pool (32 songs)    precision@5 = 0.75   recall@5 = 0.67   all "High" confidence
+full catalog (1,030 songs) precision@5 = 0.35
 ```
-I also name the weak spot honestly: the Afrobeats listener's recall is 0.44, but that's
-because they have 9 liked songs — more than a top-5 list can hold — not a model failure.
+The gap is the most honest slide in the deck. It is **not** a regression — precision counts
+anything unlabeled as a miss, and my like-lists were written when the catalog was 32 songs.
+The afropop listener scores 0.00 on the full catalog while their actual top five are Miriam
+Makeba, Eddy Kenzo, Willy Paul and Otile Brown. The evaluation became a test of *label
+coverage*; the fix is more labels, not fewer songs.
 
 Safety — two layers I built:
 - **Guardrails** block profanity and violence, but I made sure they *don't* false-flag
@@ -111,15 +120,20 @@ Safety — two layers I built:
 - **LLM-output validation** clamps nonsense like `energy=2.5 → 1.0` and drops invented genres
   before they can reach the scorer.
 
-All **41 of my automated tests pass**. "Seems to work" and "is proven to work" are different
+All **47 of my automated tests pass**, including a new suite that checks the integrity of
+a 1,030-row catalog I can no longer read by eye. "Seems to work" and "is proven to work" are different
 things, and this is where I prove it.
 
 ---
 
 ## Slide 7 — What I learned  ⏱ ~55s
 
-- **A small dataset can fake learning.** When I doubled a weight, the rankings barely moved —
-  my catalog is too clustered. The lesson: measure sensitivity, don't assume it.
+- **A small dataset can fake learning.** At 32 songs, doubling a weight barely moved the
+  rankings — the catalog was too clustered. At 1,030 it does move. The lesson: measure
+  sensitivity, don't assume it, and suspect the data before the model.
+- **Scaling the data broke two things that looked fine.** Class balance in the trainer, and
+  a precision metric that silently turned into a label-coverage metric. Both were invisible
+  until the catalog got 30× bigger.
 - **Validation belongs where untrusted data enters** — right at the LLM's output.
 - **On working with AI as a pair-programmer:** it correctly diagnosed a misleading "no key"
   error that was really a missing package — but it also handed me dead code that passed the

@@ -476,7 +476,14 @@ if results:
 for rank, (song, score, reasons) in enumerate(results, start=1):
     with st.container(border=True):
         st.markdown(f"### {rank}. {song['title']}")
-        st.markdown(f"**{song['artist']}** · {song['genre']} · {song['mood']}")
+        # Region is shown because the catalog is deliberately global — seeing
+        # "east africa" or "latin america" next to the genre is the quickest way
+        # to tell that a set isn't just Anglo-American pop.
+        region = song.get("region")
+        line = f"**{song['artist']}** · {song['genre']} · {song['mood']}"
+        if region and region not in ("demo", "unknown"):
+            line += f" · 🌍 {region}"
+        st.markdown(line)
         st.progress(min(100, int(round(score))), text=f"Match {score:.1f}%")
         with st.expander("Why this song"):
             for reason in reasons:

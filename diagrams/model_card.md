@@ -43,8 +43,8 @@ song from its per-feature sub-scores. The model's coefficients (made non-negativ
 normalized) become the weights, so the scoring recipe is **trained, not guessed**. This is
 the project's fine-tuned / specialized-model component.
 
-Trained to **89% accuracy** on 128 `(listener, song)` examples from four labeled taste
-profiles, the model shifted the weights noticeably — energy and acousticness turned out to
+Trained to **86.8% balanced accuracy** on 4,120 `(listener, song)` examples from four
+labeled taste profiles, the model shifted the weights noticeably — energy and acousticness turned out to
 matter *more* than I'd assumed, genre and mood *less*:
 
 | Feature | Hand-picked | Learned |
@@ -67,16 +67,34 @@ README covers the trade-offs in [Design Decisions](README.md#design-decisions).
 
 ## 4. Data  
 
-The catalog has **32 songs**. It started with 10, and I grew it over time to widen the range
-of taste and include music I actually listen to. This same catalog is also what the trained
-weight model (Section 3) learns from, paired with four labeled listeners.
+The catalog has **1,030 songs by 193 artists across 13 world regions**. It started as 10
+invented placeholder tracks, grew to 32 by hand, and is now built by
+[src/fetch_songs.py](../src/fetch_songs.py) from the **ReccoBeats API** — a free, no-key
+service that still serves the Spotify-style audio features (energy, valence, danceability,
+acousticness, tempo) that Spotify closed off to new apps in Nov 2024. Every audio number in
+the CSV is measured, not estimated by me. This same catalog is what the trained weight model
+(Section 3) learns from, paired with four labeled listeners.
 
-The songs cover a mix of genres — pop, lofi, rock, jazz, ambient, synthwave, funk, indie
-pop, and East African styles like afropop and bongo — and a range of moods such as happy,
-chill, intense, relaxed, moody, and romantic.
+Only two fields are human judgment: **genre** and **region**, which come from a curated
+189-artist roster in the fetcher, since no API supplies either cleanly. **Mood** is derived
+from valence and energy by a documented rule.
 
-There are still gaps: plenty of real-world styles are missing, including several kinds of
-Kenyan music, so the library doesn't represent everyone's taste.
+Regional spread: west africa 157, east africa 138, latin america 121, north america 96,
+north africa & middle east 72, europe 68, southern africa 66, south asia 65, east asia 65,
+caribbean 57, southeast asia 45, oceania 40, central africa 30 — plus the 10 original
+invented tracks, marked `demo`.
+
+Gaps that remain, stated plainly:
+
+- The 10 `demo` tracks are **not real songs**. They are kept because the trainer's labels
+  and the sample profiles reference them by id.
+- Region labels the **artist**, not the song's musical origin, and it is one label per
+  artist — a genre-crossing artist gets flattened to one tag.
+- Some artists ReccoBeats can't resolve are simply missing (Beyoncé, Björk, Sigur Rós,
+  Utada Hikaru, Sơn Tùng M-TP, Hoàng Thùy Linh; `IU` is too short for the API's search).
+- Track selection within an artist is by ReccoBeats popularity, which skews to recent and
+  streaming-heavy releases — so older catalog material is thinner than a listener would
+  expect.
 
 ---
 
@@ -100,18 +118,22 @@ Prompts:
 - Cases where the system overfits to one preference  
 - Ways the scoring might unintentionally favor some users  
 
-**Weakness I discovered during my experiments:** My recommender is surprisingly
-*insensitive* to how I tune it. When I doubled the weight on energy and halved the weight
-on genre, the scores every song received changed, but the actual **ranking barely moved**
-— the top one or two "most-loved" songs stayed exactly where they were, and for the Chill
-Lofi listener the entire top-5 order didn't change at all. In other words, the change made
-the recommendations *different in number but not in order*. This happens because the
-catalog is small and clustered: the best matches already agree on genre, mood, *and* the
-numeric features at once, so no reasonable reweighting is enough to knock them off the top.
-The bias this hides is that the system looks like it's "learning" from my weight choices
-when it really isn't — a listener whose true favorite is ranked #4 would almost never see
-it promoted no matter how I adjust the percentages, because the same crowd-pleasers keep
-winning by default.
+**Weakness I discovered during my experiments:** at 32 songs my recommender was
+surprisingly *insensitive* to how I tuned it. Doubling the weight on energy and halving
+genre changed every score but **barely moved the ranking** — for the Chill Lofi listener
+the top-5 order didn't change at all. The catalog was small and clustered, so the best
+matches already agreed on genre, mood *and* the numeric features at once, and no
+reasonable reweighting could knock them off. The system looked like it was "learning"
+from my weight choices when it really wasn't.
+
+Growing the catalog to 1,030 songs is what fixed that, and it exposed two further biases
+worth naming:
+
+- **Class imbalance in the trainer.** With 24 liked songs among 4,120 examples, the
+  unweighted model learned to answer "no" to everything — 98% accuracy with the valence
+  and danceability weights driven to zero. Balanced class weights fixed it, and the model
+  card now quotes **balanced** accuracy, where always-say-no scores 0.50.
+- **Label coverage, not model quality, now limits the evaluation.** See Section 7.
 
 ---
 
@@ -148,7 +170,26 @@ and number-two songs for each listener felt obviously right and never changed, e
 adjusted the settings later. The other surprise was the **Deep Intense Rock** listener:
 they got one excellent match and then a steep drop-off, because the catalog barely has any
 rock, so the system was forced to offer songs from other styles that only partly fit. That
-showed me the recommender is only as good as the variety in its music library.
+showed me the recommender is only as good as the variety in its music library — which is
+exactly why the catalog was later rebuilt from an API to 1,030 songs across 13 regions.
+
+### Measured reliability, and where it now breaks down
+
+`python -m src.evaluate` ranks the catalog for the four labeled listeners and reports
+precision/recall@5 against their known likes. It prints **two numbers**, and the gap
+between them is the most honest thing in this card:
+
+| pool | songs | mean precision@5 | mean recall@5 |
+|---|---:|---:|---:|
+| labeled (ids 1–32, the slice the likes describe) | 32 | 0.75 | 0.67 |
+| full catalog | 1,030 | 0.35 | 0.34 |
+
+The full-catalog number is **not** a regression. Precision is closed-world: anything not
+on a like-list counts as a miss, and the like-lists were written when the catalog was 32
+songs. The afropop listener scores 0.00 there while their actual top five are Miriam
+Makeba, Eddy Kenzo, Willy Paul and Otile Brown — five genuinely on-taste African tracks
+that nobody ever labeled. The evaluation has quietly become a measure of **label
+coverage**, and the fix is more labels, not fewer songs.
 
 ### Comparing the profiles (what changed, and why it makes sense)
 
@@ -177,8 +218,11 @@ showed me the recommender is only as good as the variety in its music library.
 
 - Turn it into a simple web app (for example with Streamlit) so people can pick their taste
   with sliders instead of editing code.
-- Connect it to the **Spotify API** to pull real songs and their audio features directly,
-  instead of relying on a small hand-made catalog.
+- **Expand the labeled likes to cover the fetched catalog.** This is now the single
+  highest-value next step: with only 24 liked songs describing 1,030, the evaluation
+  measures label coverage more than recommendation quality.
+- Add **region** as something a listener can ask for directly ("something from West
+  Africa"), rather than only a label shown on the results.
 
 ---
 
@@ -220,8 +264,9 @@ whole styles out). The **biases** worth naming plainly:
 - **Label bias — the "learned" weights inherit my judgment.** The trained model
   ([Section 3](#3-how-the-model-works)) learned from *four taste profiles I wrote myself*.
   So the weights aren't an objective truth about music; they're a compression of my own
-  labeling choices, and the 89% accuracy is **in-sample** — it measures fit to my labels,
-  not correctness for real strangers.
+  labeling choices, and the 86.8% balanced accuracy is **in-sample** — it measures fit to my
+  labels, not correctness for real strangers. This bias got *sharper* as the catalog grew:
+  24 liked songs now stand in for 1,030, so the labels describe about 2% of the library.
 - **Popularity / majority bias.** Because the top picks are songs that satisfy genre, mood,
   *and* the numeric features at once, a few "crowd-pleasers" win by default. A listener whose
   true favorite ranks #4 rarely sees it promoted no matter how the weights move.

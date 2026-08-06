@@ -1,14 +1,15 @@
-Trained on 128 (listener, song) examples from 4 listeners (24 likes, 104 non-likes).
-Train accuracy: 89.1%
+Trained on 4120 (listener, song) examples from 4 listeners (24 likes, 4096 non-likes).
+Balanced accuracy: 86.8%   (likes and non-likes weighted equally)
+Plain accuracy:    81.9%   (always-say-no baseline: 99.4%)
 
 feature         hand-tuned   learned
 ------------------------------------
 genre                 0.30      0.17
 energy                0.20      0.29
-valence               0.15      0.10
+valence               0.15      0.12
 danceability          0.15      0.19
-mood                  0.15      0.08
-acousticness          0.05      0.17
+mood                  0.15      0.05
+acousticness          0.05      0.19
 
-Wrote learned weights to ./data/learned_weights.json
+Wrote learned weights to /Users/misha/Documents/Spring 2026/Comp-127/applied-ai-system-final/data/learned_weights.json
 recommender.py will pick these up automatically on next import.

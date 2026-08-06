@@ -15,7 +15,7 @@ flowchart TD
 
     %% ---------------- RETRIEVER ----------------
     subgraph RETRIEVE["📚 RETRIEVER — Song catalog"]
-        CSV[("data/songs.csv<br/>32 songs")]
+        CSV[("data/songs.csv<br/>1,030 songs · 13 regions")]
         LOAD["load_songs()"]
         CSV --> LOAD
     end
@@ -42,7 +42,7 @@ flowchart TD
     %% ---------------- TESTING & HUMAN EVALUATION ----------------
     subgraph CHECK["✅ TESTING & HUMAN EVALUATION — checking the AI"]
         PYTEST["pytest<br/>test_recommender.py<br/>test_guardrails.py"]
-        ACC["train-accuracy report<br/>89% (in-sample)"]
+        ACC["balanced-accuracy report<br/>86.8% (in-sample)"]
         HUMAN["👤 Human review<br/>reads reasons, judges 'does this fit?'<br/>model_card.md profiles"]
     end
 

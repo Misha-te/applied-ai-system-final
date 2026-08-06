@@ -134,8 +134,14 @@ def test_training_is_deterministic():
 
 def test_recommender_recovers_known_taste():
     """Across the labeled listeners, the top-5 picks must hit their known likes
-    at a mean precision >= 0.5. Observed 0.80; the floor guards against a
-    weight change that quietly breaks relevance."""
+    at a mean precision >= 0.5. Observed 0.75; the floor guards against a
+    weight change that quietly breaks relevance.
+
+    Scored on the LABELED pool (evaluate_all's default): the like-lists only
+    cover the original 32 songs, so ranking them against the full fetched
+    catalog would count good unlabeled picks as misses. `python -m src.evaluate`
+    prints both numbers side by side.
+    """
     report = evaluate_all(k=5)
     assert report["mean_precision"] >= 0.5
     # Every labeled listener should get at least one of their liked songs in top-5.

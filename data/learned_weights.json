@@ -1,23 +1,24 @@
 {
   "weights": {
-    "genre": 0.1653,
-    "energy": 0.2945,
-    "valence": 0.0987,
-    "danceability": 0.1928,
-    "mood": 0.0836,
-    "acousticness": 0.165
+    "genre": 0.1651,
+    "energy": 0.2882,
+    "valence": 0.1175,
+    "danceability": 0.194,
+    "mood": 0.0496,
+    "acousticness": 0.1856
   },
   "raw_coefficients": {
-    "genre": 2.3094,
-    "energy": 4.1217,
-    "valence": 1.3752,
-    "danceability": 2.695,
-    "mood": 1.1626,
-    "acousticness": 2.3055
+    "genre": 2.5667,
+    "energy": 4.489,
+    "valence": 1.8239,
+    "danceability": 3.0177,
+    "mood": 0.7648,
+    "acousticness": 2.8869
   },
-  "bias": -11.1911,
-  "train_accuracy": 0.8906,
-  "n_examples": 128,
+  "bias": -11.3673,
+  "train_accuracy": 0.8194,
+  "train_balanced_accuracy": 0.8678,
+  "n_examples": 4120,
   "n_listeners": 4,
   "note": "Learned by src/train_weights.py logistic regression. Do not hand-edit; re-run the trainer instead."
 }

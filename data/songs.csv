@@ -1,33 +1,1031 @@
-id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness
-1,Sunrise City,Neon Echo,pop,happy,0.82,118,0.84,0.79,0.18
-2,Midnight Coding,LoRoom,lofi,chill,0.42,78,0.56,0.62,0.71
-3,Storm Runner,Voltline,rock,intense,0.91,152,0.48,0.66,0.10
-4,Library Rain,Paper Lanterns,lofi,chill,0.35,72,0.60,0.58,0.86
-5,Gym Hero,Max Pulse,pop,intense,0.93,132,0.77,0.88,0.05
-6,Spacewalk Thoughts,Orbit Bloom,ambient,chill,0.28,60,0.65,0.41,0.92
-7,Coffee Shop Stories,Slow Stereo,jazz,relaxed,0.37,90,0.71,0.54,0.89
-8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22
-9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78
-10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35
-11,Anti-Hero,Taylor Swift,pop,intense,0.648,96.9,0.49,0.633,0.121
-12,Shake It Off,Taylor Swift,pop,happy,0.8,160.1,0.942,0.647,0.065
-13,24K Magic,Bruno Mars,funk,happy,0.804,107.0,0.634,0.818,0.034
-14,Talking to the Moon,Bruno Mars,pop,intense,0.607,145.8,0.065,0.523,0.512
-15,Jeje,Diamond Platnumz,bongo,happy,0.72,108,0.80,0.85,0.20
-16,Waah,Diamond Platnumz,bongo,romantic,0.66,100,0.63,0.79,0.28
-17,Sura Yako,Sauti Sol,afropop,happy,0.965,180.2,0.782,0.561,0.438
-18,Melanin,Sauti Sol,afropop,happy,0.677,95.1,0.756,0.442,0.076
-19,Malaika,Nyashinski,afropop,chill,0.54,95,0.68,0.70,0.36
-20,Nairobi,Otile Brown,afropop,romantic,0.58,102,0.60,0.74,0.32
-21,Blinding Lights,The Weeknd,synthpop,intense,0.73,171.0,0.334,0.513,0.001
-22,Save Your Tears,The Weeknd,synthpop,happy,0.825,118.0,0.644,0.679,0.021
-23,As It Was,Harry Styles,pop,happy,0.731,173.9,0.662,0.52,0.342
-24,Levitating,Dua Lipa,pop,happy,0.884,103.0,0.914,0.695,0.056
-25,bad guy,Billie Eilish,pop,chill,0.425,135.1,0.562,0.701,0.328
-26,Happier Than Ever,Billie Eilish,pop,moody,0.225,81.1,0.297,0.332,0.767
-27,good 4 u,Olivia Rodrigo,pop rock,happy,0.664,166.9,0.688,0.563,0.335
-28,Smells Like Teen Spirit,Nirvana,rock,happy,0.873,116.7,0.816,0.479,0.0
-29,Kiss Me,Sixpence None The Richer,indie pop,intense,0.749,100.0,0.421,0.526,0.023
-30,One Dance,Drake,afrobeats,intense,0.605,103.9,0.427,0.788,0.009
-31,Last Last,Burna Boy,afrobeats,chill,0.565,87.9,0.55,0.795,0.131
-32,Calm Down,Rema,afrobeats,happy,0.781,107.0,0.824,0.811,0.376
+id,title,artist,genre,region,mood,energy,tempo_bpm,valence,danceability,acousticness
+1,Sunrise City,Neon Echo,pop,demo,happy,0.82,118,0.84,0.79,0.18
+2,Midnight Coding,LoRoom,lofi,demo,chill,0.42,78,0.56,0.62,0.71
+3,Storm Runner,Voltline,rock,demo,intense,0.91,152,0.48,0.66,0.10
+4,Library Rain,Paper Lanterns,lofi,demo,chill,0.35,72,0.60,0.58,0.86
+5,Gym Hero,Max Pulse,pop,demo,intense,0.93,132,0.77,0.88,0.05
+6,Spacewalk Thoughts,Orbit Bloom,ambient,demo,chill,0.28,60,0.65,0.41,0.92
+7,Coffee Shop Stories,Slow Stereo,jazz,demo,relaxed,0.37,90,0.71,0.54,0.89
+8,Night Drive Loop,Neon Echo,synthwave,demo,moody,0.75,110,0.49,0.73,0.22
+9,Focus Flow,LoRoom,lofi,demo,focused,0.40,80,0.59,0.60,0.78
+10,Rooftop Lights,Indigo Parade,indie pop,demo,happy,0.76,124,0.81,0.82,0.35
+11,Anti-Hero,Taylor Swift,pop,north america,intense,0.648,96.9,0.49,0.633,0.121
+12,Shake It Off,Taylor Swift,pop,north america,happy,0.8,160.1,0.942,0.647,0.065
+13,24K Magic,Bruno Mars,funk,north america,happy,0.804,107.0,0.634,0.818,0.034
+14,Talking to the Moon,Bruno Mars,pop,north america,intense,0.607,145.8,0.065,0.523,0.512
+15,Jeje,Diamond Platnumz,bongo,east africa,happy,0.72,108,0.80,0.85,0.20
+16,Waah,Diamond Platnumz,bongo,east africa,romantic,0.66,100,0.63,0.79,0.28
+17,Sura Yako,Sauti Sol,afropop,east africa,happy,0.965,180.2,0.782,0.561,0.438
+18,Melanin,Sauti Sol,afropop,east africa,happy,0.677,95.1,0.756,0.442,0.076
+19,Malaika,Nyashinski,afropop,east africa,chill,0.54,95,0.68,0.70,0.36
+20,Nairobi,Otile Brown,afropop,east africa,romantic,0.58,102,0.60,0.74,0.32
+21,Blinding Lights,The Weeknd,synthpop,north america,intense,0.73,171.0,0.334,0.513,0.001
+22,Save Your Tears,The Weeknd,synthpop,north america,happy,0.825,118.0,0.644,0.679,0.021
+23,As It Was,Harry Styles,pop,europe,happy,0.731,173.9,0.662,0.52,0.342
+24,Levitating,Dua Lipa,pop,europe,happy,0.884,103.0,0.914,0.695,0.056
+25,bad guy,Billie Eilish,pop,north america,chill,0.425,135.1,0.562,0.701,0.328
+26,Happier Than Ever,Billie Eilish,pop,north america,moody,0.225,81.1,0.297,0.332,0.767
+27,good 4 u,Olivia Rodrigo,pop rock,north america,happy,0.664,166.9,0.688,0.563,0.335
+28,Smells Like Teen Spirit,Nirvana,rock,north america,happy,0.873,116.7,0.816,0.479,0.0
+29,Kiss Me,Sixpence None The Richer,indie pop,north america,intense,0.749,100.0,0.421,0.526,0.023
+30,One Dance,Drake,afrobeats,north america,intense,0.605,103.9,0.427,0.788,0.009
+31,Last Last,Burna Boy,afrobeats,west africa,chill,0.565,87.9,0.55,0.795,0.131
+32,Calm Down,Rema,afrobeats,west africa,happy,0.806,107.0,0.802,0.801,0.382
+33,"Komasava (Comment Ça Va) [feat. Khalil Harrison, Chley Nkosi] [Remix]",Diamond Platnumz,bongo,east africa,happy,0.799,113.0,0.711,0.857,0.089
+34,Single Again,Harmonize,bongo,east africa,happy,0.696,110.0,0.764,0.804,0.029
+35,Teamo (feat. Messias Maricoa),Rayvanny,bongo,east africa,happy,0.744,91.0,0.678,0.481,0.425
+36,Sumu (feat. Marioo),Alikiba,bongo,east africa,intense,0.852,113.0,0.441,0.788,0.06
+37,Mwizi,Zuchu,bongo,east africa,happy,0.737,91.1,0.801,0.817,0.417
+38,Darasa La Saba,Mbosso,bongo,east africa,intense,0.684,85.2,0.506,0.431,0.228
+39,Dah! (feat. Alikiba),Nandy,bongo,east africa,intense,0.761,93.0,0.49,0.753,0.459
+40,2025,Marioo,bongo,east africa,happy,0.618,92.9,0.751,0.764,0.569
+41,Enjoy,Jux,bongo,east africa,happy,0.673,116.0,0.807,0.892,0.292
+42,Lil Mama,Sauti Sol,afropop,east africa,happy,0.815,108.0,0.63,0.76,0.074
+43,Busy,Nyashinski,afropop,east africa,happy,0.735,119.9,0.93,0.873,0.129
+44,Dusuma,Otile Brown,afropop,east africa,happy,0.794,178.0,0.723,0.731,0.241
+45,All My Enemies Are Suffering,Bien,afropop,east africa,happy,0.892,115.5,0.944,0.807,0.186
+46,Niko Sawa (feat. Bien),Nviiri The Storyteller,afropop,east africa,intense,0.642,79.0,0.329,0.736,0.101
+47,Uspimee,Khaligraph Jones,hip hop,east africa,happy,0.757,90.9,0.815,0.843,0.01
+48,Kuu Kuu,Willy Paul,afropop,east africa,happy,0.632,196.3,0.77,0.75,0.406
+49,Zigido,Eddy Kenzo,afropop,east africa,happy,0.875,200.0,0.964,0.635,0.225
+50,Binkolere,Sheebah Karungi,afropop,east africa,happy,0.807,96.1,0.894,0.784,0.537
+51,Sambagala,Bebe Cool,afropop,east africa,relaxed,0.522,106.0,0.818,0.894,0.45
+52,Tenanekegn,Teddy Afro,ethio pop,east africa,happy,0.736,123.0,0.878,0.72,0.127
+53,Fikir,Aster Aweke,ethio pop,east africa,happy,0.797,174.0,0.942,0.655,0.106
+54,Yègellé Tezeta,Mulatu Astatke,ethio jazz,east africa,relaxed,0.233,125.6,0.777,0.839,0.745
+55,Alone,Burna Boy,afrobeats,west africa,intense,0.659,90.0,0.307,0.6,0.176
+56,Time,Wizkid,afrobeats,west africa,relaxed,0.569,95.0,0.771,0.84,0.331
+57,FOR THE ROAD,Davido,afrobeats,west africa,chill,0.574,133.1,0.579,0.831,0.064
+58,BADMAN GANGSTA,Asake,afrobeats,west africa,chill,0.586,121.6,0.492,0.631,0.627
+59,Gimme Dat (feat. Wizkid),Ayra Starr,afrobeats,west africa,intense,0.754,94.9,0.596,0.739,0.009
+60,Replay,Tems,afrobeats,west africa,relaxed,0.549,123.9,0.78,0.613,0.097
+61,Bandana,Fireboy DML,afrobeats,west africa,intense,0.605,104.9,0.366,0.818,0.293
+62,soso,Omah Lay,afrobeats,west africa,intense,0.725,105.0,0.53,0.711,0.424
+63,Koroba,Tiwa Savage,afrobeats,west africa,happy,0.645,104.0,0.93,0.85,0.358
+64,WAHALA (feat. Olamide),CKay,afrobeats,west africa,chill,0.566,96.9,0.54,0.852,0.221
+65,Taxi Driver,Joeboy,afrobeats,west africa,intense,0.798,106.1,0.573,0.698,0.562
+66,Johnny,Yemi Alade,afropop,west africa,happy,0.842,125.1,0.875,0.84,0.2
+67,London Town,Mr Eazi,afrobeats,west africa,moody,0.48,106.0,0.267,0.892,0.006
+68,Her Excellency (Nwunye Odogwu),Flavour,highlife,west africa,happy,0.624,197.9,0.924,0.687,0.231
+69,Collabo,P-Square,afropop,west africa,happy,0.877,194.8,0.902,0.581,0.372
+70,Expensive Shit,Fela Kuti,afrobeat,west africa,happy,0.875,123.9,0.684,0.721,0.217
+71,Till We Die (feat. Ruger),Sarkodie,hip hop,west africa,chill,0.551,101.6,0.5,0.517,0.216
+72,Taking Over,Shatta Wale,dancehall,west africa,relaxed,0.423,112.9,0.711,0.851,0.2
+73,EKELEBE (feat. ODUMODUBLVCK),Stonebwoy,dancehall,west africa,intense,0.663,111.8,0.53,0.644,0.154
+74,Sacrifice,Black Sherif,afrobeats,west africa,intense,0.645,119.9,0.392,0.812,0.442
+75,SAD GIRLZ LUV MONEY Remix (feat. Kali Uchis and Moliy),Amaarae,alte,west africa,chill,0.523,110.0,0.319,0.87,0.433
+76,7 Seconds (feat. Neneh Cherry),Youssou N'Dour,mbalax,west africa,intense,0.659,154.2,0.528,0.679,0.077
+77,Yamore,Salif Keita,mande,west africa,relaxed,0.487,80.1,0.701,0.635,0.676
+78,We Are One,Angelique Kidjo,afropop,west africa,chill,0.506,81.6,0.283,0.551,0.33
+79,Nànnuflày,Tinariwen,desert blues,west africa,moody,0.476,118.3,0.303,0.597,0.851
+80,Afsana,Fally Ipupa,rumba,central africa,happy,0.758,164.0,0.712,0.651,0.26
+81,Papa Ngwasuma,Koffi Olomide,rumba,central africa,happy,0.876,122.4,0.952,0.563,0.36
+82,Show Me the Way,Papa Wemba,rumba,central africa,happy,0.93,101.7,0.898,0.699,0.133
+83,Yo Pe - Remix,Innoss'B,rumba,central africa,happy,0.838,182.8,0.818,0.472,0.13
+84,Better Days,FRANCO,rumba,central africa,intense,0.799,172.9,0.482,0.383,0.023
+85,Jerusalema (feat. Nomcebo Zikode),Master KG,amapiano,southern africa,relaxed,0.483,124.0,0.827,0.88,0.018
+86,"Kwenzakalan (feat. Uncool MC, Scotts Maphuma, LeeMcKrazy & Tumilemang)",Kabza De Small,amapiano,southern africa,chill,0.513,112.0,0.312,0.797,0.242
+87,"Imiyalo (feat. Thatohatsi, Tracy & Kabza De Small)",DJ Maphorisa,amapiano,southern africa,intense,0.712,113.0,0.545,0.794,0.017
+88,Beyoncé Baby,Focalistic,amapiano,southern africa,intense,0.762,112.9,0.486,0.718,0.345
+89,PUSH 2 START,Tyla,amapiano,southern africa,happy,0.814,93.5,0.758,0.683,0.277
+90,Ndi Rine,Sho Madjozi,gqom,southern africa,intense,0.795,114.6,0.395,0.576,0.002
+91,Said,Nasty C,hip hop,southern africa,intense,0.607,103.0,0.565,0.793,0.691
+92,Keep Moving,Black Coffee,house,southern africa,relaxed,0.545,125.0,0.803,0.844,0.487
+93,Mbube (Wimoweh),Ladysmith Black Mambazo,isicathamiya,southern africa,relaxed,0.499,102.4,0.657,0.552,0.94
+94,Hapo Zamani,Miriam Makeba,afropop,southern africa,happy,0.636,100.4,0.686,0.588,0.294
+95,Quién dijo,Zahara,afro soul,southern africa,moody,0.232,86.5,0.063,0.267,0.838
+96,Ray'a,Amr Diab,arabic pop,north africa & middle east,happy,0.865,103.5,0.846,0.761,0.263
+97,Inta Eyh,Nancy Ajram,arabic pop,north africa & middle east,happy,0.716,136.0,0.776,0.744,0.077
+98,KOL YOM AHLA YOM,Elissa,arabic pop,north africa & middle east,intense,0.743,120.0,0.591,0.66,0.331
+99,الذوق العالي,Tamer Hosny,arabic pop,north africa & middle east,happy,0.908,133.0,0.95,0.742,0.243
+100,Guli Mata,Saad Lamjarred,arabic pop,north africa & middle east,happy,0.749,151.5,0.604,0.589,0.501
+101,Bektoub Ismak Ya Habibi,Fairuz,arabic classical,north africa & middle east,chill,0.174,85.3,0.566,0.617,0.973
+102,Baeed Annak,Umm Kulthum,arabic classical,north africa & middle east,chill,0.491,83.2,0.488,0.352,0.654
+103,Mírame a la Cara,Khaled,rai,north africa & middle east,happy,0.885,100.0,0.743,0.816,0.301
+104,البخت,Wegz,hip hop,north africa & middle east,relaxed,0.59,105.0,0.66,0.78,0.487
+105,Ya Habibi,Mohamed Ramadan,arabic pop,north africa & middle east,happy,0.869,110.1,0.883,0.888,0.443
+106,Şerbetli,Tarkan,turkish pop,north africa & middle east,intense,0.854,99.9,0.553,0.66,0.153
+107,Unuttun mu Beni,Sezen Aksu,turkish pop,north africa & middle east,happy,0.784,98.0,0.723,0.662,0.118
+108,EL CLúB,Bad Bunny,reggaeton,latin america,intense,0.611,110.7,0.261,0.516,0.458
+109,Bonita,J Balvin,reggaeton,latin america,happy,0.867,96.0,0.869,0.775,0.013
+110,TQG,KAROL G,reggaeton,latin america,happy,0.647,90.1,0.686,0.587,0.619
+111,Quiero Repetir,Ozuna,reggaeton,latin america,intense,0.753,97.6,0.482,0.608,0.103
+112,Cosas Pendientes,Maluma,reggaeton,latin america,happy,0.67,82.0,0.78,0.835,0.261
+113,Dai Dai,Shakira,latin pop,latin america,relaxed,0.596,116.0,0.631,0.864,0.139
+114,Ahora Te Puedes Marchar,Luis Miguel,latin pop,latin america,happy,0.877,133.3,0.909,0.78,0.148
+115,Tequila,Juanes,latin rock,latin america,happy,0.688,156.0,0.704,0.757,0.226
+116,Entre Caníbales - Remasterizado 2007,Soda Stereo,latin rock,latin america,happy,0.608,112.3,0.604,0.551,0.006
+117,Soledad y el Mar (feat. Los Macorinos),Natalia Lafourcade,latin folk,latin america,relaxed,0.177,92.9,0.618,0.726,0.896
+118,gervonta,Peso Pluma,regional mexican,latin america,happy,0.698,121.1,0.723,0.732,0.552
+119,EL AMOR DE SU VIDA,Grupo Frontera,regional mexican,latin america,happy,0.834,151.7,0.746,0.616,0.06
+120,Robarte un Beso,Carlos Vives,vallenato,latin america,happy,0.859,95.0,0.652,0.742,0.082
+121,Amor y Control (Live),Ruben Blades,salsa,latin america,happy,0.648,89.7,0.74,0.611,0.712
+122,Parecen Viernes,Marc Anthony,salsa,latin america,happy,0.863,96.5,0.967,0.658,0.287
+123,Mi Vida Es Cantar,Celia Cruz,salsa,latin america,happy,0.749,95.0,0.961,0.814,0.479
+124,Não Me Cutuca,Anitta,brazilian funk,latin america,happy,0.877,106.0,0.732,0.762,0.245
+125,Voce E Linda - Remixed Original Album,Caetano Veloso,mpb,latin america,chill,0.458,95.1,0.449,0.568,0.815
+126,Toda Menina Baiana,Gilberto Gil,mpb,latin america,happy,0.897,106.2,0.968,0.692,0.236
+127,Eu Vou Torcer,Jorge Ben Jor,samba,latin america,relaxed,0.484,157.5,0.977,0.676,0.398
+128,Samba de regunta,João Gilberto,bossa nova,latin america,chill,0.176,112.8,0.434,0.412,0.851
+129,Turn Your Lights Down Low,Bob Marley,reggae,caribbean,happy,0.668,83.1,0.713,0.733,0.014
+130,Columbus - 2002 Remastered Version,Burning Spear,reggae,caribbean,relaxed,0.446,152.1,0.928,0.682,0.316
+131,Don't Be Afraid,Chronixx,reggae,caribbean,happy,0.604,139.6,0.887,0.777,0.017
+132,The Harder They Fall,Koffee,reggae,caribbean,happy,0.885,110.6,0.828,0.743,0.001
+133,Welcome To Jamrock,Damian Marley,reggae,caribbean,happy,0.661,76.7,0.753,0.836,0.021
+134,We Be Burnin',Sean Paul,dancehall,caribbean,happy,0.803,117.0,0.86,0.95,0.145
+135,Blessed,Buju Banton,dancehall,caribbean,relaxed,0.529,74.7,0.749,0.491,0.462
+136,Hit & Run (feat. Masicka & Di Genius),Shenseea,dancehall,caribbean,happy,0.639,95.0,0.701,0.823,0.193
+137,Like Ah Boss,Machel Montano,soca,caribbean,happy,0.944,134.0,0.746,0.804,0.105
+138,Cocoa Tea,Kes,soca,caribbean,happy,0.744,106.0,0.805,0.817,0.189
+139,Aasan Nahin Yahan,Arijit Singh,bollywood,south asia,moody,0.437,94.0,0.235,0.548,0.766
+140,Elangathu - Duet,Shreya Ghoshal,bollywood,south asia,relaxed,0.479,144.0,0.739,0.694,0.358
+141,Neethanae,A.R. Rahman,bollywood,south asia,chill,0.442,74.0,0.53,0.57,0.716
+142,"Dil To Pagal Hai (From ""Dil To Pagal Hai"")",Lata Mangeshkar,bollywood,south asia,happy,0.67,110.7,0.748,0.752,0.306
+143,Yaad Piya Ki Aane Lagi,Neha Kakkar,bollywood,south asia,happy,0.833,108.0,0.693,0.858,0.375
+144,"Dahaa Theme (From ""Coolie"")",Anirudh Ravichander,tamil pop,south asia,happy,0.665,173.9,0.615,0.734,0.043
+145,"Nandanandanaa (From ""The Family Star"")",Sid Sriram,tamil pop,south asia,relaxed,0.519,117.0,0.856,0.841,0.273
+146,Tension,Diljit Dosanjh,punjabi,south asia,relaxed,0.593,96.0,0.711,0.875,0.049
+147,East Side Flow,Sidhu Moose Wala,punjabi,south asia,happy,0.867,152.0,0.786,0.767,0.109
+148,Excuses,AP Dhillon,punjabi,south asia,intense,0.717,95.0,0.494,0.837,0.084
+149,Dil Diyan Gallan,Atif Aslam,pakistani pop,south asia,intense,0.64,105.0,0.485,0.717,0.565
+150,Gardashon Ke Hain Mare Huye - Complete Original Version,Nusrat Fateh Ali Khan,qawwali,south asia,happy,0.783,108.4,0.791,0.501,0.515
+151,Kempegowda,Ravi Shankar,hindustani,south asia,happy,0.855,110.0,0.773,0.776,0.471
+152,NORMAL,BTS,k-pop,east asia,happy,0.774,73.1,0.651,0.464,0.206
+153,GO,BLACKPINK,k-pop,east asia,chill,0.589,103.1,0.203,0.611,0.023
+154,Do It,Stray Kids,k-pop,east asia,happy,0.922,105.0,0.734,0.766,0.138
+155,Super Shy,NewJeans,k-pop,east asia,intense,0.817,149.9,0.515,0.776,0.18
+156,"LET LOVE GO (JEONGYEON, MOMO, SANA, TZUYU)",TWICE,k-pop,east asia,happy,0.778,122.0,0.783,0.772,0.005
+157,"LOVE, MONEY, FAME (feat. DJ Khaled)",SEVENTEEN,k-pop,east asia,happy,0.703,100.0,0.789,0.87,0.041
+158,擱淺,Jay Chou,mandopop,east asia,chill,0.5,122.7,0.127,0.499,0.687
+159,甜蜜蜜,Teresa Teng,mandopop,east asia,chill,0.356,127.9,0.408,0.651,0.559
+160,修煉愛情,JJ Lin,mandopop,east asia,intense,0.634,135.0,0.232,0.433,0.626
+161,BOW AND ARROW,Kenshi Yonezu,j-pop,east asia,happy,0.884,180.0,0.693,0.604,0.029
+162,アイドル,YOASOBI,j-pop,east asia,happy,0.941,165.8,0.876,0.457,0.105
+163,Shinunoga E-Wa,Fujii Kaze,j-pop,east asia,intense,0.76,158.1,0.519,0.6,0.166
+164,RATATATA,BABYMETAL,j-metal,east asia,happy,0.889,140.0,0.666,0.559,0.0
+165,Introvert (feat. Joji),Rich Brian,hip hop,southeast asia,happy,0.686,110.0,0.632,0.836,0.14
+166,Take A Chance With Me,NIKI,indie pop,southeast asia,chill,0.417,93.9,0.52,0.628,0.841
+167,Monokrom,Tulus,indo pop,southeast asia,chill,0.462,88.0,0.519,0.534,0.573
+168,Tetap Bukan Kamu (feat. Rony Parulian),Raisa,indo pop,southeast asia,moody,0.419,139.8,0.38,0.406,0.872
+169,Sebuah Rasa,AGNEZ MO,indo pop,southeast asia,moody,0.244,79.1,0.122,0.244,0.736
+170,Sa Susunod na Habang Buhay,Ben&Ben,opm,southeast asia,moody,0.342,177.2,0.274,0.311,0.432
+171,"Babalik Sa'yo (from ""2 Good 2 Be True"")",Moira Dela Torre,opm,southeast asia,happy,0.65,157.9,0.695,0.515,0.168
+172,"Maybe This Time - From ""Maybe This Time""",Sarah Geronimo,opm,southeast asia,moody,0.271,133.8,0.182,0.497,0.706
+173,Lover Boy,Phum Viphurit,indie pop,southeast asia,relaxed,0.556,110.0,0.627,0.798,0.527
+174,Easy On Me,Adele,pop,europe,moody,0.366,142.0,0.13,0.604,0.578
+175,In Other Words,Ed Sheeran,pop,europe,moody,0.218,82.1,0.323,0.651,0.937
+176,Higher Power,Coldplay,rock,europe,intense,0.828,178.0,0.489,0.507,0.007
+177,Break My Heart,Dua Lipa,pop,europe,intense,0.729,113.0,0.467,0.73,0.167
+178,Alors on danse - Radio Edit,Stromae,french pop,europe,relaxed,0.593,120.0,0.72,0.79,0.098
+179,Copines,Aya Nakamura,french pop,europe,happy,0.787,180.0,0.904,0.701,0.27
+180,La vie en rose,Édith Piaf,chanson,europe,chill,0.302,82.5,0.422,0.39,0.984
+181,One More Time,Daft Punk,electronic,europe,intense,0.697,122.7,0.476,0.613,0.019
+182,Love Is Gone,David Guetta,electronic,europe,happy,0.796,128.0,0.638,0.651,0.011
+183,Dile,Rosalia,flamenco pop,europe,happy,0.903,175.5,0.866,0.502,0.855
+184,Cruel Summer,Maneskin,rock,europe,happy,0.679,147.9,0.7,0.618,0.353
+185,Amerika,Rammstein,metal,europe,intense,0.885,125.0,0.518,0.608,0.003
+186,The Model - 2009 Remaster,Kraftwerk,electronic,europe,intense,0.683,123.6,0.463,0.708,0.001
+187,Dancing Queen,ABBA,pop,europe,happy,0.87,100.8,0.754,0.543,0.358
+188,Father Figure,Taylor Swift,pop,north america,intense,0.661,93.9,0.321,0.745,0.302
+189,Timeless (feat Playboi Carti),The Weeknd,synthpop,north america,happy,0.775,120.0,0.6,0.768,0.069
+190,Leave The Door Open,Bruno Mars,funk,north america,happy,0.616,148.1,0.719,0.586,0.182
+191,lovely (with Khalid),Billie Eilish,pop,north america,moody,0.296,115.3,0.12,0.351,0.934
+192,"jealousy, jealousy",Olivia Rodrigo,pop rock,north america,relaxed,0.575,163.9,0.699,0.695,0.198
+193,tv off (feat. lefty gunplay),Kendrick Lamar,hip hop,north america,chill,0.529,100.0,0.548,0.855,0.084
+194,Practice,Drake,hip hop,north america,moody,0.239,104.7,0.31,0.446,0.574
+195,Saturn,SZA,r&b,north america,chill,0.577,89.1,0.328,0.557,0.64
+196,White Ferrari,Frank Ocean,r&b,north america,moody,0.096,108.7,0.204,0.501,0.77
+197,The Little Drummer Boy,Stevie Wonder,soul,north america,moody,0.448,134.5,0.35,0.523,0.442
+198,You're All I Need to Get By,Aretha Franklin,soul,north america,intense,0.612,89.5,0.421,0.517,0.624
+199,Ballad Of A Teenage Queen,Johnny Cash,country,north america,relaxed,0.469,98.0,0.603,0.676,0.578
+200,We Three Kings,Dolly Parton,country,north america,moody,0.294,53.0,0.347,0.29,0.498
+201,High Speed Chase,Miles Davis,jazz,north america,happy,0.866,135.9,0.6,0.697,0.0
+202,"Alabama - Live At Birdland Jazzclub, New York City, NY, 10/18/1963",John Coltrane,jazz,north america,moody,0.077,107.7,0.112,0.428,0.774
+203,Aneurysm,Nirvana,rock,north america,intense,0.823,135.6,0.235,0.298,0.0
+204,...And Justice For All,Metallica,metal,north america,intense,0.799,86.6,0.409,0.547,0.0
+205,Dracula,Tame Impala,psych rock,oceania,happy,0.731,114.8,0.612,0.415,0.027
+206,Snowflake,Sia,pop,oceania,moody,0.354,134.2,0.183,0.598,0.444
+207,Back In Black,AC/DC,rock,oceania,happy,0.7,188.4,0.763,0.31,0.011
+208,Santa Baby,Kylie Minogue,pop,oceania,chill,0.391,87.1,0.443,0.685,0.744
+209,The Ocean Is Fake,Flume,electronic,oceania,intense,0.858,84.8,0.537,0.388,0.22
+210,Shapeshifter,Lorde,art pop,oceania,intense,0.632,139.9,0.304,0.574,0.41
+211,We Made It,SIX60,pop,oceania,happy,0.629,80.0,0.781,0.768,0.608
+212,Take It Easy,Stan Walker,r&b,oceania,happy,0.802,90.0,0.905,0.699,0.144
+213,Msumari,Diamond Platnumz,bongo,east africa,intense,0.642,91.0,0.545,0.788,0.598
+214,Amelowa,Harmonize,bongo,east africa,happy,0.715,103.0,0.777,0.879,0.468
+215,Yaya (feat. Diamond Platnumz & Jux),Rayvanny,bongo,east africa,happy,0.871,112.0,0.678,0.809,0.134
+216,Mahaba,Alikiba,bongo,east africa,relaxed,0.478,113.3,0.661,0.891,0.617
+217,Wale Wale (feat. Diamond Platnumz),Zuchu,bongo,east africa,happy,0.793,120.0,0.796,0.832,0.342
+218,Kupenda,Mbosso,bongo,east africa,happy,0.832,100.0,0.901,0.801,0.245
+219,Number One,Nandy,bongo,east africa,happy,0.707,91.0,0.864,0.83,0.202
+220,Love Song,Marioo,bongo,east africa,chill,0.539,111.9,0.541,0.659,0.562
+221,Nisiulizwe,Jux,bongo,east africa,happy,0.757,170.0,0.848,0.496,0.17
+222,Midnight Train,Sauti Sol,afropop,east africa,intense,0.773,100.0,0.527,0.698,0.034
+223,Perfect Design,Nyashinski,afropop,east africa,relaxed,0.522,124.1,0.763,0.516,0.592
+224,Mapenzi Hisia,Otile Brown,afropop,east africa,intense,0.684,88.0,0.512,0.684,0.107
+225,Inauma,Bien,afropop,east africa,happy,0.673,97.0,0.632,0.73,0.13
+226,Pombe Sigara,Nviiri The Storyteller,afropop,east africa,chill,0.546,91.0,0.513,0.708,0.205
+227,Mario,Khaligraph Jones,hip hop,east africa,happy,0.814,108.1,0.898,0.752,0.413
+228,Keki,Willy Paul,afropop,east africa,happy,0.661,91.0,0.689,0.806,0.155
+229,Nyange,Eddy Kenzo,afropop,east africa,happy,0.683,101.0,0.805,0.889,0.245
+230,Nkwatako,Sheebah Karungi,afropop,east africa,happy,0.916,102.0,0.837,0.827,0.071
+231,Missing You,Bebe Cool,afropop,east africa,relaxed,0.54,81.0,0.671,0.722,0.22
+232,Be 70 Dereja,Teddy Afro,ethio pop,east africa,happy,0.798,144.0,0.872,0.641,0.018
+233,Eshururu,Aster Aweke,ethio pop,east africa,relaxed,0.586,170.1,0.96,0.676,0.462
+234,Kasalefkut-hulu - Stereo Master,Mulatu Astatke,ethio jazz,east africa,relaxed,0.303,82.8,0.856,0.685,0.583
+235,For My Hand (feat. Ed Sheeran),Burna Boy,afrobeats,west africa,relaxed,0.479,104.1,0.717,0.87,0.161
+236,Break Me Down,Wizkid,afrobeats,west africa,intense,0.627,97.4,0.535,0.633,0.171
+237,Like Dat,Davido,afrobeats,west africa,intense,0.754,113.0,0.407,0.865,0.247
+238,FUN,Rema,afrobeats,west africa,intense,0.838,125.1,0.396,0.684,0.509
+239,MMS,Asake,afrobeats,west africa,happy,0.634,101.8,0.645,0.502,0.677
+240,Hot Body,Ayra Starr,afrobeats,west africa,intense,0.706,103.7,0.311,0.534,0.085
+241,Free Mind,Tems,afrobeats,west africa,chill,0.463,125.2,0.416,0.562,0.442
+242,Playboy,Fireboy DML,afrobeats,west africa,happy,0.667,155.1,0.831,0.541,0.347
+243,Holy Ghost,Omah Lay,afrobeats,west africa,chill,0.415,114.0,0.488,0.823,0.471
+244,Stamina,Tiwa Savage,afrobeats,west africa,happy,0.605,114.4,0.665,0.661,0.093
+245,love nwantiti (feat. ElGrande Toto) - North African Remix,CKay,afrobeats,west africa,intense,0.723,186.0,0.487,0.642,0.58
+246,Baby,Joeboy,afrobeats,west africa,intense,0.806,105.0,0.539,0.785,0.142
+247,Africa,Yemi Alade,afropop,west africa,happy,0.903,102.0,0.744,0.79,0.057
+248,Legalize,Mr Eazi,afrobeats,west africa,intense,0.648,132.4,0.559,0.574,0.361
+249,Adamma,Flavour,highlife,west africa,happy,0.991,116.3,0.684,0.736,0.273
+250,Do Me - Deluxe,P-Square,afropop,west africa,happy,0.916,103.1,0.963,0.81,0.517
+251,Ako,Fela Kuti,afrobeat,west africa,happy,0.796,119.6,0.881,0.753,0.208
+252,Country Side (feat. Black Sherif),Sarkodie,hip hop,west africa,happy,0.816,126.0,0.721,0.867,0.096
+253,Killa Ji Mi,Shatta Wale,dancehall,west africa,chill,0.531,185.5,0.336,0.487,0.015
+254,My Name,Stonebwoy,dancehall,west africa,happy,0.632,131.7,0.701,0.572,0.335
+255,So it Goes,Black Sherif,afrobeats,west africa,intense,0.638,145.8,0.568,0.686,0.45
+256,Angels in Tibet,Amaarae,alte,west africa,intense,0.664,140.0,0.555,0.798,0.282
+257,On l'a fait!,Youssou N'Dour,mbalax,west africa,happy,0.73,124.0,0.722,0.729,0.486
+258,Africa,Salif Keita,mande,west africa,happy,0.893,111.0,0.939,0.757,0.274
+259,JERUSALEMA,Angelique Kidjo,afropop,west africa,moody,0.457,120.0,0.245,0.511,0.299
+260,Cler Achel,Tinariwen,desert blues,west africa,happy,0.797,98.6,0.926,0.685,0.506
+261,Associé,Fally Ipupa,rumba,central africa,happy,0.77,93.9,0.759,0.612,0.531
+262,Mbabula,Koffi Olomide,rumba,central africa,happy,0.664,105.0,0.896,0.75,0.156
+263,Est-ce-que,Papa Wemba,rumba,central africa,happy,0.707,89.9,0.937,0.51,0.446
+264,Sete,Innoss'B,rumba,central africa,happy,0.859,119.0,0.931,0.781,0.441
+265,Castaway,FRANCO,rumba,central africa,intense,0.85,155.9,0.294,0.382,0.001
+266,Shine Your Light (feat. Akon),Master KG,amapiano,southern africa,intense,0.781,123.0,0.399,0.763,0.027
+267,"Lorch (feat. Semi Tee, Miano & Kammu Dee)",Kabza De Small,amapiano,southern africa,intense,0.681,113.0,0.408,0.913,0.17
+268,"Mukondeleli (feat. Thatohatsi, LeeMcKrazy & CowBoii)",DJ Maphorisa,amapiano,southern africa,chill,0.568,112.0,0.568,0.775,0.029
+269,Khekheleza (Dlala Dlala) [feat. Thama Tee & Eeque],Focalistic,amapiano,southern africa,happy,0.673,112.0,0.691,0.8,0.019
+270,SHE DID IT AGAIN (feat. Zara Larsson),Tyla,amapiano,southern africa,happy,0.685,97.2,0.659,0.768,0.237
+271,John Cena,Sho Madjozi,gqom,southern africa,happy,0.609,127.1,0.67,0.901,0.036
+272,Head Up 2.0,Nasty C,hip hop,southern africa,chill,0.557,72.0,0.297,0.502,0.231
+273,You Turn Me On,Black Coffee,house,southern africa,intense,0.826,77.6,0.566,0.399,0.005
+274,Umusa Kankulunkulu (Mercy of God),Ladysmith Black Mambazo,isicathamiya,southern africa,chill,0.079,169.2,0.494,0.382,0.946
+275,Baxabene Oxamu,Miriam Makeba,afropop,southern africa,relaxed,0.448,95.8,0.803,0.704,0.648
+276,Loliwe,Zahara,afro soul,southern africa,intense,0.649,134.1,0.544,0.597,0.252
+277,Ana Ayesh,Amr Diab,arabic pop,north africa & middle east,happy,0.672,83.2,0.833,0.681,0.614
+278,Men Nazra,Nancy Ajram,arabic pop,north africa & middle east,happy,0.919,134.0,0.964,0.835,0.052
+279,أنا سكتين,Elissa,arabic pop,north africa & middle east,intense,0.682,143.9,0.407,0.538,0.324
+280,مستني ايه,Tamer Hosny,arabic pop,north africa & middle east,chill,0.559,102.0,0.407,0.502,0.615
+281,Homa Dol,Saad Lamjarred,arabic pop,north africa & middle east,intense,0.723,144.1,0.554,0.619,0.217
+282,Kan Endena Tahoun Sahar El Laialy,Fairuz,arabic classical,north africa & middle east,intense,0.643,71.0,0.534,0.46,0.837
+283,Ya Mesaharny,Umm Kulthum,arabic classical,north africa & middle east,chill,0.525,100.7,0.425,0.418,0.771
+284,Cookin Hardala,Khaled,rai,north africa & middle east,intense,0.771,83.4,0.526,0.617,0.304
+285,Amira,Wegz,hip hop,north africa & middle east,relaxed,0.594,117.9,0.629,0.755,0.12
+286,رايحين نسهر - بام بام,Mohamed Ramadan,arabic pop,north africa & middle east,happy,0.997,160.0,0.929,0.72,0.009
+287,Öp,Tarkan,turkish pop,north africa & middle east,happy,0.749,130.0,0.801,0.783,0.039
+288,Seni Yerler,Sezen Aksu,turkish pop,north africa & middle east,happy,0.813,119.0,0.761,0.752,0.032
+289,Otro Atardecer,Bad Bunny,reggaeton,latin america,chill,0.595,108.0,0.546,0.777,0.59
+290,UN DIA (ONE DAY) (Feat. Tainy),J Balvin,reggaeton,latin america,intense,0.693,168.2,0.393,0.571,0.005
+291,UNA NOCHE EN MEDELLÍN - REMIX,KAROL G,reggaeton,latin america,happy,0.755,96.0,0.883,0.846,0.036
+292,No Quiere Enamorarse,Ozuna,reggaeton,latin america,happy,0.728,81.9,0.751,0.711,0.22
+293,"Cuatro Babys (feat. Trap Capos, Noriel, Bryant Myers & Juhn)",Maluma,reggaeton,latin america,chill,0.547,130.1,0.096,0.772,0.098
+294,Dia de Enero,Shakira,latin pop,latin america,chill,0.361,165.7,0.526,0.687,0.35
+295,La Media Vuelta,Luis Miguel,latin pop,latin america,happy,0.683,98.0,0.708,0.631,0.291
+296,Bonita,Juanes,latin rock,latin america,happy,0.881,158.0,0.961,0.745,0.255
+297,Prófugos - Remasterizado 2007,Soda Stereo,latin rock,latin america,intense,0.895,127.2,0.359,0.551,0.003
+298,María la Curandera,Natalia Lafourcade,latin folk,latin america,relaxed,0.455,77.7,0.727,0.693,0.704
+299,SANTAL 33,Peso Pluma,regional mexican,latin america,happy,0.764,125.1,0.735,0.715,0.666
+300,Hecha Pa' Mí,Grupo Frontera,regional mexican,latin america,happy,0.832,98.6,0.716,0.742,0.086
+301,La Bicicleta,Carlos Vives,vallenato,latin america,happy,0.944,180.0,0.951,0.745,0.21
+302,El Padre Antonio y el Monaguillo Andrés (Live),Ruben Blades,salsa,latin america,happy,0.616,105.0,0.693,0.47,0.599
+303,Aguanile,Marc Anthony,salsa,latin america,happy,0.785,122.4,0.678,0.623,0.083
+304,La Vida Es Un Carnaval,Celia Cruz,salsa,latin america,happy,0.701,104.0,0.856,0.814,0.489
+305,Imagina,Anitta,brazilian funk,latin america,happy,0.689,115.0,0.7,0.797,0.338
+306,Meia Lua Inteira,Caetano Veloso,mpb,latin america,happy,0.625,103.7,0.925,0.743,0.43
+307,"Não chores mais [No Woman, No Cry] (feat. Os Paralamas do Sucesso)",Gilberto Gil,mpb,latin america,chill,0.319,168.0,0.496,0.473,0.189
+308,O Homem Da Gravata Florida,Jorge Ben Jor,samba,latin america,happy,0.651,112.1,0.773,0.568,0.583
+309,Soul Rebel,Bob Marley,reggae,caribbean,chill,0.365,80.7,0.477,0.483,0.611
+310,House Of Reggae,Burning Spear,reggae,caribbean,relaxed,0.545,139.4,0.888,0.793,0.004
+311,Pain in Your Heart,Chronixx,reggae,caribbean,relaxed,0.596,168.9,0.694,0.737,0.026
+312,Nice and Fast,Koffee,reggae,caribbean,relaxed,0.439,89.0,0.7,0.774,0.027
+313,My Sweet Lord,Damian Marley,reggae,caribbean,relaxed,0.518,127.0,0.803,0.913,0.077
+314,Dynamite,Sean Paul,dancehall,caribbean,happy,0.86,100.9,0.816,0.624,0.07
+315,A Little More Time,Buju Banton,dancehall,caribbean,happy,0.607,173.3,0.707,0.76,0.11
+316,Puni Police,Shenseea,dancehall,caribbean,happy,0.809,97.1,0.656,0.744,0.507
+317,One Wine,Machel Montano,soca,caribbean,happy,0.943,195.6,0.823,0.506,0.078
+318,Tack Back,Kes,soca,caribbean,intense,0.855,110.0,0.576,0.747,0.064
+319,"Bekhayali (Arijit Singh Version) [From ""Kabir Singh""]",Arijit Singh,bollywood,south asia,chill,0.58,172.4,0.353,0.29,0.491
+320,"Kaana Mullal - From ""Salt & Pepper""",Shreya Ghoshal,bollywood,south asia,chill,0.586,110.0,0.422,0.64,0.7
+321,"Main Parwaana - From ""Pippa""",A.R. Rahman,bollywood,south asia,happy,0.763,124.0,0.83,0.852,0.149
+322,"Ek Tu Hi Bharosa (From ""Pukar"")",Lata Mangeshkar,bollywood,south asia,moody,0.362,84.0,0.233,0.339,0.515
+323,Chamma Chamma,Neha Kakkar,bollywood,south asia,intense,0.94,100.0,0.406,0.723,0.019
+324,"Hridayam Lopala (From ""Kingdom"")",Anirudh Ravichander,tamil pop,south asia,intense,0.871,120.0,0.299,0.695,0.102
+325,Leharaayi,Sid Sriram,tamil pop,south asia,intense,0.608,92.0,0.476,0.78,0.245
+326,"Ishq Da Chehra (From ""BORDER 2"")",Diljit Dosanjh,punjabi,south asia,happy,0.803,88.6,0.668,0.318,0.622
+327,Dawood,Sidhu Moose Wala,punjabi,south asia,intense,0.834,86.0,0.47,0.664,0.033
+328,Brown Munde,AP Dhillon,punjabi,south asia,intense,0.611,100.0,0.417,0.854,0.223
+329,Hona Tha Pyar,Atif Aslam,pakistani pop,south asia,relaxed,0.542,103.0,0.782,0.687,0.571
+330,5 Man Kunto Maula,Nusrat Fateh Ali Khan,qawwali,south asia,happy,0.73,99.0,0.703,0.425,0.518
+331,Tala Rasa Ranga,Ravi Shankar,hindustani,south asia,relaxed,0.549,140.0,0.704,0.517,0.149
+332,ON - Live,BTS,k-pop,east asia,intense,0.964,105.9,0.202,0.302,0.077
+333,Champion,BLACKPINK,k-pop,east asia,intense,0.756,159.9,0.327,0.661,0.024
+334,DIVINE,Stray Kids,k-pop,east asia,happy,0.858,99.0,0.608,0.633,0.008
+335,OMG,NewJeans,k-pop,east asia,happy,0.771,127.0,0.739,0.804,0.357
+336,Talk that Talk,TWICE,k-pop,east asia,happy,0.907,120.0,0.783,0.772,0.136
+337,Untuk Mencintaimu,Seventeen,k-pop,east asia,intense,0.614,148.3,0.315,0.345,0.169
+338,青花瓷,Jay Chou,mandopop,east asia,chill,0.497,108.0,0.575,0.69,0.227
+339,愛人,Teresa Teng,mandopop,east asia,relaxed,0.586,122.1,0.634,0.728,0.402
+340,不為誰而作的歌,JJ Lin,mandopop,east asia,intense,0.641,145.1,0.252,0.402,0.534
+341,Plazma,Kenshi Yonezu,j-pop,east asia,happy,0.904,173.1,0.635,0.603,0.022
+342,夜に駆ける,YOASOBI,j-pop,east asia,happy,0.871,130.0,0.826,0.663,0.003
+343,きらり,Fujii Kaze,j-pop,east asia,happy,0.764,117.0,0.701,0.746,0.008
+344,Gimme Chocolate!!,BABYMETAL,j-metal,east asia,intense,0.985,110.0,0.44,0.616,0.0
+345,Little Prince (feat. NIKI),Rich Brian,hip hop,southeast asia,relaxed,0.414,140.0,0.761,0.909,0.166
+346,La La Lost You - Acoustic Version,NIKI,indie pop,southeast asia,moody,0.196,101.2,0.39,0.617,0.908
+347,Interaksi,Tulus,indo pop,southeast asia,relaxed,0.344,177.7,0.751,0.464,0.778
+348,Jatuh Hati,Raisa,indo pop,southeast asia,moody,0.355,132.1,0.234,0.536,0.813
+349,Overdose (feat. Chris Brown),AGNEZ MO,indo pop,southeast asia,intense,0.616,141.0,0.543,0.405,0.231
+350,Kathang Isip,Ben&Ben,opm,southeast asia,moody,0.314,126.9,0.295,0.491,0.776
+351,Paubaya,Moira Dela Torre,opm,southeast asia,moody,0.245,127.1,0.174,0.373,0.766
+352,Umaaligid - Extended Ver.,Sarah Geronimo,opm,southeast asia,intense,0.856,113.0,0.467,0.717,0.075
+353,失眠航班（Sleepless on the plane),Phum Viphurit,indie pop,southeast asia,moody,0.325,140.0,0.343,0.636,0.716
+354,Set Fire to the Rain,Adele,pop,europe,intense,0.67,108.0,0.446,0.603,0.004
+355,Freedom,Ed Sheeran,pop,europe,intense,0.686,205.2,0.391,0.439,0.59
+356,Orphans,Coldplay,rock,europe,intense,0.808,108.0,0.282,0.503,0.026
+357,Happy For You,Dua Lipa,pop,europe,intense,0.705,120.0,0.327,0.59,0.016
+358,Ma Meilleure Ennemie ft. Coldplay,Stromae,french pop,europe,intense,0.662,88.1,0.398,0.58,0.014
+359,Pookie,Aya Nakamura,french pop,europe,chill,0.598,98.0,0.533,0.912,0.072
+360,L'accordeoniste (From 'Christmas Songs'1951),Edith Piaf,chanson,europe,chill,0.184,109.4,0.559,0.617,0.943
+361,Around the World,Daft Punk,electronic,europe,happy,0.795,121.3,0.841,0.956,0.004
+362,Just One Last Time (feat. Taped Rai),David Guetta,electronic,europe,intense,0.814,128.0,0.208,0.532,0.021
+363,Los Dos,Rosalia,flamenco pop,europe,chill,0.45,122.5,0.535,0.532,0.82
+364,Angst,Rammstein,metal,europe,intense,0.86,112.0,0.328,0.639,0.0
+365,Neon Lights - 2009 Remaster,Kraftwerk,electronic,europe,happy,0.978,104.8,0.661,0.71,0.055
+366,Super Trouper,ABBA,pop,europe,happy,0.626,118.3,0.961,0.764,0.457
+367,Call Out My Name,The Weeknd,synthpop,north america,chill,0.593,134.2,0.174,0.461,0.165
+368,Finesse - Remix; feat. Cardi B,Bruno Mars,funk,north america,happy,0.859,105.1,0.926,0.704,0.018
+369,Bored,Billie Eilish,pop,north america,moody,0.318,120.0,0.112,0.614,0.896
+370,girl i’ve always been,Olivia Rodrigo,pop rock,north america,relaxed,0.571,92.9,0.826,0.53,0.404
+371,squabble up,Kendrick Lamar,hip hop,north america,happy,0.672,103.9,0.711,0.874,0.021
+372,Marvins Room,Drake,hip hop,north america,moody,0.26,111.5,0.312,0.492,0.646
+373,Diamond Boy (DTM),SZA,r&b,north america,moody,0.374,133.0,0.397,0.642,0.827
+374,Ivy,Frank Ocean,r&b,north america,chill,0.386,116.4,0.466,0.575,0.785
+375,Faith,Stevie Wonder,soul,north america,happy,0.87,158.1,0.945,0.734,0.105
+376,Save Me,Aretha Franklin,soul,north america,chill,0.481,120.5,0.523,0.845,0.44
+377,I Got Stripes,Johnny Cash,country,north america,relaxed,0.556,103.6,0.915,0.711,0.71
+378,Once Upon a Christmas,Dolly Parton,country,north america,moody,0.249,67.1,0.211,0.4,0.876
+379,Bags Groove,Miles Davis,jazz,north america,chill,0.315,136.4,0.489,0.59,0.918
+380,Liberia,John Coltrane,jazz,north america,chill,0.422,117.8,0.446,0.481,0.794
+381,Drain You,Nirvana,rock,north america,intense,0.929,133.4,0.198,0.325,0.0
+382,One,Metallica,metal,north america,intense,0.691,103.3,0.433,0.439,0.001
+383,Oblivion,Tame Impala,psych rock,oceania,happy,0.853,105.0,0.777,0.689,0.097
+384,Sunshine,Sia,pop,oceania,happy,0.849,118.0,0.604,0.625,0.093
+385,Shoot to Thrill,AC/DC,rock,oceania,intense,0.904,141.0,0.48,0.457,0.0
+386,My Oh My (with Bebe Rexha & Tove Lo),Kylie Minogue,pop,oceania,intense,0.65,125.1,0.496,0.654,0.016
+387,This Song Is Not About A Girl,Flume,electronic,oceania,happy,0.671,140.0,0.61,0.762,0.145
+388,Hammer,Lorde,art pop,oceania,intense,0.608,95.2,0.205,0.44,0.445
+389,Kia Mau Ki Tō Ūkaipō / Don't Forget Your Roots,SIX60,pop,oceania,relaxed,0.58,147.9,0.645,0.64,0.205
+390,Māori Ki Te Ao,Stan Walker,r&b,oceania,intense,0.603,72.9,0.581,0.621,0.041
+391,Waah! (feat. Koffi Olomide),Diamond Platnumz,bongo,east africa,happy,0.905,113.9,0.923,0.805,0.459
+392,Aiyola,Harmonize,bongo,east africa,happy,0.722,91.6,0.854,0.641,0.142
+393,Chuchumaa,Rayvanny,bongo,east africa,happy,0.674,97.0,0.7,0.835,0.148
+394,Huku,Alikiba,bongo,east africa,intense,0.749,112.0,0.586,0.86,0.308
+395,Pwita,Zuchu,bongo,east africa,intense,0.861,172.0,0.511,0.633,0.185
+396,Shetani (feat. Costa Titch & Alfa Kat),Mbosso,bongo,east africa,intense,0.769,113.0,0.57,0.788,0.095
+397,Mlete,Nandy,bongo,east africa,intense,0.909,137.9,0.438,0.805,0.03
+398,Naogopa,Marioo,bongo,east africa,happy,0.81,184.2,0.72,0.719,0.442
+399,Lucky Now,Jux,bongo,east africa,chill,0.182,66.5,0.468,0.554,0.72
+400,Short N Sweet,Sauti Sol,afropop,east africa,happy,0.685,173.9,0.681,0.664,0.055
+401,Dopamine,Nyashinski,afropop,east africa,intense,0.737,119.9,0.491,0.747,0.469
+402,Such Kinda Love,Otile Brown,afropop,east africa,happy,0.827,94.0,0.786,0.745,0.303
+403,Too Easy,Bien,afropop,east africa,happy,0.712,96.0,0.803,0.79,0.091
+404,Nikilewa,Nviiri The Storyteller,afropop,east africa,chill,0.556,80.9,0.469,0.731,0.267
+405,Wrong Number,Khaligraph Jones,hip hop,east africa,happy,0.79,96.1,0.619,0.843,0.106
+406,Bingiri,Willy Paul,afropop,east africa,happy,0.615,162.1,0.86,0.73,0.499
+407,Blessed,Eddy Kenzo,afropop,east africa,relaxed,0.529,100.0,0.803,0.778,0.648
+408,Wankona,Sheebah Karungi,afropop,east africa,happy,0.89,101.0,0.961,0.797,0.288
+409,Go Mama,Bebe Cool,afropop,east africa,happy,0.629,82.0,0.87,0.617,0.307
+410,Hilm Aydegemem,Teddy Afro,ethio pop,east africa,relaxed,0.587,117.9,0.788,0.695,0.104
+411,Sew Mehonne,Aster Aweke,ethio pop,east africa,moody,0.332,117.8,0.387,0.466,0.55
+412,Munayé (My Muna),Mulatu Astatke,ethio jazz,east africa,relaxed,0.501,115.5,0.643,0.834,0.921
+413,TaTaTa - Spotify Sessions,Burna Boy,afrobeats,west africa,relaxed,0.535,124.0,0.66,0.881,0.083
+414,Diamonds,Wizkid,afrobeats,west africa,happy,0.788,100.0,0.743,0.759,0.049
+415,NA MONEY (feat. The Cavemen. & Angélique Kidjo),Davido,afrobeats,west africa,happy,0.774,180.0,0.63,0.668,0.175
+416,Charm,Rema,afrobeats,west africa,intense,0.663,96.0,0.542,0.762,0.569
+417,Remember,Asake,afrobeats,west africa,happy,0.675,112.0,0.783,0.755,0.512
+418,Last Heartbreak Song (feat. Giveon),Ayra Starr,afrobeats,west africa,happy,0.624,90.0,0.618,0.685,0.318
+419,Love Me JeJe,Tems,afrobeats,west africa,chill,0.516,104.0,0.531,0.834,0.156
+420,everyday,Fireboy DML,afrobeats,west africa,happy,0.657,100.1,0.932,0.887,0.153
+421,I AM,Omah Lay,afrobeats,west africa,intense,0.759,122.0,0.338,0.715,0.195
+422,MEGA MONEY MEGA,Tiwa Savage,afrobeats,west africa,intense,0.655,115.0,0.492,0.842,0.031
+423,Felony,CKay,afrobeats,west africa,happy,0.689,102.9,0.709,0.701,0.463
+424,Body & Soul,Joeboy,afrobeats,west africa,intense,0.666,101.0,0.512,0.805,0.341
+425,Na Gode,Yemi Alade,afropop,west africa,happy,0.842,170.9,0.955,0.523,0.282
+426,Oh My Gawd,Mr Eazi,afrobeats,west africa,happy,0.867,94.1,0.83,0.83,0.15
+427,Odogwu,Flavour,highlife,west africa,happy,0.872,104.1,0.95,0.729,0.735
+428,E No Easy,P-Square,afropop,west africa,happy,0.933,215.8,0.817,0.648,0.241
+429,No Agreement,Fela Kuti,afrobeat,west africa,happy,0.831,99.4,0.823,0.77,0.147
+430,AMEN,Sarkodie,hip hop,west africa,chill,0.55,129.9,0.532,0.822,0.568
+431,IANGTJTY,Shatta Wale,dancehall,west africa,intense,0.685,73.6,0.472,0.671,0.151
+432,MEMORIES (feat. Ir Sais),Stonebwoy,dancehall,west africa,intense,0.722,90.0,0.549,0.805,0.44
+433,The Victory Song,Black Sherif,afrobeats,west africa,moody,0.422,142.0,0.201,0.585,0.407
+434,SAD GIRLZ LUV MONEY,Amaarae,alte,west africa,moody,0.492,110.0,0.296,0.883,0.447
+435,Don't Walk Away (feat. Sting),Youssou N'Dour,mbalax,west africa,moody,0.488,165.6,0.263,0.738,0.039
+436,Moussolou,Salif Keita,mande,west africa,relaxed,0.501,104.6,0.629,0.58,0.586
+437,Agolo,Angelique Kidjo,afropop,west africa,happy,0.808,94.0,0.835,0.701,0.037
+438,Tenere Den,Tinariwen,desert blues,west africa,intense,0.909,91.4,0.436,0.593,0.157
+439,A Flyé,Fally Ipupa,rumba,central africa,intense,0.625,141.0,0.536,0.487,0.198
+440,Motomolo,Koffi Olomide,rumba,central africa,happy,0.822,123.9,0.902,0.489,0.358
+441,Phrase,Papa Wemba,rumba,central africa,relaxed,0.556,158.0,0.632,0.582,0.685
+442,Maboko Milayi,Innoss'B,rumba,central africa,happy,0.878,117.0,0.961,0.804,0.736
+443,Aurora Sunrise,FRANCO,rumba,central africa,intense,0.744,161.9,0.525,0.48,0.009
+444,Skeleton Move,Master KG,amapiano,southern africa,relaxed,0.557,125.2,0.934,0.613,0.177
+445,"Ufunani (feat. Aymos, Kelvin Momo & Jay Sax)",Kabza De Small,amapiano,southern africa,intense,0.773,113.0,0.55,0.825,0.001
+446,Koko (feat. Mhaw Keys),DJ Maphorisa,amapiano,southern africa,relaxed,0.425,230.2,0.797,0.744,0.065
+447,Sports Mode (feat. M.J & LastBornDiroba),Focalistic,amapiano,southern africa,intense,0.669,113.0,0.589,0.802,0.009
+448,IS IT LOVE,Tyla,amapiano,southern africa,relaxed,0.595,89.0,0.799,0.741,0.051
+449,Huku,Sho Madjozi,gqom,southern africa,happy,0.785,128.0,0.911,0.863,0.003
+450,Strings And Bling,Nasty C,hip hop,southern africa,chill,0.556,140.0,0.38,0.75,0.05
+451,Come With Me (feat. Mque),Black Coffee,house,southern africa,intense,0.623,125.0,0.231,0.826,0.034
+452,Selingelethu Sonke,Ladysmith Black Mambazo,isicathamiya,southern africa,chill,0.281,94.6,0.496,0.365,0.887
+453,Congo,Miriam Makeba,afropop,southern africa,moody,0.006,83.8,0.168,0.321,0.904
+454,Demasiadas canciones,Zahara,afro soul,southern africa,intense,0.61,116.9,0.418,0.621,0.476
+455,Makanak Fe Alby,Amr Diab,arabic pop,north africa & middle east,chill,0.573,72.1,0.481,0.386,0.529
+456,Oul Tani Eyh,Nancy Ajram,arabic pop,north africa & middle east,happy,0.906,142.0,0.963,0.771,0.262
+457,هنغني كمان وكمان,Elissa,arabic pop,north africa & middle east,happy,0.747,140.0,0.793,0.672,0.52
+458,حبك لو غلطه,Tamer Hosny,arabic pop,north africa & middle east,intense,0.651,116.0,0.444,0.727,0.075
+459,Ensay,Saad Lamjarred,arabic pop,north africa & middle east,happy,0.826,122.1,0.707,0.701,0.06
+460,El Bent El Shalabeya,Fairuz,arabic classical,north africa & middle east,relaxed,0.378,86.1,0.746,0.621,0.803
+461,Aghadan Alqak,Umm Kulthum,arabic classical,north africa & middle east,chill,0.292,104.5,0.478,0.395,0.977
+462,Aïcha,Khaled,rai,north africa & middle east,intense,0.628,170.1,0.472,0.595,0.217
+463,عفاريت الأسفلت,Wegz,hip hop,north africa & middle east,relaxed,0.528,143.1,0.801,0.85,0.505
+464,Paris Dubaï,Mohamed Ramadan,arabic pop,north africa & middle east,happy,0.776,134.1,0.849,0.843,0.081
+465,Anılarla Yaşamak,Tarkan,turkish pop,north africa & middle east,happy,0.663,122.9,0.763,0.792,0.122
+466,Rakkas,Sezen Aksu,turkish pop,north africa & middle east,happy,0.854,116.0,0.767,0.753,0.724
+467,TELEFONO NUEVO,Bad Bunny,reggaeton,latin america,intense,0.619,125.8,0.393,0.619,0.407
+468,Perra,J Balvin,reggaeton,latin america,happy,0.952,98.0,0.747,0.906,0.079
+469,200 COPAS,KAROL G,reggaeton,latin america,happy,0.704,91.2,0.885,0.515,0.767
+470,El Desorden,Ozuna,reggaeton,latin america,happy,0.81,164.0,0.889,0.838,0.22
+471,"Un Polvo (feat. Bad Bunny, Arcángel, Ñengo Flow & De La Ghetto)",Maluma,reggaeton,latin america,intense,0.681,134.1,0.468,0.811,0.673
+472,Antologia,Shakira,latin pop,latin america,chill,0.403,98.0,0.575,0.839,0.5
+473,La bikina - En vivo,Luis Miguel,latin pop,latin america,happy,0.71,160.4,0.666,0.389,0.161
+474,Fuego,Juanes,latin rock,latin america,happy,0.66,95.2,0.934,0.745,0.058
+475,Zoom - Remasterizado 2007,Soda Stereo,latin rock,latin america,happy,0.823,93.9,0.949,0.693,0.076
+476,Soy Lo Prohibido (feat. Los Macorinos),Natalia Lafourcade,latin folk,latin america,moody,0.217,83.0,0.189,0.662,0.952
+477,RUBICON,Peso Pluma,regional mexican,latin america,happy,0.816,140.0,0.915,0.758,0.136
+478,un x100to,Grupo Frontera,regional mexican,latin america,intense,0.72,83.8,0.542,0.571,0.213
+479,Pa' Mayte,Carlos Vives,vallenato,latin america,happy,0.872,123.9,0.967,0.716,0.029
+480,Pedro Navaja (Live),Ruben Blades,salsa,latin america,happy,0.81,94.6,0.733,0.509,0.7
+481,Pa'lla Voy,Marc Anthony,salsa,latin america,happy,0.926,96.0,0.966,0.692,0.509
+482,La Guagua - 2024 Remaster,Celia Cruz,salsa,latin america,relaxed,0.51,178.4,0.933,0.567,0.889
+483,Paradinha,Anitta,brazilian funk,latin america,happy,0.775,180.1,0.869,0.695,0.012
+484,Toda Menina Baiana - Ao Vivo,Caetano Veloso,mpb,latin america,happy,0.888,120.0,0.808,0.701,0.458
+485,Drão - Ao Vivo,Gilberto Gil,mpb,latin america,chill,0.399,152.6,0.444,0.442,0.375
+486,O Namorado Da Viúva,Jorge Ben Jor,samba,latin america,happy,0.745,88.0,0.971,0.742,0.554
+487,Stir It Up - Alternate Jamaican,Bob Marley,reggae,caribbean,relaxed,0.36,79.6,0.862,0.797,0.434
+488,The Sun,Burning Spear,reggae,caribbean,relaxed,0.287,137.0,0.648,0.79,0.0
+489,Love Is on the Mountain,Chronixx,reggae,caribbean,relaxed,0.551,133.1,0.832,0.753,0.151
+490,Plantin Daiseys,Koffee,reggae,caribbean,relaxed,0.399,94.8,0.667,0.727,0.201
+491,Living It Up,Damian Marley,reggae,caribbean,happy,0.687,97.0,0.802,0.782,0.057
+492,Light My Fire (feat. Gwen Stefani & Shenseea),Sean Paul,dancehall,caribbean,happy,0.805,178.1,0.75,0.569,0.011
+493,Love Me Browning,Buju Banton,dancehall,caribbean,relaxed,0.406,82.0,0.763,0.784,0.206
+494,Work Me Out (with Wizkid),Shenseea,dancehall,caribbean,intense,0.692,109.0,0.554,0.81,0.054
+495,Showtime,Machel Montano,soca,caribbean,intense,0.909,147.0,0.596,0.725,0.117
+496,Mental Day,Kes,soca,caribbean,intense,0.863,130.0,0.207,0.844,0.053
+497,"Yaad Hai Na (From ""Raaz Reboot"")",Arijit Singh,bollywood,south asia,chill,0.588,140.0,0.235,0.514,0.712
+498,Kya Raaz Hai,Shreya Ghoshal,bollywood,south asia,intense,0.798,110.0,0.515,0.69,0.183
+499,Kaalathukkum Nee Venum,A.R. Rahman,bollywood,south asia,chill,0.484,119.9,0.547,0.719,0.697
+500,Ghata Chha Gayee Hai,Lata Mangeshkar,bollywood,south asia,relaxed,0.459,109.5,0.696,0.495,0.785
+501,Dilbar,Neha Kakkar,bollywood,south asia,happy,0.912,104.1,0.674,0.725,0.155
+502,"Chellamma (From ""Doctor"")",Anirudh Ravichander,tamil pop,south asia,happy,0.679,99.7,0.743,0.498,0.256
+503,Yedurangula Vaana,Sid Sriram,tamil pop,south asia,chill,0.507,79.9,0.356,0.288,0.696
+504,Case,Diljit Dosanjh,punjabi,south asia,happy,0.811,152.0,0.767,0.856,0.059
+505,Bitch I'm Back,Sidhu Moose Wala,punjabi,south asia,happy,0.772,149.8,0.789,0.71,0.203
+506,With You,AP Dhillon,punjabi,south asia,happy,0.744,117.0,0.925,0.78,0.161
+507,Pehli Nazar Mein,Atif Aslam,pakistani pop,south asia,relaxed,0.57,169.7,0.668,0.488,0.251
+508,Dam Mast Mast,Nusrat Fateh Ali Khan,qawwali,south asia,happy,0.838,169.7,0.673,0.7,0.037
+509,Improvisations On The Theme Music From Pather Panchali - Digitally Remastered,Ravi Shankar,hindustani,south asia,chill,0.247,74.8,0.429,0.336,0.945
+510,Burning Up (FIRE) - Live,BTS,k-pop,east asia,intense,0.918,98.9,0.31,0.546,0.011
+511,As If It's Your Last,BLACKPINK,k-pop,east asia,intense,0.852,125.0,0.455,0.786,0.069
+512,Chk Chk Boom,Stray Kids,k-pop,east asia,happy,0.74,102.0,0.844,0.925,0.166
+513,How Sweet,NewJeans,k-pop,east asia,happy,0.895,125.0,0.757,0.803,0.082
+514,THIS IS FOR,TWICE,k-pop,east asia,happy,0.742,128.0,0.919,0.796,0.149
+515,Tanpa Pesan Terakhir,Seventeen,k-pop,east asia,intense,0.72,135.0,0.426,0.46,0.231
+516,楓,Jay Chou,mandopop,east asia,moody,0.441,134.4,0.142,0.488,0.754
+517,一封情書,Teresa Teng,mandopop,east asia,relaxed,0.453,104.2,0.626,0.619,0.583
+518,可惜沒如果,JJ Lin,mandopop,east asia,moody,0.424,80.0,0.287,0.486,0.617
+519,夜鷹 - Yodaka,Kenshi Yonezu,j-pop,east asia,intense,0.807,95.3,0.498,0.6,0.081
+520,UNDEAD,YOASOBI,j-pop,east asia,happy,0.984,144.0,0.742,0.644,0.019
+521,Love Like This,Fujii Kaze,j-pop,east asia,happy,0.701,115.0,0.675,0.732,0.134
+522,KxAxWxAxIxI,BABYMETAL,j-metal,east asia,intense,0.882,75.0,0.397,0.69,0.008
+523,Cold,Rich Brian,hip hop,southeast asia,intense,0.734,167.0,0.196,0.648,0.368
+524,Oceans & Engines,NIKI,indie pop,southeast asia,moody,0.314,95.1,0.066,0.371,0.622
+525,Hati-Hati di Jalan,Tulus,indo pop,southeast asia,relaxed,0.436,72.0,0.755,0.643,0.702
+526,Si Paling Mahir,Raisa,indo pop,southeast asia,moody,0.39,158.0,0.15,0.348,0.898
+527,Party In Bali (PIB),AGNEZ MO,indo pop,southeast asia,happy,0.685,120.0,0.695,0.86,0.051
+528,Araw-Araw,Ben&Ben,opm,southeast asia,moody,0.425,140.9,0.21,0.475,0.579
+529,Titibo-Tibo,Moira Dela Torre,opm,southeast asia,relaxed,0.377,119.7,0.789,0.815,0.856
+530,"I Just Fall in Love Again - From ""Finally Found Someone""",Sarah Geronimo,opm,southeast asia,moody,0.431,72.5,0.139,0.476,0.663
+531,"Hello, Anxiety",Phum Viphurit,indie pop,southeast asia,relaxed,0.495,126.0,0.808,0.84,0.589
+532,Someone Like You,Adele,pop,europe,moody,0.319,135.2,0.294,0.556,0.893
+533,Friends,Ed Sheeran,pop,europe,chill,0.158,93.3,0.455,0.516,0.783
+534,Cemeteries of London,Coldplay,rock,europe,intense,0.806,109.1,0.271,0.437,0.005
+535,Illusion (Live from the Royal Albert Hall),Dua Lipa,pop,europe,intense,0.854,127.1,0.304,0.59,0.051
+536,Formidable,Stromae,french pop,europe,intense,0.629,70.6,0.498,0.513,0.099
+537,42,Aya Nakamura,french pop,europe,happy,0.631,175.9,0.603,0.721,0.123
+538,Le Noel de la Rue (From 'Christmas Songs'1953),Edith Piaf,chanson,europe,moody,0.131,131.1,0.178,0.366,0.959
+539,Something About Us,Daft Punk,electronic,europe,moody,0.475,100.0,0.384,0.875,0.44
+540,Titanium (feat. Sia),David Guetta,electronic,europe,intense,0.788,126.1,0.301,0.604,0.068
+541,Alguien,Rosalia,flamenco pop,europe,chill,0.378,120.6,0.558,0.444,0.96
+542,Engel,Rammstein,metal,europe,intense,0.658,96.1,0.328,0.638,0.009
+543,Metropolis - 2009 Remaster,Kraftwerk,electronic,europe,intense,0.795,122.7,0.49,0.564,0.001
+544,Thank You For The Music,ABBA,pop,europe,moody,0.417,201.1,0.373,0.283,0.835
+545,Wood,Taylor Swift,pop,north america,happy,0.686,99.9,0.765,0.798,0.228
+546,I Can't Wait To Get There,The Weeknd,synthpop,north america,moody,0.436,146.1,0.122,0.65,0.538
+547,It Will Rain,Bruno Mars,funk,north america,intense,0.835,150.0,0.468,0.572,0.337
+548,SKINNY,Billie Eilish,pop,north america,moody,0.252,70.0,0.04,0.251,0.693
+549,River,Olivia Rodrigo,pop rock,north america,moody,0.235,67.9,0.279,0.453,0.933
+550,reincarnated,Kendrick Lamar,hip hop,north america,happy,0.779,91.1,0.748,0.846,0.053
+551,Way 2 Sexy (with Future & Young Thug),Drake,hip hop,north america,chill,0.597,136.0,0.331,0.803,0.001
+552,Love Galore (feat. Travis Scott),SZA,r&b,north america,chill,0.594,135.0,0.409,0.795,0.112
+553,Lost,Frank Ocean,r&b,north america,intense,0.603,123.1,0.497,0.913,0.027
+554,Skeletons,Stevie Wonder,soul,north america,relaxed,0.34,99.8,0.665,0.822,0.005
+555,Another Night,Aretha Franklin,soul,north america,happy,0.678,120.7,0.728,0.673,0.137
+556,Sunday Morning Coming Down - 1988 Version,Johnny Cash,country,north america,relaxed,0.454,170.9,0.688,0.569,0.099
+557,Circle Of Love,Dolly Parton,country,north america,moody,0.315,169.8,0.252,0.325,0.64
+558,"Pfrancing (feat. Hank Mobley, Wynton Kelly, Paul Chambers & Jimmy Cobb)",Miles Davis,jazz,north america,chill,0.383,137.5,0.564,0.577,0.762
+559,Impressions - Take 1,John Coltrane,jazz,north america,relaxed,0.531,80.6,0.686,0.326,0.181
+560,School,Nirvana,rock,north america,intense,0.943,164.8,0.13,0.21,0.0
+561,Screaming Suicide,Metallica,metal,north america,intense,0.972,101.1,0.282,0.425,0.0
+562,Piece Of Heaven,Tame Impala,psych rock,oceania,intense,0.605,102.0,0.127,0.579,0.266
+563,Candy Cane Lane,Sia,pop,oceania,intense,0.91,130.0,0.393,0.591,0.004
+564,For Those About to Rock (We Salute You),AC/DC,rock,oceania,intense,0.919,134.0,0.471,0.37,0.0
+565,I Love It,Kylie Minogue,pop,oceania,happy,0.85,119.9,0.665,0.573,0.001
+566,Insane,Flume,electronic,oceania,chill,0.535,94.0,0.049,0.487,0.051
+567,Homemade Dynamite,Lorde,art pop,oceania,moody,0.431,107.0,0.268,0.771,0.287
+568,Don’t Forget Your Roots,SIX60,pop,oceania,chill,0.541,146.0,0.423,0.633,0.001
+569,I AM - From the Ava DuVernay feature film 'Origin',Stan Walker,r&b,oceania,chill,0.543,124.0,0.128,0.406,0.012
+570,Moyo,Diamond Platnumz,bongo,east africa,happy,0.812,100.0,0.72,0.58,0.546
+571,Nitaubeba,Harmonize,bongo,east africa,intense,0.77,113.5,0.382,0.509,0.104
+572,Down,Rayvanny,bongo,east africa,relaxed,0.542,194.0,0.889,0.799,0.227
+573,Macmuga,Alikiba,bongo,east africa,happy,0.804,173.0,0.657,0.562,0.015
+574,Siji (feat. Toss),Zuchu,bongo,east africa,intense,0.785,113.0,0.399,0.879,0.091
+575,Ololo,Mbosso,bongo,east africa,happy,0.87,176.0,0.743,0.632,0.137
+576,Raha,Nandy,bongo,east africa,happy,0.702,179.9,0.653,0.691,0.106
+577,No One,Marioo,bongo,east africa,intense,0.672,117.9,0.54,0.789,0.212
+578,Si Mimi,Jux,bongo,east africa,happy,0.853,97.0,0.648,0.732,0.384
+579,Still the one,Sauti Sol,afropop,east africa,intense,0.704,92.0,0.26,0.644,0.12
+580,Jitu,Nyashinski,afropop,east africa,intense,0.734,120.1,0.591,0.691,0.357
+581,Chaguo la Moyo (feat. Sanaipei),Otile Brown,afropop,east africa,chill,0.538,161.9,0.504,0.462,0.169
+582,Reset Rewind,Bien,afropop,east africa,moody,0.479,167.9,0.355,0.351,0.228
+583,Kitenge,Nviiri The Storyteller,afropop,east africa,relaxed,0.56,159.9,0.768,0.538,0.712
+584,Yego,Khaligraph Jones,hip hop,east africa,moody,0.472,139.1,0.275,0.809,0.342
+585,Na Na Na,Willy Paul,afropop,east africa,intense,0.688,91.7,0.343,0.693,0.028
+586,Balippila Boda,Eddy Kenzo,afropop,east africa,happy,0.835,99.1,0.857,0.888,0.418
+587,Go Down Low,Sheebah Karungi,afropop,east africa,happy,0.98,115.0,0.922,0.74,0.41
+588,Gumikiriza,Bebe Cool,afropop,east africa,happy,0.822,168.0,0.784,0.71,0.128
+589,Lemin Yehon,Teddy Afro,ethio pop,east africa,relaxed,0.416,88.0,0.887,0.637,0.007
+590,Ayzoh,Aster Aweke,ethio pop,east africa,relaxed,0.509,127.5,0.637,0.781,0.681
+591,Fikratchin with Menelik Wossenatchew,Mulatu Astatke,ethio jazz,east africa,relaxed,0.115,75.2,0.643,0.637,0.935
+592,"Tested, Approved & Trusted",Burna Boy,afrobeats,west africa,relaxed,0.482,93.0,0.647,0.821,0.161
+593,Balance,Wizkid,afrobeats,west africa,relaxed,0.557,100.1,0.878,0.848,0.111
+594,If,Davido,afrobeats,west africa,happy,0.661,105.0,0.926,0.951,0.397
+595,Dumebi,Rema,afrobeats,west africa,happy,0.657,110.0,0.734,0.923,0.199
+596,Active,Asake,afrobeats,west africa,intense,0.64,113.0,0.535,0.869,0.011
+597,Rush,Ayra Starr,afrobeats,west africa,chill,0.503,100.0,0.381,0.792,0.037
+598,Higher,Tems,afrobeats,west africa,chill,0.581,103.0,0.528,0.609,0.509
+599,Peru,Fireboy DML,afrobeats,west africa,relaxed,0.415,108.0,0.631,0.951,0.574
+600,reason,Omah Lay,afrobeats,west africa,happy,0.693,108.0,0.869,0.753,0.373
+601,Pick Up,Tiwa Savage,afrobeats,west africa,happy,0.677,147.9,0.813,0.588,0.493
+602,samson and delilah (feat. Mayra Andrade),CKay,afrobeats,west africa,chill,0.473,199.8,0.534,0.723,0.733
+603,Hey Father,Joeboy,afrobeats,west africa,intense,0.628,143.9,0.378,0.46,0.191
+604,Keys to Your Heart,Yemi Alade,afropop,west africa,happy,0.664,115.0,0.715,0.865,0.101
+605,Sample You - Remix,Mr Eazi,afrobeats,west africa,happy,0.805,105.5,0.701,0.909,0.053
+606,เพลงเพราะ...เพราะเธอ,Flavour,highlife,west africa,moody,0.367,135.8,0.299,0.56,0.75
+607,Chop My Money - Remix,P-Square,afropop,west africa,happy,0.812,127.0,0.892,0.812,0.088
+608,Sorrow Tears and Blood,Fela Kuti,afrobeat,west africa,happy,0.803,101.2,0.83,0.822,0.152
+609,Better Days (feat. BNXN fka Buju),Sarkodie,hip hop,west africa,intense,0.767,102.6,0.338,0.765,0.069
+610,"Rolls Royce, Pt. 2",Shatta Wale,dancehall,west africa,happy,0.787,100.4,0.663,0.659,0.164
+611,Life & Money - Remix,Stonebwoy,dancehall,west africa,intense,0.78,133.2,0.392,0.612,0.626
+612,Eye Open,Black Sherif,afrobeats,west africa,happy,0.74,114.0,0.642,0.863,0.026
+613,Co-Star,Amaarae,alte,west africa,intense,0.805,131.0,0.197,0.765,0.087
+614,Wiri - wiri,Youssou N'Dour,mbalax,west africa,moody,0.46,83.0,0.257,0.652,0.25
+615,Madan - Remix,Salif Keita,mande,west africa,happy,0.846,128.0,0.961,0.77,0.008
+616,Salala,Angelique Kidjo,afropop,west africa,happy,0.692,154.2,0.637,0.559,0.452
+617,Le Chant Des Fauves,Tinariwen,desert blues,west africa,chill,0.396,93.2,0.49,0.533,0.54
+618,Bloqué,Fally Ipupa,rumba,central africa,happy,0.776,171.0,0.961,0.766,0.366
+619,Effervescent,Koffi Olomide,rumba,central africa,chill,0.575,131.1,0.514,0.649,0.337
+620,Maria Valencia - Live,Papa Wemba,rumba,central africa,happy,0.618,94.9,0.961,0.598,0.054
+621,Chantier,Innoss'B,rumba,central africa,happy,0.685,120.0,0.799,0.838,0.515
+622,Song for the Suspect,FRANCO,rumba,central africa,intense,0.888,84.8,0.586,0.485,0.001
+623,Waya Waya (feat. Team Mosha),Master KG,amapiano,southern africa,happy,0.872,125.0,0.964,0.871,0.025
+624,Nana Thula (feat. Njelic),Kabza De Small,amapiano,southern africa,chill,0.516,114.0,0.597,0.766,0.002
+625,uMthande,DJ Maphorisa,amapiano,southern africa,intense,0.785,112.0,0.217,0.751,0.001
+626,Wave Ke Wave (feat. Shakes & Les & Uncool MC),Focalistic,amapiano,southern africa,relaxed,0.577,113.0,0.654,0.875,0.135
+627,ART,Tyla,amapiano,southern africa,relaxed,0.587,116.2,0.714,0.716,0.085
+628,Kadigong - Remix,Sho Madjozi,gqom,southern africa,intense,0.852,112.0,0.569,0.779,0.042
+629,Jack,Nasty C,hip hop,southern africa,relaxed,0.532,125.0,0.644,0.849,0.242
+630,Ode to Ancestors,Black Coffee,house,southern africa,intense,0.856,120.0,0.213,0.703,0.042
+631,King of Kings,Ladysmith Black Mambazo,isicathamiya,southern africa,chill,0.297,81.5,0.483,0.545,0.897
+632,Lindelani,Miriam Makeba,afropop,southern africa,relaxed,0.427,137.9,0.636,0.698,0.607
+633,Umthwalo,Zahara,afro soul,southern africa,chill,0.594,137.9,0.264,0.546,0.156
+634,Mate'laash,Amr Diab,arabic pop,north africa & middle east,happy,0.862,125.4,0.744,0.695,0.23
+635,Hassa Beek,Nancy Ajram,arabic pop,north africa & middle east,intense,0.703,83.7,0.379,0.465,0.506
+636,كرهني,Elissa,arabic pop,north africa & middle east,chill,0.556,149.8,0.517,0.561,0.571
+637,هو ده بقى!!؟,Tamer Hosny,arabic pop,north africa & middle east,intense,0.719,120.0,0.366,0.813,0.185
+638,Mal Hbibi,Saad Lamjarred,arabic pop,north africa & middle east,happy,0.767,109.9,0.763,0.814,0.039
+639,Wahdon,Fairuz,arabic classical,north africa & middle east,moody,0.415,113.9,0.198,0.319,0.686
+640,Enta Omry,Umm Kulthum,arabic classical,north africa & middle east,chill,0.451,118.1,0.408,0.413,0.9
+641,Si Tu Te Vas,Khaled,rai,north africa & middle east,chill,0.489,99.0,0.589,0.88,0.465
+642,Mabda2 Kolo Btaman,Wegz,hip hop,north africa & middle east,moody,0.48,110.0,0.07,0.821,0.367
+643,Thabet,Mohamed Ramadan,arabic pop,north africa & middle east,intense,0.898,120.0,0.447,0.848,0.045
+644,Dudu,Tarkan,turkish pop,north africa & middle east,happy,0.864,91.0,0.92,0.707,0.029
+645,Seni Kimler Aldı,Sezen Aksu,turkish pop,north africa & middle east,moody,0.365,92.9,0.163,0.275,0.773
+646,Una Velita,Bad Bunny,reggaeton,latin america,intense,0.828,113.8,0.133,0.575,0.724
+647,Sigue,J Balvin,reggaeton,latin america,intense,0.641,88.0,0.588,0.889,0.051
+648,Tusa,KAROL G,reggaeton,latin america,happy,0.701,100.9,0.607,0.799,0.309
+649,Eva Longoria,Ozuna,reggaeton,latin america,intense,0.676,196.1,0.566,0.615,0.163
+650,Madrid (feat. Myke Towers),Maluma,reggaeton,latin america,happy,0.741,170.1,0.802,0.764,0.239
+651,Loba,Shakira,latin pop,latin america,happy,0.706,122.0,0.778,0.853,0.403
+652,Usted,Luis Miguel,latin pop,latin america,chill,0.452,165.4,0.474,0.493,0.491
+653,Es Tarde,Juanes,latin rock,latin america,happy,0.785,97.0,0.735,0.787,0.144
+654,Signos - Remasterizado 2007,Soda Stereo,latin rock,latin america,intense,0.647,125.0,0.492,0.633,0.402
+655,Piensa en Mí (with Vicentico),Natalia Lafourcade,latin folk,latin america,chill,0.259,97.0,0.454,0.625,0.867
+656,PRC,Peso Pluma,regional mexican,latin america,happy,0.826,138.1,0.893,0.784,0.097
+657,¿Qué Te Parece?,Grupo Frontera,regional mexican,latin america,happy,0.859,174.0,0.692,0.616,0.153
+658,Bailar Contigo,Carlos Vives,vallenato,latin america,intense,0.843,100.0,0.411,0.576,0.016
+659,Decisiones (Live),Ruben Blades,salsa,latin america,intense,0.726,95.7,0.518,0.684,0.798
+660,Valió la Pena - Salsa Version,Marc Anthony,salsa,latin america,happy,0.704,98.4,0.846,0.521,0.332
+661,Salsipuedes,Celia Cruz,salsa,latin america,happy,0.869,95.0,0.966,0.815,0.347
+662,Eu Vou Ficar,Anitta,brazilian funk,latin america,intense,0.629,126.0,0.539,0.797,0.006
+663,Elegia - Remixed Original Album,Caetano Veloso,mpb,latin america,relaxed,0.329,127.8,0.71,0.859,0.739
+664,ESTRELA,Gilberto Gil,mpb,latin america,moody,0.273,108.1,0.277,0.703,0.832
+665,Cinco Minutos (5 Minutos),Jorge Ben Jor,samba,latin america,relaxed,0.526,170.9,0.924,0.455,0.76
+666,Kaya,Bob Marley,reggae,caribbean,relaxed,0.361,105.2,0.762,0.866,0.51
+667,Jordan River,Burning Spear,reggae,caribbean,relaxed,0.53,151.6,0.882,0.714,0.121
+668,Likes,Chronixx,reggae,caribbean,happy,0.73,92.0,0.91,0.798,0.16
+669,스쳐 지나가다,Koffee,reggae,caribbean,chill,0.532,95.9,0.419,0.497,0.563
+670,Is It Worth It? (Gunman World),Damian Marley,reggae,caribbean,happy,0.725,83.5,0.813,0.774,0.086
+671,Hold My Hand (feat. Keri Hilson),Sean Paul,dancehall,caribbean,intense,0.645,174.0,0.357,0.678,0.158
+672,Bonafide Love (feat. Wayne Wonder),Buju Banton,dancehall,caribbean,happy,0.746,84.5,0.622,0.657,0.111
+673,Lighter (with Tarrus Riley & Rvssian),Shenseea,dancehall,caribbean,intense,0.682,177.8,0.208,0.521,0.162
+674,Dr. Mashup,Machel Montano,soca,caribbean,intense,0.782,132.0,0.351,0.854,0.005
+675,Banga,Kes,soca,caribbean,intense,0.732,104.1,0.519,0.752,0.308
+676,Aami Tomar Kache,Arijit Singh,bollywood,south asia,happy,0.868,110.0,0.616,0.604,0.259
+677,"Puvvalaku Rangeyala (From ""Joru"")",Shreya Ghoshal,bollywood,south asia,intense,0.771,179.9,0.317,0.579,0.664
+678,Maattram Ondrudhaan Maaraadhadhu,A.R. Rahman,bollywood,south asia,happy,0.819,160.1,0.677,0.633,0.115
+679,"Agar Mujhse Mohabbat Hai Mujhe Apne (From ""Aap Ki Parchhaiyan"")",Lata Mangeshkar,bollywood,south asia,chill,0.289,127.3,0.437,0.501,0.973
+680,"Tum Par Hum Hai Atke (From ""Pagalpanti"")",Neha Kakkar,bollywood,south asia,happy,0.95,130.0,0.882,0.765,0.441
+681,"Chikitu (From ""Coolie"") (Telugu)",Anirudh Ravichander,tamil pop,south asia,intense,0.773,148.0,0.383,0.632,0.008
+682,"En Iniya Thanimaye - From ""Teddy""",Sid Sriram,tamil pop,south asia,intense,0.746,169.9,0.497,0.478,0.091
+683,Shivaya,Diljit Dosanjh,punjabi,south asia,moody,0.304,78.7,0.066,0.277,0.914
+684,These Days (feat. Bohemia),Sidhu Moose Wala,punjabi,south asia,happy,0.748,155.9,0.694,0.73,0.094
+685,Dil Nu,AP Dhillon,punjabi,south asia,happy,0.655,118.0,0.925,0.811,0.095
+686,Tera Hone Laga Hoon,Atif Aslam,pakistani pop,south asia,intense,0.771,120.0,0.551,0.686,0.545
+687,Sukh Mahi Naal Le Gaya,Nusrat Fateh Ali Khan,qawwali,south asia,happy,0.638,170.0,0.631,0.325,0.315
+688,Dadra,Ravi Shankar,hindustani,south asia,relaxed,0.571,149.8,0.758,0.539,0.403
+689,Life Goes On - Live,BTS,k-pop,east asia,intense,0.715,81.0,0.21,0.476,0.071
+690,BOOMBAYAH,BLACKPINK,k-pop,east asia,intense,0.836,125.0,0.396,0.661,0.003
+691,So Good (Hyunjin),Stray Kids,k-pop,east asia,intense,0.886,94.0,0.493,0.772,0.121
+692,Ditto,NewJeans,k-pop,east asia,intense,0.641,133.9,0.183,0.814,0.027
+693,Likey,TWICE,k-pop,east asia,intense,0.903,132.0,0.443,0.723,0.413
+694,Jaga Slalu Hatimu,Seventeen,k-pop,east asia,intense,0.659,135.0,0.255,0.465,0.514
+695,夜曲,Jay Chou,mandopop,east asia,intense,0.645,87.0,0.569,0.672,0.274
+696,Tokinonagarenimiwomakase,Teresa Teng,mandopop,east asia,moody,0.487,143.8,0.321,0.573,0.754
+697,江南,JJ Lin,mandopop,east asia,chill,0.517,120.0,0.404,0.621,0.75
+698,KICK BACK,Kenshi Yonezu,j-pop,east asia,intense,0.941,101.9,0.292,0.577,0.002
+699,群青,YOASOBI,j-pop,east asia,happy,0.853,135.0,0.707,0.725,0.305
+700,Feelin’ Go(o)d,Fujii Kaze,j-pop,east asia,intense,0.763,105.1,0.35,0.604,0.037
+701,Kon! Kon! (feat. Bloodywood),BABYMETAL,j-metal,east asia,intense,0.987,107.0,0.188,0.557,0.002
+702,BALI,Rich Brian,hip hop,southeast asia,happy,0.644,130.0,0.65,0.854,0.011
+703,Did You Like Her In The Morning?,NIKI,indie pop,southeast asia,moody,0.123,77.5,0.362,0.42,0.904
+704,Diri,Tulus,indo pop,southeast asia,chill,0.289,96.1,0.485,0.576,0.838
+705,Kali Kedua,Raisa,indo pop,southeast asia,chill,0.517,137.9,0.313,0.518,0.82
+706,Coke Bottle,AGNEZ MO,indo pop,southeast asia,relaxed,0.586,150.1,0.829,0.869,0.124
+707,Leaves,Ben&Ben,opm,southeast asia,moody,0.16,118.3,0.205,0.447,0.913
+708,Kumpas (from “2 Good 2 Be True”),Moira Dela Torre,opm,southeast asia,moody,0.279,124.1,0.369,0.552,0.876
+709,You Changed My Life in a Moment,Sarah Geronimo,opm,southeast asia,intense,0.65,160.9,0.341,0.333,0.759
+710,Softly Spoken,Phum Viphurit,indie pop,southeast asia,chill,0.544,101.0,0.45,0.74,0.375
+711,Rolling in the Deep,Adele,pop,europe,intense,0.769,104.9,0.507,0.73,0.138
+712,I'm a Mess,Ed Sheeran,pop,europe,moody,0.377,138.8,0.336,0.697,0.556
+713,Up in Flames,Coldplay,rock,europe,moody,0.244,76.0,0.337,0.641,0.235
+714,Falling Forever - Extended,Dua Lipa,pop,europe,intense,0.807,130.0,0.374,0.672,0.014
+715,L’enfer,Stromae,french pop,europe,relaxed,0.547,177.6,0.606,0.4,0.33
+716,Comportement,Aya Nakamura,french pop,europe,happy,0.628,118.5,0.875,0.6,0.555
+717,Monsieur Saint-Pierre (From 'Christmas Songs'1943),Édith Piaf,chanson,europe,moody,0.128,74.7,0.318,0.444,0.821
+718,Da Funk,Daft Punk,electronic,europe,happy,0.7,111.2,0.892,0.806,0.002
+719,Permanence,David Guetta,electronic,europe,intense,0.799,165.5,0.032,0.32,0.056
+720,Prembun Gawe Gumun,Rosalia,flamenco pop,europe,happy,0.671,140.0,0.767,0.87,0.483
+721,Mann gegen Mann,Rammstein,metal,europe,intense,0.878,166.1,0.579,0.448,0.001
+722,Computer World - 2009 Remaster,Kraftwerk,electronic,europe,relaxed,0.342,129.5,0.829,0.931,0.81
+723,Chiquitita - Spanish Version,ABBA,pop,europe,chill,0.502,84.3,0.398,0.549,0.514
+724,the 1,Taylor Swift,pop,north america,moody,0.357,139.9,0.172,0.777,0.757
+725,Given Up On Me,The Weeknd,synthpop,north america,moody,0.386,116.9,0.061,0.416,0.081
+726,Wake up In the Sky,Bruno Mars,funk,north america,chill,0.579,143.0,0.363,0.799,0.004
+727,THE DINER,Billie Eilish,pop,north america,relaxed,0.386,125.0,0.661,0.857,0.243
+728,All I Want - Love That Lasts Mix,Olivia Rodrigo,pop rock,north america,moody,0.448,76.7,0.166,0.362,0.488
+729,N95,Kendrick Lamar,hip hop,north america,intense,0.67,140.0,0.408,0.79,0.377
+730,Fountains (with Tems),Drake,hip hop,north america,relaxed,0.485,100.1,0.689,0.843,0.181
+731,Chill Baby,SZA,r&b,north america,moody,0.441,173.4,0.174,0.376,0.497
+732,Pink Matter,Frank Ocean,r&b,north america,chill,0.233,176.6,0.494,0.392,0.951
+733,A Warm Little Home On A Hill,Stevie Wonder,soul,north america,chill,0.31,91.0,0.44,0.426,0.795
+734,Freeway Of Love,Aretha Franklin,soul,north america,happy,0.936,126.2,0.838,0.704,0.293
+735,Shantytown,Johnny Cash,country,north america,relaxed,0.386,153.0,0.669,0.569,0.261
+736,Sail Away,Dolly Parton,country,north america,moody,0.287,73.1,0.22,0.284,0.595
+737,The Man I Love - Take 2 / Remastered 2024,Miles Davis,jazz,north america,chill,0.324,100.7,0.401,0.475,0.873
+738,Village Blues - Take 2,John Coltrane,jazz,north america,chill,0.53,95.4,0.322,0.541,0.844
+739,Very Ape,Nirvana,rock,north america,happy,0.886,152.1,0.965,0.262,0.0
+740,Chasing Light,Metallica,metal,north america,happy,0.982,182.8,0.652,0.243,0.0
+741,Feels Like We Only Go Backwards,Tame Impala,psych rock,oceania,intense,0.9,149.5,0.491,0.303,0.028
+742,Cheap Thrills,Sia,pop,oceania,happy,0.655,179.9,0.767,0.542,0.04
+743,Shot In The Dark,AC/DC,rock,oceania,happy,0.787,114.1,0.822,0.599,0.0
+744,Where Does the DJ Go?,Kylie Minogue,pop,oceania,happy,0.82,133.0,0.736,0.771,0.023
+745,Friends,Flume,electronic,oceania,intense,0.671,138.9,0.324,0.618,0.283
+746,Yellow Flicker Beat,Lorde,art pop,oceania,intense,0.61,95.0,0.06,0.585,0.103
+747,Knocking At Your Door,SIX60,pop,oceania,happy,0.68,104.0,0.915,0.888,0.226
+748,Tennessee Whiskey,Stan Walker,r&b,oceania,moody,0.296,133.6,0.165,0.407,0.862
+749,Nitafanyaje,Diamond Platnumz,bongo,east africa,happy,0.864,79.9,0.96,0.494,0.345
+750,Tena,Harmonize,bongo,east africa,intense,0.781,96.0,0.563,0.782,0.414
+751,Mi Amor (feat. Gerilson Insrael & Matias Damasio),Rayvanny,bongo,east africa,chill,0.459,170.1,0.596,0.675,0.484
+752,Naksh Naksh Mrembo,Alikiba,bongo,east africa,happy,0.773,188.0,0.804,0.703,0.211
+753,Zawadi (feat. Dadiposlim),Zuchu,bongo,east africa,happy,0.832,180.0,0.774,0.63,0.324
+754,Sele (feat. Chley),Mbosso,bongo,east africa,happy,0.656,112.0,0.658,0.853,0.353
+755,Wahala,Nandy,bongo,east africa,happy,0.896,113.0,0.684,0.776,0.513
+756,Hakuna Matata,Marioo,bongo,east africa,happy,0.689,113.0,0.852,0.925,0.145
+757,Sio Mbaya,Jux,bongo,east africa,happy,0.702,175.9,0.775,0.626,0.338
+758,Rhumba Japani,Sauti Sol,afropop,east africa,happy,0.631,128.0,0.751,0.795,0.145
+759,Bebi Bebi,Nyashinski,afropop,east africa,relaxed,0.443,145.9,0.771,0.725,0.027
+760,One Call (feat. Ruby),Otile Brown,afropop,east africa,chill,0.561,62.1,0.375,0.41,0.21
+761,Ma Cherie,Bien,afropop,east africa,happy,0.789,102.0,0.792,0.839,0.032
+762,Macho Tu,Nviiri The Storyteller,afropop,east africa,chill,0.59,175.9,0.577,0.726,0.631
+763,Mbona?,Khaligraph Jones,hip hop,east africa,happy,0.746,103.0,0.844,0.865,0.24
+764,Toto,Willy Paul,afropop,east africa,happy,0.776,98.0,0.755,0.798,0.021
+765,Signal,Eddy Kenzo,afropop,east africa,happy,0.672,98.0,0.829,0.758,0.778
+766,Beera Nange,Sheebah Karungi,afropop,east africa,happy,0.727,92.1,0.893,0.757,0.555
+767,I Can See,Bebe Cool,afropop,east africa,happy,0.645,82.5,0.927,0.813,0.251
+768,Abebayewosh,Teddy Afro,ethio pop,east africa,intense,0.603,114.6,0.271,0.435,0.493
+769,Checheho,Aster Aweke,ethio pop,east africa,happy,0.884,147.0,0.916,0.7,0.031
+770,I Faram Gami I Faram,Mulatu Astatke,ethio jazz,east africa,relaxed,0.502,104.2,0.908,0.742,0.935
+771,No Panic - Spotify Sessions,Burna Boy,afrobeats,west africa,intense,0.875,93.3,0.529,0.558,0.115
+772,In My Bed,Wizkid,afrobeats,west africa,happy,0.776,125.0,0.666,0.851,0.004
+773,Gobe,Davido,afrobeats,west africa,happy,0.961,124.0,0.795,0.642,0.163
+774,BENIN BOYS,Rema,afrobeats,west africa,happy,0.898,114.9,0.67,0.8,0.539
+775,WHY LOVE,Asake,afrobeats,west africa,chill,0.489,112.0,0.556,0.791,0.024
+776,Bloody Samaritan,Ayra Starr,afrobeats,west africa,intense,0.719,105.0,0.242,0.796,0.036
+777,Me & U,Tems,afrobeats,west africa,chill,0.571,112.0,0.248,0.795,0.121
+778,iseoluwa,Fireboy DML,afrobeats,west africa,happy,0.792,113.0,0.692,0.795,0.337
+779,WATER SPIRIT,Omah Lay,afrobeats,west africa,intense,0.753,156.8,0.349,0.482,0.004
+780,Will I Run Again?,Tiwa Savage,afrobeats,west africa,relaxed,0.517,180.0,0.868,0.602,0.481
+781,HALLELUJAH (feat. Blaqbonez),CKay,afrobeats,west africa,chill,0.528,112.0,0.52,0.772,0.031
+782,Show Me,Joeboy,afrobeats,west africa,intense,0.65,110.0,0.554,0.82,0.431
+783,Koffi Anan - Freestyle,Yemi Alade,afropop,west africa,happy,0.872,113.0,0.827,0.937,0.267
+784,Bankulize,Mr Eazi,afrobeats,west africa,relaxed,0.599,100.8,0.679,0.616,0.156
+785,Most High,Flavour,highlife,west africa,relaxed,0.579,97.3,0.659,0.703,0.34
+786,Ifunanya - Deluxe,P-Square,afropop,west africa,happy,0.769,110.0,0.947,0.828,0.699
+787,Coffin for Head of State,Fela Kuti,afrobeat,west africa,happy,0.705,88.8,0.873,0.724,0.485
+788,Messiah (feat. Kweku Flick),Sarkodie,hip hop,west africa,happy,0.836,98.0,0.826,0.616,0.642
+789,Minamino Sin,Shatta Wale,dancehall,west africa,happy,0.814,97.7,0.734,0.63,0.57
+790,YOUR BODY,Stonebwoy,dancehall,west africa,happy,0.716,190.1,0.73,0.626,0.213
+791,Dreamer,Black Sherif,afrobeats,west africa,moody,0.399,72.8,0.324,0.553,0.881
+792,Big Steppa,Amaarae,alte,west africa,relaxed,0.501,103.9,0.812,0.777,0.548
+793,Bamako,Youssou N'Dour,mbalax,west africa,happy,0.653,90.0,0.747,0.681,0.643
+794,Tu vas me manquer,Salif Keita,mande,west africa,relaxed,0.188,102.0,0.885,0.736,0.906
+795,Malaika,Angelique Kidjo,afropop,west africa,chill,0.223,170.1,0.456,0.496,0.744
+796,Kel Tinawen,Tinariwen,desert blues,west africa,happy,0.809,188.2,0.674,0.559,0.469
+797,Mal accompagné,Fally Ipupa,rumba,central africa,intense,0.62,136.1,0.545,0.639,0.625
+798,Ikea,Koffi Olomide,rumba,central africa,happy,0.73,73.5,0.845,0.484,0.125
+799,Oldies Are Goodies,Papa Wemba,rumba,central africa,happy,0.874,122.0,0.926,0.782,0.136
+800,Kiss,Innoss'B,rumba,central africa,happy,0.701,102.0,0.782,0.874,0.459
+801,A Beautiful Diversion,FRANCO,rumba,central africa,intense,0.865,137.6,0.549,0.449,0.0
+802,Jesu Wa Makatsa (feat. Zanda Zakuza and Florah Ritshuri),Master KG,amapiano,southern africa,intense,0.661,122.0,0.422,0.846,0.454
+803,Bawo (feat. Nobuhle & Yallunder),Kabza De Small,amapiano,southern africa,intense,0.659,113.0,0.517,0.756,0.016
+804,Pantsula Love (feat. Sino Msolo & Mashudu),DJ Maphorisa,amapiano,southern africa,intense,0.79,111.0,0.593,0.643,0.073
+805,GUPTA (feat. Lady Du and Mellow and Sleazy),Focalistic,amapiano,southern africa,moody,0.493,112.0,0.325,0.804,0.041
+806,Water,Tyla,amapiano,southern africa,intense,0.873,123.9,0.292,0.525,0.106
+807,Wakanda Forever (feat. Ycee),Sho Madjozi,gqom,southern africa,happy,0.847,126.0,0.777,0.852,0.005
+808,Casanova,Nasty C,hip hop,southern africa,intense,0.7,131.1,0.494,0.821,0.163
+809,Lo Mhlaba,Black Coffee,house,southern africa,happy,0.759,123.3,0.794,0.803,0.001
+810,Homeless,Ladysmith Black Mambazo,isicathamiya,southern africa,moody,0.235,92.6,0.377,0.413,0.97
+811,The Click Song - Live,Miriam Makeba,afropop,southern africa,relaxed,0.47,77.3,0.624,0.433,0.807
+812,ZAHARA - Spotify Singles,Zahara,afro soul,southern africa,chill,0.5,169.4,0.459,0.433,0.831
+813,Ya Habibi La,Amr Diab,arabic pop,north africa & middle east,happy,0.688,82.9,0.675,0.646,0.223
+814,Lawn Ayounak,Nancy Ajram,arabic pop,north africa & middle east,happy,0.841,134.0,0.656,0.715,0.056
+815,حبك وجع (انت لمين),Elissa,arabic pop,north africa & middle east,chill,0.52,72.5,0.202,0.542,0.323
+816,الانوثه الطاغيه,Tamer Hosny,arabic pop,north africa & middle east,happy,0.801,113.0,0.649,0.734,0.021
+817,Lewjah Tani,Saad Lamjarred,arabic pop,north africa & middle east,happy,0.717,92.5,0.823,0.64,0.171
+818,Bnadilak Ya Habibi,Fairuz,arabic classical,north africa & middle east,chill,0.348,80.3,0.438,0.458,0.641
+819,Leilet Hob,Umm Kulthum,arabic classical,north africa & middle east,chill,0.423,139.1,0.47,0.377,0.885
+820,Bakhta,Khaled,rai,north africa & middle east,relaxed,0.482,200.4,0.771,0.34,0.053
+821,ساليني,Wegz,hip hop,north africa & middle east,moody,0.402,90.1,0.225,0.641,0.741
+822,ARABI,Mohamed Ramadan,arabic pop,north africa & middle east,intense,0.816,95.0,0.457,0.698,0.046
+823,İşim Olmaz,Tarkan,turkish pop,north africa & middle east,happy,0.799,93.0,0.638,0.668,0.251
+824,Git...,Sezen Aksu,turkish pop,north africa & middle east,chill,0.557,69.8,0.398,0.321,0.855
+825,BYE ME FUI,Bad Bunny,reggaeton,latin america,chill,0.599,179.8,0.588,0.712,0.412
+826,Azul,J Balvin,reggaeton,latin america,happy,0.828,94.0,0.653,0.842,0.101
+827,Ahora Me Llama,KAROL G,reggaeton,latin america,chill,0.573,135.0,0.109,0.646,0.009
+828,Hasta Que Salga el Sol,Ozuna,reggaeton,latin america,intense,0.816,96.0,0.598,0.826,0.02
+829,La Temperatura (feat. Eli Palacios),Maluma,reggaeton,latin america,happy,0.82,120.0,0.905,0.763,0.051
+830,No (feat. Gustavo Cerati),Shakira,latin pop,latin america,chill,0.302,132.0,0.423,0.72,0.841
+831,Santa Claus Llegó a La Ciudad,Luis Miguel,latin pop,latin america,happy,0.852,170.3,0.719,0.512,0.382
+832,Una Flor,Juanes,latin rock,latin america,happy,0.868,162.9,0.791,0.577,0.065
+833,Lo Que Sangra (La Cúpula) - Remasterizado 2007,Soda Stereo,latin rock,latin america,happy,0.892,101.3,0.917,0.533,0.033
+834,Tú Me Acostumbraste (feat. Omara Portuondo & Los Macorinos),Natalia Lafourcade,latin folk,latin america,moody,0.148,172.5,0.236,0.402,0.951
+835,LAS MORRAS,Peso Pluma,regional mexican,latin america,happy,0.793,133.0,0.869,0.782,0.4
+836,OJITOS ROJOS,Grupo Frontera,regional mexican,latin america,happy,0.782,90.0,0.77,0.721,0.251
+837,El Mar de Sus Ojos (feat. ChocQuibTown),Carlos Vives,vallenato,latin america,happy,0.926,102.0,0.737,0.67,0.019
+838,Buscando América (Live),Ruben Blades,salsa,latin america,happy,0.833,99.1,0.649,0.449,0.434
+839,Dímelo,Marc Anthony,salsa,latin america,happy,0.931,115.1,0.857,0.774,0.358
+840,Te Busco,Celia Cruz,salsa,latin america,relaxed,0.262,100.2,0.605,0.736,0.31
+841,Avisa Lá (feat. Rebecca),Anitta,brazilian funk,latin america,happy,0.918,155.0,0.789,0.744,0.03
+842,Samba E Amor,Caetano Veloso,mpb,latin america,moody,0.058,77.7,0.182,0.474,0.907
+843,Esotérico - Regravação Take 01,Gilberto Gil,mpb,latin america,relaxed,0.433,111.0,0.698,0.879,0.182
+844,O Telefone Tocou Novamente,Jorge Ben Jor,samba,latin america,happy,0.652,88.2,0.625,0.586,0.655
+845,Soul Shakedown Party,Bob Marley,reggae,caribbean,relaxed,0.507,131.5,0.605,0.858,0.22
+846,Run for Your Life,Burning Spear,reggae,caribbean,relaxed,0.577,78.7,0.824,0.824,0.068
+847,Scheming,Chronixx,reggae,caribbean,happy,0.686,129.6,0.895,0.823,0.365
+848,Feeling Good Today,Koffee,reggae,caribbean,moody,0.281,134.9,0.333,0.431,0.841
+849,It Was Written,Damian Marley,reggae,caribbean,intense,0.719,81.4,0.546,0.688,0.028
+850,No Lie,Sean Paul,dancehall,caribbean,intense,0.883,102.0,0.464,0.742,0.047
+851,Ring the Alarm (feat. Tenor Saw),Buju Banton,dancehall,caribbean,intense,0.739,170.9,0.586,0.561,0.072
+852,Loodi (feat. Vybz Kartel),Shenseea,dancehall,caribbean,happy,0.83,96.2,0.911,0.602,0.47
+853,Vibes Cyah Done,Machel Montano,soca,caribbean,happy,0.728,128.1,0.731,0.934,0.117
+854,Pressure,Kes,soca,caribbean,intense,0.878,146.0,0.507,0.664,0.325
+855,Dhul Gaye,Arijit Singh,bollywood,south asia,moody,0.439,124.9,0.35,0.426,0.672
+856,Suna Suna,Shreya Ghoshal,bollywood,south asia,moody,0.422,79.8,0.155,0.359,0.491
+857,Tu Koi Aur Hai,A.R. Rahman,bollywood,south asia,moody,0.496,157.8,0.107,0.158,0.358
+858,"Bahon Mein Chale Aao (From ""Anamika"")",Lata Mangeshkar,bollywood,south asia,relaxed,0.212,72.7,0.615,0.482,0.8
+859,"Oh Humsafar (From ""Oh Humsafar"")",Neha Kakkar,bollywood,south asia,chill,0.577,75.0,0.485,0.619,0.291
+860,Rockaankuthu,Anirudh Ravichander,tamil pop,south asia,happy,0.846,83.0,0.8,0.714,0.057
+861,Jagave Neenu Gelathiye,Sid Sriram,tamil pop,south asia,chill,0.521,94.1,0.351,0.356,0.628
+862,"Tu Juliet Jatt Di (From ""Jatt & Juliet 3"")",Diljit Dosanjh,punjabi,south asia,happy,0.794,89.9,0.798,0.857,0.279
+863,410,Sidhu Moose Wala,punjabi,south asia,intense,0.877,93.8,0.374,0.669,0.103
+864,Summer High,AP Dhillon,punjabi,south asia,relaxed,0.541,115.0,0.952,0.86,0.165
+865,Tere Liye,Atif Aslam,pakistani pop,south asia,happy,0.906,130.0,0.632,0.624,0.098
+866,Mast Ankhon Ki Kasam - Remix,Nusrat Fateh Ali Khan,qawwali,south asia,intense,0.657,101.0,0.442,0.736,0.281
+867,Shadows and Loss,Ravi Shankar,hindustani,south asia,moody,0.056,148.0,0.142,0.342,0.858
+868,Silver Spoon - Live,BTS,k-pop,east asia,intense,0.906,167.0,0.428,0.52,0.024
+869,Lovesick Girls,BLACKPINK,k-pop,east asia,intense,0.732,128.0,0.409,0.658,0.005
+870,Unfair (Felix),Stray Kids,k-pop,east asia,intense,0.628,92.0,0.066,0.57,0.067
+871,Hype Boy,NewJeans,k-pop,east asia,happy,0.935,100.0,0.783,0.593,0.268
+872,Alcohol-Free,TWICE,k-pop,east asia,happy,0.909,97.1,0.702,0.688,0.047
+873,Water,SEVENTEEN,k-pop,east asia,intense,0.845,150.0,0.468,0.602,0.119
+874,等你下課,Jay Chou,mandopop,east asia,chill,0.411,147.9,0.454,0.586,0.494
+875,大阪しぐれ,Teresa Teng,mandopop,east asia,relaxed,0.27,144.1,0.608,0.577,0.712
+876,手心的薔薇 (ft. 鄧紫棋),JJ Lin,mandopop,east asia,moody,0.497,174.0,0.168,0.208,0.851
+877,1991,Kenshi Yonezu,j-pop,east asia,chill,0.375,186.5,0.495,0.421,0.418
+878,勇者,YOASOBI,j-pop,east asia,intense,0.907,104.0,0.506,0.655,0.035
+879,masshiro (pure white),Fujii Kaze,j-pop,east asia,happy,0.693,125.1,0.72,0.669,0.267
+880,White Flame ー白炎ー,BABYMETAL,j-metal,east asia,intense,0.981,175.0,0.391,0.387,0.0
+881,Yellow (feat. Bekon),Rich Brian,hip hop,southeast asia,chill,0.531,75.9,0.063,0.476,0.217
+882,The Apartment We Won't Share,NIKI,indie pop,southeast asia,moody,0.166,87.2,0.307,0.397,0.906
+883,Langit Abu-Abu,Tulus,indo pop,southeast asia,moody,0.133,100.6,0.366,0.485,0.91
+884,Teka Teki,Raisa,indo pop,southeast asia,happy,0.647,120.0,0.638,0.81,0.402
+885,Damn I Love You,AGNEZ MO,indo pop,southeast asia,happy,0.727,144.9,0.868,0.836,0.014
+886,Pagtingin,Ben&Ben,opm,southeast asia,chill,0.423,95.0,0.531,0.668,0.508
+887,Tagu-taguan,Moira Dela Torre,opm,southeast asia,moody,0.281,88.0,0.152,0.632,0.83
+888,Ikot-Ikot,Sarah Geronimo,opm,southeast asia,chill,0.589,143.9,0.369,0.682,0.414
+889,Long Gone,Phum Viphurit,indie pop,southeast asia,chill,0.45,110.0,0.536,0.73,0.713
+890,Love In The Dark,Adele,pop,europe,moody,0.341,109.8,0.152,0.331,0.528
+891,Galway Girl,Ed Sheeran,pop,europe,happy,0.813,100.2,0.809,0.599,0.078
+892,Yes,Coldplay,rock,europe,intense,0.807,161.6,0.227,0.162,0.009
+893,Running,Dua Lipa,pop,europe,intense,0.694,98.0,0.319,0.62,0.018
+894,carmen,Stromae,french pop,europe,intense,0.821,150.0,0.551,0.661,0.021
+895,Hypé,Aya Nakamura,french pop,europe,chill,0.593,175.9,0.45,0.713,0.019
+896,Jezebel (From 'Christmas Songs'1951),Edith Piaf,chanson,europe,chill,0.365,157.3,0.455,0.31,0.811
+897,Giorgio by Moroder,Daft Punk,electronic,europe,intense,0.682,113.2,0.41,0.74,0.069
+898,I Don't Wanna Wait - Miss Monique Remix,David Guetta,electronic,europe,intense,0.944,125.9,0.45,0.582,0.014
+899,No Importa Nada,Rosalia,flamenco pop,europe,relaxed,0.582,107.0,0.618,0.362,0.048
+900,Rammstein,Rammstein,metal,europe,intense,0.708,113.9,0.201,0.657,0.002
+901,Geigerzähler / Radioaktivität,Kraftwerk,electronic,europe,intense,0.645,126.1,0.21,0.714,0.04
+902,The Winner Takes It All,ABBA,pop,europe,intense,0.789,125.6,0.467,0.429,0.226
+903,Out Of The Woods (Taylor's Version),Taylor Swift,pop,north america,intense,0.884,92.0,0.184,0.544,0.0
+904,The Party & The After Party,The Weeknd,synthpop,north america,chill,0.58,101.7,0.163,0.645,0.22
+905,Locked Out of Heaven,Bruno Mars,funk,north america,happy,0.699,144.0,0.866,0.726,0.049
+906,hotline (edit),Billie Eilish,pop,north america,moody,0.254,56.8,0.304,0.516,0.816
+907,obsessed,Olivia Rodrigo,pop rock,north america,relaxed,0.573,120.0,0.662,0.685,0.016
+908,King Kunta,Kendrick Lamar,hip hop,north america,intense,0.657,107.1,0.489,0.884,0.006
+909,Slime You Out (feat. SZA),Drake,hip hop,north america,moody,0.408,88.9,0.105,0.483,0.508
+910,Drew Barrymore,SZA,r&b,north america,chill,0.523,134.9,0.29,0.577,0.491
+911,Godspeed,Frank Ocean,r&b,north america,moody,0.097,109.5,0.076,0.399,0.929
+912,Sir Duke,Stevie Wonder,soul,north america,relaxed,0.574,107.2,0.959,0.593,0.161
+913,Never Let Me Go,Aretha Franklin,soul,north america,moody,0.136,87.5,0.307,0.337,0.812
+914,I Still Miss Someone - Live,Johnny Cash,country,north america,chill,0.363,79.5,0.469,0.418,0.892
+915,Before The Next Teardrop Falls,Dolly Parton,country,north america,moody,0.269,98.0,0.327,0.731,0.735
+916,Moon Dreams,Miles Davis,jazz,north america,moody,0.051,75.2,0.101,0.302,0.981
+917,Chronic Blues - Rudy Van Gelder Remaster,John Coltrane,jazz,north america,chill,0.461,134.4,0.522,0.501,0.789
+918,Frances Farmer Will Have Her Revenge On Seattle,Nirvana,rock,north america,intense,0.723,117.1,0.554,0.482,0.0
+919,Halo On Fire,Metallica,metal,north america,intense,0.936,126.4,0.21,0.323,0.0
+920,Obsolete,Tame Impala,psych rock,oceania,happy,0.829,103.6,0.915,0.76,0.334
+921,Alive,Sia,pop,oceania,intense,0.752,98.9,0.392,0.32,0.289
+922,Fire Your Guns,AC/DC,rock,oceania,intense,0.96,98.9,0.515,0.551,0.001
+923,Slow / Love to Love You Baby (From the Infinite Disco Livestream),Kylie Minogue,pop,oceania,happy,0.785,102.0,0.604,0.665,0.122
+924,Never Be Like You,Flume,electronic,oceania,chill,0.59,119.8,0.264,0.448,0.446
+925,Ribs,Lorde,art pop,oceania,moody,0.472,127.9,0.042,0.525,0.534
+926,Don't Give It Up,SIX60,pop,oceania,chill,0.478,110.0,0.584,0.85,0.017
+927,Tua / Bigger (feat. Ibanez Maeva),Stan Walker,r&b,oceania,chill,0.34,78.5,0.535,0.615,0.347
+928,Nana (feat. Flavour),Diamond Platnumz,bongo,east africa,happy,0.908,124.9,0.861,0.656,0.122
+929,Show Me (feat. Rich Mavoko),Harmonize,bongo,east africa,happy,0.844,102.0,0.942,0.831,0.115
+930,Tetema (feat. Diamond Platnumz),Rayvanny,bongo,east africa,happy,0.839,96.1,0.941,0.846,0.345
+931,Single Boy,Alikiba,bongo,east africa,happy,0.735,107.0,0.68,0.71,0.298
+932,Antenna,Zuchu,bongo,east africa,intense,0.833,112.9,0.552,0.882,0.405
+933,Umechelewa,Mbosso,bongo,east africa,happy,0.733,90.6,0.866,0.692,0.704
+934,Leo Leo,Nandy,bongo,east africa,happy,0.79,108.9,0.848,0.624,0.241
+935,Salioo,Marioo,bongo,east africa,happy,0.752,145.1,0.848,0.767,0.388
+936,Unaniweza,Jux,bongo,east africa,relaxed,0.577,90.2,0.674,0.543,0.223
+937,Unconditionally Bae,Sauti Sol,afropop,east africa,happy,0.768,92.0,0.895,0.579,0.048
+938,Kabla Tudie,Nyashinski,afropop,east africa,chill,0.582,84.5,0.474,0.579,0.587
+939,Baby Go,Otile Brown,afropop,east africa,happy,0.808,179.8,0.78,0.5,0.521
+940,Bald Men Anthem,Bien,afropop,east africa,chill,0.541,177.7,0.593,0.426,0.067
+941,Baridi (feat. Sanaipei Tande),Nviiri The Storyteller,afropop,east africa,intense,0.606,176.0,0.546,0.494,0.294
+942,Yes Bana,Khaligraph Jones,hip hop,east africa,chill,0.579,172.4,0.405,0.595,0.151
+943,Mmmh (feat. Rayvanny),Willy Paul,afropop,east africa,happy,0.751,169.4,0.784,0.482,0.031
+944,Balaumba (Remix) [feat. Bebi Phillip],Eddy Kenzo,afropop,east africa,happy,0.935,126.0,0.805,0.543,0.503
+945,Weekend,Sheebah Karungi,afropop,east africa,happy,0.759,112.0,0.882,0.804,0.428
+946,Zzina,Bebe Cool,afropop,east africa,happy,0.736,100.0,0.811,0.814,0.173
+947,Tsebay Senay,Teddy Afro,ethio pop,east africa,happy,0.888,175.9,0.795,0.534,0.024
+948,Kulun,Aster Aweke,ethio pop,east africa,happy,0.618,80.1,0.769,0.646,0.543
+949,Phantom Of The Panther,Mulatu Astatke,ethio jazz,east africa,intense,0.765,153.5,0.358,0.451,0.23
+950,Kilometre,Burna Boy,afrobeats,west africa,happy,0.666,103.0,0.648,0.852,0.016
+951,Plenty Loving,Wizkid,afrobeats,west africa,happy,0.698,110.0,0.957,0.882,0.273
+952,The Best (feat. Mayorkun),Davido,afrobeats,west africa,happy,0.858,116.0,0.637,0.793,0.252
+953,Bounce,Rema,afrobeats,west africa,happy,0.847,115.0,0.625,0.463,0.031
+954,Dull,Asake,afrobeats,west africa,chill,0.324,115.0,0.414,0.645,0.733
+955,Running,Ayra Starr,afrobeats,west africa,chill,0.539,102.9,0.562,0.557,0.521
+956,Burning,Tems,afrobeats,west africa,chill,0.293,92.0,0.419,0.831,0.378
+957,Like I Do,Fireboy DML,afrobeats,west africa,chill,0.515,100.3,0.503,0.561,0.419
+958,DON'T LOVE ME,Omah Lay,afrobeats,west africa,intense,0.617,103.0,0.394,0.61,0.341
+959,Dangerous Love,Tiwa Savage,afrobeats,west africa,happy,0.742,193.9,0.633,0.598,0.15
+960,DORIME (feat. Ty Dolla $ign),CKay,afrobeats,west africa,chill,0.531,95.1,0.439,0.822,0.331
+961,Lonely,Joeboy,afrobeats,west africa,intense,0.651,104.8,0.417,0.784,0.398
+962,Dancina,Yemi Alade,afropop,west africa,relaxed,0.537,123.1,0.65,0.969,0.017
+963,She Loves Me,Mr Eazi,afrobeats,west africa,chill,0.572,82.0,0.359,0.651,0.143
+964,Show Off,Flavour,highlife,west africa,relaxed,0.536,172.0,0.853,0.776,0.335
+965,Shekini,P-Square,afropop,west africa,happy,0.856,94.5,0.98,0.822,0.025
+966,Colonial Mentality,Fela Kuti,afrobeat,west africa,happy,0.755,167.7,0.908,0.666,0.113
+967,Goodbye,Sarkodie,hip hop,west africa,intense,0.858,136.0,0.291,0.783,0.359
+968,Designer,Shatta Wale,dancehall,west africa,intense,0.727,205.8,0.42,0.567,0.157
+969,Run Go,Stonebwoy,dancehall,west africa,happy,0.732,81.7,0.631,0.565,0.214
+970,Sin City,Black Sherif,afrobeats,west africa,happy,0.729,100.0,0.684,0.791,0.335
+971,LEAVE ME ALONE,Amaarae,alte,west africa,intense,0.635,100.0,0.525,0.752,0.525
+972,Ban La (feat. Fally Ipupa),Youssou N'Dour,mbalax,west africa,happy,0.762,112.0,0.721,0.699,0.127
+973,Laban,Salif Keita,mande,west africa,relaxed,0.258,89.6,0.729,0.462,0.939
+974,Samba Pa Ti,Angelique Kidjo,afropop,west africa,relaxed,0.426,85.1,0.665,0.648,0.585
+975,Arhegh Ad Annàgh,Tinariwen,desert blues,west africa,relaxed,0.529,150.1,0.619,0.64,0.834
+976,Liputa,Fally Ipupa,rumba,central africa,happy,0.771,125.1,0.817,0.682,0.747
+977,Attentat,Koffi Olomide,rumba,central africa,happy,0.962,122.7,0.756,0.65,0.087
+978,Kaokokokorobo,Papa Wemba,rumba,central africa,happy,0.687,121.9,0.873,0.59,0.655
+979,Achour,Innoss'B,rumba,central africa,happy,0.866,196.0,0.849,0.652,0.081
+980,To Survive,FRANCO,rumba,central africa,intense,0.893,75.0,0.5,0.329,0.005
+981,Superstar (feat. Mr Brown),Master KG,amapiano,southern africa,relaxed,0.591,122.0,0.672,0.803,0.074
+982,Indaba Ka Bani (feat. Kamazu & Mas Musiq),Kabza De Small,amapiano,southern africa,intense,0.733,112.0,0.428,0.8,0.025
+983,Vulindlela (feat. Luu Nineleven & 18Teen Rsa),DJ Maphorisa,amapiano,southern africa,intense,0.672,113.0,0.311,0.786,0.178
+984,DropTop (feat. LastBornDiroba),Focalistic,amapiano,southern africa,intense,0.681,113.0,0.321,0.838,0.213
+985,Jump,Tyla,amapiano,southern africa,happy,0.716,100.1,0.627,0.79,0.03
+986,Chale,Sho Madjozi,gqom,southern africa,intense,0.688,113.0,0.338,0.806,0.015
+987,Everything,Nasty C,hip hop,southern africa,relaxed,0.417,135.0,0.765,0.788,0.487
+988,We Are One - Black Coffee Original Dub,Black Coffee,house,southern africa,intense,0.715,124.0,0.564,0.805,0.001
+989,Oh Happy Day,Ladysmith Black Mambazo,isicathamiya,southern africa,chill,0.579,115.1,0.488,0.689,0.198
+990,Sindiza Ngecadillacs,Miriam Makeba,afropop,southern africa,relaxed,0.595,120.7,0.848,0.617,0.683
+991,Incwad'encane,Zahara,afro soul,southern africa,happy,0.853,106.0,0.948,0.68,0.253
+992,Ally El Wadaa,Amr Diab,arabic pop,north africa & middle east,relaxed,0.555,85.3,0.671,0.683,0.073
+993,Ghyranin,Nancy Ajram,arabic pop,north africa & middle east,happy,0.834,140.0,0.808,0.635,0.207
+994,كرمالك,Elissa,arabic pop,north africa & middle east,happy,0.639,125.1,0.628,0.666,0.038
+995,Ya Bent El Eh,Tamer Hosny,arabic pop,north africa & middle east,happy,0.794,107.9,0.969,0.805,0.185
+996,Enty,Saad Lamjarred,arabic pop,north africa & middle east,intense,0.621,110.1,0.51,0.75,0.037
+997,Ya Tair,Fairuz,arabic classical,north africa & middle east,moody,0.123,143.0,0.144,0.329,0.903
+998,El Atlal,Umm Kulthum,arabic classical,north africa & middle east,moody,0.427,109.3,0.339,0.359,0.609
+999,Ouelli El Darek,Khaled,rai,north africa & middle east,happy,0.789,173.7,0.963,0.519,0.079
+1000,El Ayam,Wegz,hip hop,north africa & middle east,intense,0.794,118.0,0.573,0.765,0.4
+1001,Mafia,Mohamed Ramadan,arabic pop,north africa & middle east,happy,0.706,110.0,0.622,0.881,0.244
+1002,Kış Güneşi,Tarkan,turkish pop,north africa & middle east,happy,0.706,91.0,0.892,0.652,0.016
+1003,Geçer,Sezen Aksu,turkish pop,north africa & middle east,chill,0.543,80.9,0.214,0.398,0.535
+1004,MALDITA POBREZA,Bad Bunny,reggaeton,latin america,intense,0.861,133.0,0.588,0.762,0.139
+1005,Que Locura,J Balvin,reggaeton,latin america,happy,0.793,113.0,0.805,0.794,0.208
+1006,S91,KAROL G,reggaeton,latin america,intense,0.711,128.2,0.381,0.644,0.632
+1007,Apretaito,Ozuna,reggaeton,latin america,happy,0.742,88.0,0.718,0.84,0.073
+1008,Mojando Asientos (feat. Feid),Maluma,reggaeton,latin america,intense,0.767,95.0,0.49,0.773,0.035
+1009,Waka Waka (Esto es Africa) (feat. Freshlyground),Shakira,latin pop,latin america,happy,0.867,190.7,0.753,0.427,0.006
+1010,Te necesito,Luis Miguel,latin pop,latin america,happy,0.759,170.0,0.736,0.557,0.654
+1011,Nada,Juanes,latin rock,latin america,intense,0.62,89.0,0.575,0.622,0.008
+1012,Sobredosis de T.V. - Remasterizado 2007,Soda Stereo,latin rock,latin america,happy,0.797,124.7,0.894,0.764,0.031
+1013,Tú Sí Sabes Quererme,Natalia Lafourcade,latin folk,latin america,relaxed,0.537,88.1,0.725,0.769,0.502
+1014,GIMME A SECOND,Peso Pluma,regional mexican,latin america,intense,0.725,148.0,0.182,0.732,0.002
+1015,QUE VUELVAS,Grupo Frontera,regional mexican,latin america,happy,0.644,162.5,0.779,0.497,0.188
+1016,Ella Es Mi Fiesta (feat. Maluma) - Remix,Carlos Vives,vallenato,latin america,intense,0.939,125.0,0.569,0.594,0.054
+1017,Cuentas del Alma (Live),Ruben Blades,salsa,latin america,happy,0.831,128.6,0.669,0.48,0.616
+1018,Lo Que Te Di,Marc Anthony,salsa,latin america,happy,0.891,97.1,0.652,0.714,0.608
+1019,No hay Orisha como Eleggua,Celia Cruz,salsa,latin america,relaxed,0.24,108.4,0.721,0.601,0.907
+1020,Zé do caroço,Anitta,brazilian funk,latin america,intense,0.728,124.9,0.268,0.664,0.703
+1021,Samba De Verão,Caetano Veloso,mpb,latin america,chill,0.313,119.8,0.445,0.735,0.843
+1022,Tenho Sede,Gilberto Gil,mpb,latin america,moody,0.39,165.8,0.336,0.471,0.523
+1023,Umbabarauma (2010) - full,Jorge Ben Jor,samba,latin america,happy,0.879,100.0,0.696,0.79,0.475
+1024,One cup of Coffee,Bob Marley,reggae,caribbean,happy,0.713,129.5,0.898,0.738,0.341
+1025,Old Marcus Garvey,Burning Spear,reggae,caribbean,relaxed,0.472,129.4,0.698,0.83,0.157
+1026,"Selassie Souljahz (feat. Sizzla Kalonji, Protoje, Kabaka Pyramid)",Chronixx,reggae,caribbean,relaxed,0.58,175.9,0.868,0.726,0.24
+1027,In It 4 This Minute,Koffee,reggae,caribbean,chill,0.371,123.1,0.466,0.667,0.131
+1028,Speak Life,Damian Marley,reggae,caribbean,chill,0.504,182.0,0.492,0.602,0.309
+1029,She Doesn't Mind,Sean Paul,dancehall,caribbean,intense,0.795,120.0,0.597,0.709,0.001
+1030,Who Say,Buju Banton,dancehall,caribbean,relaxed,0.592,85.0,0.766,0.692,0.165

@@ -100,24 +100,46 @@ def _sigmoid(z: float) -> float:
     return ez / (1.0 + ez)
 
 
+def class_weights(y: list) -> tuple:
+    """Per-class example weights that make the two classes count equally.
+
+    Necessary since the catalog grew past a thousand songs: the like-lists still
+    hold 24 songs, so ~98% of examples are negatives. Unweighted, the cheapest
+    way to cut the loss is to predict "no" for everything -- which is exactly
+    what happened, flattening the valence and danceability coefficients to zero.
+    Weighting each class by n / (2 * class_count) -- the standard "balanced"
+    scheme -- gives the 24 likes the same total pull as the ~1300 non-likes.
+    """
+    n = len(y)
+    n_pos = sum(1 for yi in y if yi >= 0.5)
+    n_neg = n - n_pos
+    if not n_pos or not n_neg:  # single-class data: nothing to rebalance
+        return 1.0, 1.0
+    return n / (2.0 * n_pos), n / (2.0 * n_neg)
+
+
 def train_logreg(X: list, y: list, lr: float = 0.5, epochs: int = 4000,
-                 l2: float = 1e-3) -> tuple:
+                 l2: float = 1e-3, balanced: bool = True) -> tuple:
     """Batch-gradient-descent logistic regression. Returns (weights, bias).
 
     The separate bias absorbs the base like-rate (most songs are negatives), so
     the six feature weights reflect feature importance rather than class balance.
-    A small L2 term keeps the weights from blowing up on this small dataset.
+    With `balanced` (the default) each example is additionally scaled by its
+    class weight, so a handful of likes can't be drowned out by a catalog full of
+    negatives. A small L2 term keeps the weights from blowing up on this small
+    dataset. No randomness anywhere: the same inputs always give the same model.
     """
     n_features = len(X[0])
     w = [0.0] * n_features
     b = 0.0
     n = len(X)
+    pos_weight, neg_weight = class_weights(y) if balanced else (1.0, 1.0)
     for _ in range(epochs):
         grad_w = [0.0] * n_features
         grad_b = 0.0
         for xi, yi in zip(X, y):
             p = _sigmoid(b + sum(w[j] * xi[j] for j in range(n_features)))
-            err = p - yi
+            err = (p - yi) * (pos_weight if yi >= 0.5 else neg_weight)
             for j in range(n_features):
                 grad_w[j] += err * xi[j]
             grad_b += err
@@ -142,13 +164,36 @@ def coeffs_to_weights(w: list) -> list:
 
 
 def accuracy(X: list, y: list, w: list, b: float) -> float:
-    """Share of examples the trained model classifies correctly (threshold 0.5)."""
+    """Share of examples the trained model classifies correctly (threshold 0.5).
+
+    Read this next to balanced_accuracy: with ~98% of the catalog labeled "not
+    liked", answering "no" to everything already scores ~98% here, so plain
+    accuracy stopped being informative once the catalog grew.
+    """
     correct = 0
     for xi, yi in zip(X, y):
         p = _sigmoid(b + sum(w[j] * xi[j] for j in range(len(w))))
         if (1.0 if p >= 0.5 else 0.0) == yi:
             correct += 1
     return correct / len(X)
+
+
+def balanced_accuracy(X: list, y: list, w: list, b: float) -> float:
+    """Mean of the two per-class hit rates: (likes right + non-likes right) / 2.
+
+    This is the honest headline number for an imbalanced dataset -- an
+    always-say-no model scores 0.50 here, not 0.98.
+    """
+    hits = {1.0: 0, 0.0: 0}
+    totals = {1.0: 0, 0.0: 0}
+    for xi, yi in zip(X, y):
+        label = 1.0 if yi >= 0.5 else 0.0
+        p = _sigmoid(b + sum(w[j] * xi[j] for j in range(len(w))))
+        totals[label] += 1
+        if (1.0 if p >= 0.5 else 0.0) == label:
+            hits[label] += 1
+    rates = [hits[c] / totals[c] for c in (1.0, 0.0) if totals[c]]
+    return sum(rates) / len(rates) if rates else 0.0
 
 
 def main() -> None:
@@ -158,21 +203,25 @@ def main() -> None:
     weights = coeffs_to_weights(w)
     weight_map = {key: round(weights[i], 4) for i, key in enumerate(FEATURE_KEYS)}
     acc = accuracy(X, y, w, b)
+    bal_acc = balanced_accuracy(X, y, w, b)
 
     OUT_PATH.write_text(json.dumps({
         "weights": weight_map,
         "raw_coefficients": {key: round(w[i], 4) for i, key in enumerate(FEATURE_KEYS)},
         "bias": round(b, 4),
         "train_accuracy": round(acc, 4),
+        "train_balanced_accuracy": round(bal_acc, 4),
         "n_examples": len(X),
         "n_listeners": len(TRAINING_PROFILES),
         "note": "Learned by src/train_weights.py logistic regression. Do not hand-edit; re-run the trainer instead.",
     }, indent=2) + "\n", encoding="utf-8")
 
     positives = int(sum(y))
+    majority = 1.0 - positives / len(X)  # what "always say no" would score
     print(f"Trained on {len(X)} (listener, song) examples "
           f"from {len(TRAINING_PROFILES)} listeners ({positives} likes, {len(X) - positives} non-likes).")
-    print(f"Train accuracy: {acc:.1%}\n")
+    print(f"Balanced accuracy: {bal_acc:.1%}   (likes and non-likes weighted equally)")
+    print(f"Plain accuracy:    {acc:.1%}   (always-say-no baseline: {majority:.1%})\n")
     print(f"{'feature':<14}{'hand-tuned':>12}{'learned':>10}")
     print("-" * 36)
     for key in FEATURE_KEYS:
